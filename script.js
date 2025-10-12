@@ -1,5 +1,10 @@
-// 해시 스크롤
+// 해시 스크롤 - 기본은 About Me
 window.addEventListener('DOMContentLoaded', () => {
+  // 해시가 없으면 #about으로 설정
+  if (!window.location.hash) {
+    window.location.hash = '#about';
+  }
+  
   if (window.location.hash) {
     setTimeout(() => {
       const target = document.querySelector(window.location.hash);

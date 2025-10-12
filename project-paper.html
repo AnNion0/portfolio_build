@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>외래식물 분포 예측 연구 - Heeeun Ahn Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* 프로젝트 상세 페이지 컨테이너 */
+    .project-detail {
+      min-height: 100vh;
+      padding: calc(var(--space-6) * 2) var(--space-4);
+      background: var(--bg);
+    }
+
+    /* 돌아가기 버튼 */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      margin-bottom: var(--space-5);
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .back-link:hover {
+      background: color-mix(in srgb, var(--primary), black 20%);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,.2);
+    }
+
+    /* 프로젝트 헤더 영역 */
+    .project-header {
+      margin-bottom: var(--space-6);
+    }
+
+    .project-title {
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 800;
+      margin: 0;
+    }
+
+    /* 프로젝트 콘텐츠 영역 */
+    .project-content {
+      display: grid;
+      gap: var(--space-5);
+    }
+
+    /* 섹션 블록 */
+    .section-block {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: var(--space-5);
+      box-shadow: var(--shadow-1);
+    }
+
+    .section-block h2 {
+      margin: 0 0 var(--space-3);
+      font-size: 24px;
+      color: var(--primary);
+    }
+
+    .section-block h3 {
+      margin: var(--space-4) 0 var(--space-2);
+      font-size: 20px;
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .section-block p,
+    .section-block li {
+      line-height: 1.8;
+      color: var(--text-weak);
+    }
+
+    .section-block ul {
+      margin: var(--space-3) 0;
+      padding-left: var(--space-4);
+    }
+
+    /* 기술 스택 태그 */
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: var(--space-3);
+    }
+
+    .tech-tag {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: color-mix(in srgb, var(--primary), transparent 90%);
+      font-family: var(--mono);
+      font-size: 14px;
+      color: var(--primary);
+    }
+
+    /* 결과 테이블 */
+    .result-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: var(--space-3);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .result-table th,
+    .result-table td {
+      padding: 14px 20px;
+      text-align: center;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .result-table th:last-child,
+    .result-table td:last-child {
+      border-right: none;
+    }
+
+    .result-table th {
+      background: color-mix(in srgb, var(--primary), transparent 92%);
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: -0.2px;
+    }
+
+    .result-table tbody tr {
+      transition: background-color 0.2s ease;
+    }
+
+    .result-table tbody tr:hover {
+      background: color-mix(in srgb, var(--primary), transparent 96%);
+    }
+
+    .result-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .result-table td {
+      color: var(--text-weak);
+      font-size: 14px;
+    }
+
+    .result-table td:first-child,
+    .result-table td:nth-child(2) {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    /* 강조 텍스트 */
+    .highlight {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* 모바일 반응형 (768px 이하) */
+    @media (max-width: 768px) {
+      .project-detail {
+        padding: var(--space-4) var(--space-2);
+      }
+
+      .project-title {
+        font-size: clamp(24px, 6vw, 32px);
+      }
+
+      .section-block {
+        padding: var(--space-3);
+      }
+
+      .section-block h2 {
+        font-size: 20px;
+      }
+
+      .section-block h3 {
+        font-size: 18px;
+      }
+
+      .tech-stack {
+        gap: 8px;
+      }
+
+      .tech-tag {
+        font-size: 12px;
+        padding: 6px 10px;
+      }
+
+      .result-table {
+        font-size: 12px;
+      }
+
+      .result-table th,
+      .result-table td {
+        padding: 10px 8px;
+      }
+
+      .result-table th {
+        font-size: 13px;
+      }
+
+      .result-table td {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="project-detail">
+    <div class="container">
+      <a href="index.html#projects" class="back-link">← 돌아가기</a>
+
+      <div class="project-header">
+        <h1 class="project-title">기후변화에 따른 외래식물 분포 예측 연구</h1>
+      </div>
+
+      <div class="project-content">
+        <!-- 프로젝트 개요 -->
+        <div class="section-block">
+          <h2>프로젝트 개요</h2>
+          <ul>
+            <li>
+              <strong>기간:</strong> 2023.10 ~ 2024.11
+            </li>
+            <li>
+              <strong>역할:</strong> 제1저자
+            </li>
+            <li>
+              <strong>목표:</strong> RCP4.5/8.5 기후변화 시나리오 하에서 두 외래·교란 식물의
+              <span class="highlight">잠재 서식지</span> 예측 및
+              <span class="highlight">핵심 환경결정요인</span> 규명
+            </li>
+            <li>
+              <strong>의의:</strong> 출현자료 기반 MaxEnt 모델로 전국 스케일 위험지도 산출,
+              침입종이 토종 쑥부쟁이 적합도에 미치는 영향 공간적으로 검토
+            </li>
+            <li>
+              <strong>활용처:</strong> 지자체·관리기관의
+              <span class="highlight">우선 관리구역</span> 선정,
+              조기경보 및 복원계획 수립 근거 제공
+            </li>
+          </ul>
+        </div>
+
+        <!-- 데이터 -->
+        <div class="section-block">
+          <h2>데이터</h2>
+          
+          <h3>출현자료</h3>
+          <ul>
+            <li>대상 종: <strong>가시상추</strong>(Lactuca scariola), <strong>미국쑥부쟁이</strong>(Aster pilosus)</li>
+            <li>2016-2021년 관측 기반 출현 좌표(종별 분리)</li>
+            <li>배경 데이터: 한반도 전역 <strong>무작위 10,000점</strong> 샘플링</li>
+          </ul>
+
+          <h3>환경변수 선정</h3>
+          <ul>
+            <li>기후변화 시나리오 <strong>RCP4.5, RCP8.5</strong>를 적용하여 생물기후(BIO) 변수 산출</li>
+            <li>생물기후(BIO) + <strong>고도</strong>, VIF≤10 기준으로 다중공선성 완화 후 선별</li>
+            <li><strong>RCP8.5:</strong> 고도, Bio2, Bio4, Bio9, Bio10, Bio13, Bio14, Bio15</li>
+            <li><strong>RCP4.5:</strong> 고도, Bio1, Bio3, Bio4, Bio9, Bio12, Bio14, Bio18</li>
+          </ul>
+        </div>
+
+        <!-- 방법론 -->
+        <div class="section-block">
+          <h2>방법론</h2>
+          <ul>
+            <li>
+              <strong>모형:</strong> Python <strong>elapid</strong> 기반 MaxEnt
+              (정규화 배수 1, 선형 특징)
+            </li>
+            <li>
+              <strong>검증:</strong> <strong>5-fold 교차검증</strong>으로 일반화 성능 평가
+            </li>
+            <li>
+              <strong>설명:</strong> <strong>Permutation Importance</strong>
+              (변수 섞기 전후 성능 저하) + <strong>PDP</strong>(부분의존)로 변수 기여·반응 분석
+            </li>
+            <li>
+              <strong>공선성 처리:</strong> 상관 히트맵·덴드로그램으로 군집화 →
+              군집 대표변수 채택(VIF 임계 10)
+            </li>
+          </ul>
+        </div>
+
+        <!-- 성능 평가 -->
+        <div class="section-block">
+          <h2>성능 평가 (AUC, 5-Fold)</h2>
+          <table class="result-table">
+            <thead>
+              <tr>
+                <th>시나리오</th>
+                <th>종</th>
+                <th>학습 AUC(평균)</th>
+                <th>검증 AUC(평균)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>RCP8.5</td>
+                <td>가시상추</td>
+                <td>0.833</td>
+                <td>0.838</td>
+              </tr>
+              <tr>
+                <td>RCP8.5</td>
+                <td>미국쑥부쟁이</td>
+                <td>0.821</td>
+                <td>0.814</td>
+              </tr>
+              <tr>
+                <td>RCP4.5</td>
+                <td>가시상추</td>
+                <td>0.851</td>
+                <td>0.846</td>
+              </tr>
+              <tr>
+                <td>RCP4.5</td>
+                <td>미국쑥부쟁이</td>
+                <td>0.833</td>
+                <td>0.828</td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="margin-top: var(--space-3); color: var(--text-weak); font-size: 14px;">
+            모든 모델 AUC ≥ 0.8 → 현업 적용 수준의 판별력 확보
+          </p>
+        </div>
+
+        <!-- 주요 결과 -->
+        <div class="section-block">
+          <h2>주요 결과</h2>
+
+          <h3>분포 예측 (2030s / 2050s)</h3>
+          <ul>
+            <li>
+              <strong>가시상추:</strong> <span class="highlight">RCP8.5 &gt; RCP4.5</span>에서
+              적합도·범위 확대. <strong>수도권·서해안·경상권</strong> 중심 확장,
+              <strong>고도</strong> 영향 큼
+            </li>
+            <li>
+              <strong>미국쑥부쟁이:</strong> <strong>해안축(남해·동해·서해)</strong> 따라
+              확장 경향. 고온·건기 기온 민감
+            </li>
+          </ul>
+
+          <h3>변수 중요도 & 반응</h3>
+          <ul>
+            <li>
+              <strong>가시상추:</strong> 고도 &gt; Bio4 &gt; Bio9 &gt; Bio13.<br>
+              고도↑ → 확률↓, 온도 계절성↑ → 확률↑, 강수 많을수록↓
+            </li>
+            <li>
+              <strong>미국쑥부쟁이:</strong> Bio9 &gt; Bio10 &gt; 고도 &gt; Bio4.<br>
+              건기/고온 분기 기온↑ → 확률↑, 온도 변동성↑ → 확률↓
+            </li>
+            <li>
+              <strong>종간 영향:</strong> 미국쑥부쟁이 확률을 고려하면
+              <span class="highlight">토종 쑥부쟁이</span> 적합도가 남부/해안 일부에서 감소
+            </li>
+          </ul>
+        </div>
+
+        <!-- 임팩트 -->
+        <div class="section-block">
+          <h2>프로젝트 성과</h2>
+          <ul>
+            <li>
+              한반도 외래식물 2종의 <strong>시나리오별(2030s/2050s) 위험지도</strong>와
+              <strong>핵심 결정인자</strong> 도출
+            </li>
+            <li>
+              침입종(미국쑥부쟁이)이 <strong>토종 쑥부쟁이</strong> 잠재 적합도를 저감하는
+              <strong>공간적 시그널</strong> 제시
+            </li>
+            <li>
+              <strong>우선 관리·복원 지역</strong> 제안 근거로 지자체·관리기관 의사결정 지원
+            </li>
+            <li>
+              <strong>논문 게재:</strong> 한국데이터정보과학회지 (2024)
+            </li>
+          </ul>
+        </div>
+
+        <!-- 기술 스택 -->
+        <div class="section-block">
+          <h2>사용한 기술 스택</h2>
+          <ul>
+            <li><strong>Data/ML:</strong> Python, elapid (MaxEnt), scikit-learn, NumPy, Pandas, GeoPandas, Rasterio, Matplotlib</li>
+          </ul>
+          <div class="tech-stack">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">elapid (MaxEnt)</span>
+            <span class="tech-tag">scikit-learn</span>
+            <span class="tech-tag">NumPy</span>
+            <span class="tech-tag">Pandas</span>
+            <span class="tech-tag">GeoPandas</span>
+            <span class="tech-tag">Rasterio</span>
+            <span class="tech-tag">Matplotlib</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

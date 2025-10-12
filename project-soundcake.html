@@ -1,82 +1,203 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>SoundCake - Heeeun Ahn Portfolio</title>
-<link rel="stylesheet" href="style.css" />
-<style>
-  .project-detail {
-    min-height: 100vh;
-    padding: calc(var(--space-6) * 2) var(--space-4);
-    background: var(--bg);
-  }
-  .back-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 20px;
-    background: var(--primary);
-    color: white;
-    text-decoration: none;
-    margin-bottom: var(--space-5);
-    border-radius: var(--radius);
-    font-weight: 600;
-    font-size: 14px;
-    transition: all 0.3s ease;
-  }
-  .back-link:hover {
-    background: color-mix(in srgb, var(--primary), black 20%);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,.2);
-  }
-  .project-header { margin-bottom: var(--space-6); }
-  .project-title { font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 0; }
-  .project-content { display: grid; gap: var(--space-5); }
-  .section-block {
-    background: var(--bg-alt);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: var(--space-5);
-    box-shadow: var(--shadow-1);
-  }
-  .section-block h2 { margin: 0 0 var(--space-3); font-size: 24px; color: var(--primary); }
-  .section-block p, .section-block li { line-height: 1.8; color: var(--text-weak); }
-  .section-block ul { margin: var(--space-3) 0; padding-left: var(--space-4); }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SoundCake - Heeeun Ahn Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* 프로젝트 상세 페이지 컨테이너 */
+    .project-detail {
+      min-height: 100vh;
+      padding: calc(var(--space-6) * 2) var(--space-4);
+      background: var(--bg);
+    }
 
-  .tech-stack { display: flex; flex-wrap: wrap; gap: 10px; margin-top: var(--space-3); }
-  .tech-tag {
-    padding: 8px 14px;
-    border-radius: 999px;
-    border: 1px solid var(--border);
-    background: color-mix(in srgb, var(--primary), transparent 90%);
-    font-family: var(--mono);
-    font-size: 14px;
-    color: var(--primary);
-  }
+    /* 돌아가기 버튼 */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      margin-bottom: var(--space-5);
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
 
-  .image-gallery h2 { margin: 0 0 var(--space-3); }
-  .single-media {
-    max-width: 900px;
-    margin: 0 auto;
-    border-radius: var(--radius);
-    overflow: hidden;
-    box-shadow: var(--shadow-1);
-    aspect-ratio: 16/9;
-    background: #000;
-  }
-  .single-media video, .single-media img { width: 100%; display: block; }
+    .back-link:hover {
+      background: color-mix(in srgb, var(--primary), black 20%);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,.2);
+    }
 
-  @media (max-width: 768px) {
-    .project-detail { padding: var(--space-4) var(--space-2); }
-    .project-title { font-size: clamp(24px, 6vw, 32px); }
-    .section-block { padding: var(--space-3); }
-    .section-block h2 { font-size: 20px; }
-    .single-media { max-width: 100%; }
-    .tech-stack { gap: 8px; }
-    .tech-tag { font-size: 12px; padding: 6px 10px; }
-  }
-</style>
+    /* 프로젝트 헤더 영역 */
+    .project-header {
+      margin-bottom: var(--space-6);
+    }
+
+    .project-title {
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 800;
+      margin: 0;
+    }
+
+    /* 프로젝트 콘텐츠 영역 */
+    .project-content {
+      display: grid;
+      gap: var(--space-5);
+    }
+
+    /* 섹션 블록 */
+    .section-block {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: var(--space-5);
+      box-shadow: var(--shadow-1);
+    }
+
+    .section-block h2 {
+      margin: 0 0 var(--space-3);
+      font-size: 24px;
+      color: var(--primary);
+    }
+
+    .section-block h3 {
+      margin: var(--space-4) 0 var(--space-2);
+      font-size: 20px;
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .section-block p,
+    .section-block li {
+      line-height: 1.8;
+      color: var(--text-weak);
+    }
+
+    .section-block ul {
+      margin: var(--space-3) 0;
+      padding-left: var(--space-4);
+    }
+
+    .section-block ul ul {
+      margin: var(--space-2) 0;
+    }
+
+    /* 이미지 및 캡션 */
+    figure {
+      margin: var(--space-4) 0;
+    }
+
+    figure img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: var(--shadow-1);
+      display: block;
+    }
+
+    figure.small-image {
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    figcaption {
+      text-align: center;
+      color: var(--text-weak);
+      margin-top: 0.5rem;
+      font-size: 14px;
+    }
+
+    /* 기술 스택 태그 */
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: var(--space-3);
+    }
+
+    .tech-tag {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: color-mix(in srgb, var(--primary), transparent 90%);
+      font-family: var(--mono);
+      font-size: 14px;
+      color: var(--primary);
+    }
+
+    /* 이미지 갤러리 */
+    .image-gallery h2 {
+      margin: 0 0 var(--space-3);
+    }
+
+    /* 비디오 미디어 */
+    .single-media {
+      max-width: 900px;
+      margin: 0 auto;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-1);
+      aspect-ratio: 16/9;
+      background: #000;
+    }
+
+    .single-media video,
+    .single-media img {
+      width: 100%;
+      display: block;
+    }
+
+    /* 모바일 반응형 (768px 이하) */
+    @media (max-width: 768px) {
+      .project-detail {
+        padding: var(--space-4) var(--space-2);
+      }
+
+      .project-title {
+        font-size: clamp(24px, 6vw, 32px);
+      }
+
+      .section-block {
+        padding: var(--space-3);
+      }
+
+      .section-block h2 {
+        font-size: 20px;
+      }
+
+      .section-block h3 {
+        font-size: 18px;
+      }
+
+      .single-media {
+        max-width: 100%;
+      }
+
+      .tech-stack {
+        gap: 8px;
+      }
+
+      .tech-tag {
+        font-size: 12px;
+        padding: 6px 10px;
+      }
+
+      figcaption {
+        font-size: 12px;
+      }
+
+      figure.small-image {
+        max-width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="project-detail">
@@ -127,35 +248,35 @@
             <li>
               <strong>컨텍스트 기반 입력 수집</strong>
               <ul>
-                <li>매장 정보(입지·분위기·영업시간)와 고객 정보(성별/연령대)를 UI에서 입력</li>
+                <li>매장 정보(입지/분위기/영업시간)와 고객 정보(성별/연령대)를 UI에서 입력</li>
                 <li>현재 위치의 날씨(비/눈/맑음 등)를 자동 반영</li>
               </ul>
             </li>
             <li>
-              <strong>플레이리스트 추천(기존)</strong>
+              <strong>플레이리스트 추천</strong>
               <ul>
-                <li>플레이리스트-태그 데이터를 중심으로 SentenceTransformer 임베딩과 AutoEncoder 잠재공간 유사도로 후보 탐색</li>
+                <li>플레이리스트의 태그 데이터를 중심으로 SentenceTransformer 임베딩과 AutoEncoder 잠재공간 유사도로 후보 탐색</li>
                 <li>태그 교집합 기준으로 기존 플레이리스트 추천</li>
               </ul>
             </li>
             <li>
-              <strong>플레이리스트 생성(신규)</strong>
+              <strong>플레이리스트 생성</strong>
               <ul>
-                <li>태그 조건으로 곡을 새로 조합해 매장 전용 플레이리스트 생성</li>
+                <li>매장 정보, 고객 정보, 현재 위치의 날씨 등을 반영해 곡을 새로 조합해 매장 전용 플레이리스트 생성</li>
                 <li>GPT를 활용한 플레이리스트 제목 자동 생성</li>
               </ul>
             </li>
             <li>
               <strong>플레이리스트 커버 이미지 생성</strong>
               <ul>
-                <li>선택한 분위기·날씨와 플레이리스트 태그 기반 커버 이미지 자동 생성</li>
+                <li>플레이리스트의 태그 기반 커버 이미지 자동 생성(스테이블 디퓨젼)</li>
               </ul>
             </li>
             <li>
               <strong>Spotify 재생 연동</strong>
               <ul>
                 <li>Spotify 계정 인증(OAuth) 및 API/Web Playback으로 음악 재생</li>
-                <li>SoundCake 내부에서 플레이리스트 생성·관리</li>
+                <li>Spotify와 연동해 SoundCake 내부에서 플레이리스트 생성/관리</li>
               </ul>
             </li>
           </ul>
@@ -164,11 +285,109 @@
         <!-- 나의 역할 -->
         <div class="section-block">
           <h2>나의 역할</h2>
+
+          <h3>1. 데이터 전처리</h3>
           <ul>
-            <li><strong>데이터 설계·수집:</strong> 카페 메타 태그(분위기/시간대/객층) 설계 및 데이터 수집·정제 파이프라인 구축</li>
-            <li><strong>추천 모델 구현:</strong> scikit-learn 기반 콘텐츠/태그 기반 추천 베이스라인 구현 및 오프라인 평가</li>
-            <li><strong>LLM 활용:</strong> 태그 문맥 강화(동의어/상·하위 개념 매핑) 실험 및 점수 앙상블</li>
-            <li><strong>API 연동:</strong> 매장주 콘솔 프로토타입 협업 및 추천 API 연동 PoC</li>
+            <li>
+              <strong>사용 데이터:</strong> 카카오 아레나 MELON PLAYLIST DATASET<br>
+              장르 <strong>(n=254)</strong>, 곡 <strong>(n=707,989)</strong>, 플레이리스트 <strong>(n=148,826)</strong>
+            </li>
+            <li>
+              <strong>결측치 제거:</strong><br>
+              플레이리스트 데이터의 tags, songs 컬럼 결측 행 제거
+            </li>
+            <li>
+              <strong>태그 정리:</strong>
+              <ul>
+                <li>불용어(특수문자, 숫자) 제거</li>
+                <li>서비스 관련 없는 태그(장르, 노래, 음악, 차트, 플레이리스트 등) 제거</li>
+                <li>불필요한 단일 문자(R, 쫑, 헿 등) 제거</li>
+              </ul>
+            </li>
+            <li>
+              <strong>태그 추출:</strong>
+              <ul>
+                <li>태그가 포함된 플레이리스트 개수를 기준으로 빈도 높은 순서로 정렬</li>
+                <li>빈도 ≥ 19인 태그만 추출 (19개 이후 빈도 차이가 작아지는 지점 기준)</li>
+              </ul>
+            </li>
+            <li>
+              <strong>태그 분류:</strong>
+              <ul>
+                <li>'분위기', '날씨', '시간', '장소', '감정', '상황' 6개 범주로 태그 분류</li>
+                <li>분류되지 않은 태그는 제거</li>
+                <li>ChatGPT 프롬프트를 활용해 자동 분류 수행</li>
+              </ul>
+            </li>
+            <li>
+              <strong>연령대 태그 생성:</strong><br>
+              모델 입력용 파생 변수 생성
+              <ul>
+                <li>"10대, 20대" → <strong>10~20대</strong></li>
+                <li>"30대, 40대, 3040" → <strong>30~40대</strong></li>
+                <li>"5060, 6070, 7080, 50대, 60대, 70대" → <strong>50대 이상</strong></li>
+              </ul>
+            </li>
+            <li>
+              <strong>전처리 결과 변화:</strong>
+              <ul>
+                <li>플레이리스트 수: <strong>115,071 → 84,276</strong></li>
+                <li>곡 수: <strong>707,989 → 426,434</strong></li>
+                <li>태그 수: <strong>30,652 → 790</strong></li>
+              </ul>
+            </li>
+          </ul>
+
+          <h3>2. 데이터 분석</h3>
+          <ul>
+            <li>
+              <strong>(1) 플레이리스트 데이터 분석</strong><br>
+              플레이리스트별 태그 분포, 좋아요 수, 장르 다양성 등의 전반적인 구조를 분석하여
+              데이터 전반의 특성과 편향을 파악함.
+              <figure>
+                <img src="image/playlist_overview.png" alt="플레이리스트 데이터 분석 결과" />
+                <figcaption>플레이리스트 태그 및 장르 다양성 분석 결과</figcaption>
+              </figure>
+            </li>
+            <li>
+              <strong>(2) 연령대 관련 태그 분석</strong><br>
+              각 연령대별 주요 태그를 비교 분석한 결과,
+              모든 연령대에서 '감성' 태그의 빈도가 높게 나타났으며
+              세대별로 주요 태그 성향에 차이가 존재함.
+              <ul>
+                <li>10~20대: 사랑, 힐링, 청춘</li>
+                <li>30~40대: 회상, 가을, 레트로</li>
+                <li>50대 이상: 회상, 레트로, 부모님</li>
+              </ul>
+              <figure>
+                <img src="image/age_tag_analysis.png" alt="연령대별 주요 태그 분석 결과" />
+                <figcaption>연령대별 주요 태그 분석 결과</figcaption>
+              </figure>
+            </li>
+            <li>
+              <strong>(3) 카페 태그 연관 분석</strong><br>
+              카페 관련 플레이리스트에서 태그 간의 연관 규칙을 분석함.
+              <ul>
+                <li>"카페"와 "감성" 태그는 카페 관련 플레이리스트의 <strong>22.3%</strong>에서 함께 등장</li>
+                <li>"카페" 태그가 있는 플레이리스트에 "감성" 태그가 있을 확률은 <strong>31.5%</strong></li>
+              </ul>
+              <p>"카페"와 "감성"은 높은 상관성을 보이며 카페 플레이리스트의 정체성을 형성하는 핵심 감성 태그로 작용함.</p>
+              <figure>
+                <img src="image/cafe_association.png" alt="카페 태그 연관 분석 결과" />
+                <figcaption>카페 관련 태그 간 연관 분석 결과</figcaption>
+              </figure>
+            </li>
+            <li>
+              <strong>(4) 카페 관련 플레이리스트 태그 시각화</strong><br>
+              카페 태그가 포함된 플레이리스트를 시각화한 결과,
+              "감성" 태그가 가장 많이 분포하며 "겨울", "가을", "비오는 날" 등
+              계절·날씨 관련 태그가 높은 빈도로 나타남.<br>
+              <strong>카페 음악 소비가 계절적 분위기와 감정적 요인에 크게 영향을 받는 패턴</strong>을 확인함.
+              <figure class="small-image">
+                <img src="image/cafe_tag_visualization.png" alt="카페 태그 시각화 결과" />
+                <figcaption>카페 관련 플레이리스트 주요 태그 시각화 결과</figcaption>
+              </figure>
+            </li>
           </ul>
         </div>
 
@@ -176,20 +395,74 @@
         <div class="section-block">
           <h2>핵심 성과</h2>
           <ul>
-            <li><strong>추천 품질 향상:</strong> 태그 문맥 강화로 내부 만족도 지표 개선(파일럿 테스트 기준)</li>
-            <li><strong>운영 효율화:</strong> 추천 파이프라인 자동화로 매장 선곡 운영 시간 절감</li>
-            <li><strong>비즈니스 확장:</strong> 데이터 상품화 시나리오(익명화 메타데이터 라이선스) 정립</li>
+            <li>
+              <strong>데이터 품질 향상 및 추천 정확도 개선:</strong>
+              결측 제거, 불용어 정리, 태그 분류 등 전처리를 통해 데이터 일관성을 확보하고 노이즈를 최소화함.
+              전처리된 태그 데이터를 기반으로 AutoEncoder 구조와 Optimizer를 조정한 결과,
+              <strong>모델 추천 정확도 약 89.7%</strong>를 달성하며 성능을 향상시킴.
+            </li>
+            <li>
+              <strong>사용자 인사이트 도출:</strong>
+              연령대·카페 태그 분석을 통해 주요 소비층별 음악 취향 패턴을 도출하고,
+              매장 콘셉트·시간대·고객 특성에 따라 <strong>맞춤형 추천 UX 설계</strong>에 반영함.
+            </li>
+            <li>
+              <strong>비즈니스 확장 가능성 검증:</strong>
+              분석 결과를 기반으로 <strong>매장별 음악 소비 패턴을 데이터 자산화</strong>하고
+              <strong>브랜드 맞춤형 음악 추천 서비스로 확장 가능한 구조</strong>를 검증함.
+            </li>
           </ul>
         </div>
 
         <!-- 기술적 도전과 해결 -->
         <div class="section-block">
           <h2>기술적 도전과 해결</h2>
-          <p><strong>문제 — 모호/중복 태그로 인한 추천 품질 저하 및 콜드스타트</strong></p>
+
+          <p><strong>문제 — 불용어 및 비관련 텍스트 제거 규칙 정의의 어려움</strong></p>
           <ul>
-            <li><em>원인:</em> 동일 의미의 태그가 다르게 표현되거나, 신규 매장/곡 데이터 부족</li>
-            <li><em>해결:</em> LLM 기반 태그 정규화·문맥 보정 + scikit-learn 콘텐츠 점수 앙상블</li>
-            <li><em>결과:</em> 모호 태그 구간의 품질 안정화, 신규 매장/곡 콜드스타트 대응력 향상</li>
+            <li>
+              <strong>원인:</strong>
+              플레이리스트 태그 데이터는 사용자가 자유롭게 입력한 자연어 형태로 구성되어 있어
+              서비스와 무관한 텍스트가 다수 포함되어 있었음.
+              관련 없는 태그를 자동으로 구분하기 위한 <strong>일관된 규칙</strong>을 정하기 어려웠음.
+            </li>
+            <li>
+              <strong>해결:</strong>
+              EDA를 통해 태그의 빈도와 형태 패턴을 분석한 뒤,
+              <strong>3단계 전처리 규칙</strong>을 수립함.
+              <ul>
+                <li>① 특수문자·숫자 제거 (ex. '#', '123' 등)</li>
+                <li>② 서비스 관련 없는 일반 단어 제거 (ex. '노래', '음악', '차트', '플레이리스트' 등)</li>
+                <li>③ 의미 없는 단일 문자 및 의성어 필터링 (ex. 'R', '쫑', '헿' 등)</li>
+              </ul>
+              Python 정규표현식(Regex)과 토큰 필터링 함수로 구현하여
+              사람이 직접 확인하지 않아도 자동으로 불필요한 태그를 정리할 수 있도록 함.
+            </li>
+            <li>
+              <strong>결과:</strong>
+              불필요한 태그가 전체의 약 <strong>22% → 10% 이하</strong>로 감소했으며
+              정제된 태그 데이터를 기반으로 추천 모델의 입력 품질이 향상됨.
+              AutoEncoder 추천 모델의 <strong>정확도가 약 89.7%</strong>까지 개선됨.
+            </li>
+          </ul>
+
+          <p><strong>문제 — 라벨 데이터 부재로 인한 태그 분류 어려움</strong></p>
+          <ul>
+            <li>
+              <strong>원인:</strong>
+              공개 데이터셋에 태그의 상위 카테고리(분위기/날씨/시간/장소/감정/상황)가 미리 라벨링되어 있지 않아
+              규칙 기반 분류만으로는 일관된 분류 체계를 확보하기 어려웠음.
+            </li>
+            <li>
+              <strong>해결:</strong>
+              GPT 기반 프롬프트 분류를 도입하여 <strong>사전 정의된 6개 카테고리</strong> 중 하나로 태그를 자동 분류하도록 구성함.
+              사람이 직접 라벨링하지 않아도 데이터의 의미적 맥락에 따라 카테고리화가 가능하도록 하였음.
+            </li>
+            <li>
+              <strong>결과:</strong>
+              수작업 라벨 없이도 초기 <strong>카테고리별 태그 세트</strong>를 자동 구축했고,
+              샘플링 검수 루프(무작위 표본 점검 및 규칙 업데이트)를 통해 품질을 안정화함.
+            </li>
           </ul>
         </div>
 
@@ -197,12 +470,16 @@
         <div class="section-block">
           <h2>사용한 기술 스택</h2>
           <ul>
-            <li><strong>Data/ML:</strong> Python, Jupyter, scikit-learn</li>
+            <li><strong>Data/AI:</strong> Python, Jupyter, pandas, numpy, matplotlib, mlxtend, OpenAI API</li>
           </ul>
           <div class="tech-stack">
             <span class="tech-tag">Python</span>
             <span class="tech-tag">Jupyter</span>
-            <span class="tech-tag">scikit-learn</span>
+            <span class="tech-tag">pandas</span>
+            <span class="tech-tag">numpy</span>
+            <span class="tech-tag">matplotlib</span>
+            <span class="tech-tag">mlxtend</span>
+            <span class="tech-tag">OpenAI API</span>
           </div>
         </div>
       </div>

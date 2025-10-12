@@ -1,87 +1,189 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>냠냠코치(떡잎냠냠) - Heeeun Ahn Portfolio</title>
-<link rel="stylesheet" href="style.css" />
-<style>
-  .project-detail {
-    min-height: 100vh;
-    padding: calc(var(--space-6) * 2) var(--space-4);
-    background: var(--bg);
-  }
-  .back-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 20px;
-    background: var(--primary);
-    color: white;
-    text-decoration: none;
-    margin-bottom: var(--space-5);
-    border-radius: var(--radius);
-    font-weight: 600;
-    font-size: 14px;
-    transition: all 0.3s ease;
-  }
-  .back-link:hover {
-    background: color-mix(in srgb, var(--primary), black 20%);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,.2);
-  }
-  .project-header { margin-bottom: var(--space-6); }
-  .project-title { font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 0; }
-  .project-content { display: grid; gap: var(--space-5); }
-  .section-block {
-    background: var(--bg-alt);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: var(--space-5);
-    box-shadow: var(--shadow-1);
-  }
-  .section-block h2 { margin: 0 0 var(--space-3); font-size: 24px; color: var(--primary); }
-  .section-block p, .section-block li { line-height: 1.8; color: var(--text-weak); }
-  .section-block ul { margin: var(--space-3) 0; padding-left: var(--space-4); }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>떡잎냠냠 - Heeeun Ahn Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* 프로젝트 상세 페이지 컨테이너 */
+    .project-detail {
+      min-height: 100vh;
+      padding: calc(var(--space-6) * 2) var(--space-4);
+      background: var(--bg);
+    }
 
-  .tech-stack { display: flex; flex-wrap: wrap; gap: 10px; margin-top: var(--space-3); }
-  .tech-tag {
-    padding: 8px 14px;
-    border-radius: 999px;
-    border: 1px solid var(--border);
-    background: color-mix(in srgb, var(--primary), transparent 90%);
-    font-family: var(--mono);
-    font-size: 14px;
-    color: var(--primary);
-  }
+    /* 돌아가기 버튼 */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      margin-bottom: var(--space-5);
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
 
-  .image-gallery h2 { margin: 0 0 var(--space-3); }
-  .image-scroll-box {
-    width: 850px;
-    height: 478px;
-    margin: 0 auto;
-    overflow-y: auto;
-    overflow-x: hidden;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow-1);
-  }
-  .image-scroll-box img { width: 850px; height: auto; display: block; }
+    .back-link:hover {
+      background: color-mix(in srgb, var(--primary), black 20%);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,.2);
+    }
 
-  @media (max-width: 768px) {
-    .project-detail { padding: var(--space-4) var(--space-2); }
-    .project-title { font-size: clamp(24px, 6vw, 32px); }
-    .section-block { padding: var(--space-3); }
-    .section-block h2 { font-size: 20px; }
-    .image-scroll-box { width: 100%; max-width: 100%; height: 400px; }
-    .image-scroll-box img { width: 100%; }
-    .tech-stack { gap: 8px; }
-    .tech-tag { font-size: 12px; padding: 6px 10px; }
-  }
-  @media (min-width: 769px) and (max-width: 1024px) {
-    .image-scroll-box { width: 100%; max-width: 700px; height: 450px; }
-    .image-scroll-box img { width: 100%; }
-  }
-</style>
+    /* 프로젝트 헤더 영역 */
+    .project-header {
+      margin-bottom: var(--space-6);
+    }
+
+    .project-title {
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 800;
+      margin: 0;
+    }
+
+    /* 프로젝트 콘텐츠 영역 */
+    .project-content {
+      display: grid;
+      gap: var(--space-5);
+    }
+
+    /* 섹션 블록 */
+    .section-block {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: var(--space-5);
+      box-shadow: var(--shadow-1);
+    }
+
+    .section-block h2 {
+      margin: 0 0 var(--space-3);
+      font-size: 24px;
+      color: var(--primary);
+    }
+
+    .section-block h3 {
+      margin: var(--space-4) 0 var(--space-2);
+      font-size: 20px;
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .section-block p,
+    .section-block li {
+      line-height: 1.8;
+      color: var(--text-weak);
+    }
+
+    .section-block ul {
+      margin: var(--space-3) 0;
+      padding-left: var(--space-4);
+    }
+
+    .section-block ul ul {
+      margin: var(--space-2) 0;
+    }
+
+    /* 기술 스택 태그 */
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: var(--space-3);
+    }
+
+    .tech-tag {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: color-mix(in srgb, var(--primary), transparent 90%);
+      font-family: var(--mono);
+      font-size: 14px;
+      color: var(--primary);
+    }
+
+    /* 이미지 갤러리 */
+    .image-gallery h2 {
+      margin: 0 0 var(--space-3);
+    }
+
+    /* 이미지 스크롤 박스 */
+    .image-scroll-box {
+      width: 850px;
+      height: 478px;
+      margin: 0 auto;
+      overflow-y: auto;
+      overflow-x: hidden;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-1);
+    }
+
+    .image-scroll-box img {
+      width: 850px;
+      height: auto;
+      display: block;
+    }
+
+    /* 모바일 반응형 (768px 이하) */
+    @media (max-width: 768px) {
+      .project-detail {
+        padding: var(--space-4) var(--space-2);
+      }
+
+      .project-title {
+        font-size: clamp(24px, 6vw, 32px);
+      }
+
+      .section-block {
+        padding: var(--space-3);
+      }
+
+      .section-block h2 {
+        font-size: 20px;
+      }
+
+      .section-block h3 {
+        font-size: 18px;
+      }
+
+      .image-scroll-box {
+        width: 100%;
+        max-width: 100%;
+        height: 400px;
+      }
+
+      .image-scroll-box img {
+        width: 100%;
+      }
+
+      .tech-stack {
+        gap: 8px;
+      }
+
+      .tech-tag {
+        font-size: 12px;
+        padding: 6px 10px;
+      }
+    }
+
+    /* 태블릿 반응형 (769px ~ 1024px) */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .image-scroll-box {
+        width: 100%;
+        max-width: 700px;
+        height: 450px;
+      }
+
+      .image-scroll-box img {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="project-detail">
@@ -89,7 +191,7 @@
       <a href="index.html#projects" class="back-link">← 돌아가기</a>
 
       <div class="project-header">
-        <h1 class="project-title">냠냠코치 (떡잎냠냠)</h1>
+        <h1 class="project-title">떡잎냠냠</h1>
       </div>
 
       <div class="project-content">
@@ -135,9 +237,9 @@
             <li>
               <strong>회원관리</strong>
               <ul>
-                <li><strong>가입/로그인:</strong> 가입 폼·처리(중복검증), 로그인 폼·처리(<code>HttpSession.loginUserId</code>, <code>/diets/list</code>)</li>
-                <li><strong>계정 조회/수정:</strong> 상세 조회, 수정 폼, 수정 반영 후 <code>/user/detail</code></li>
-                <li><strong>세션/탈퇴:</strong> 로그아웃(세션 무효화), 회원 삭제 후 메인(<code>/</code>) 이동</li>
+                <li><strong>가입/로그인:</strong> 가입 폼·처리(중복검증), 로그인 폼·처리(HttpSession.loginUserId, /diets/list)</li>
+                <li><strong>계정 조회/수정:</strong> 상세 조회, 수정 폼, 수정 반영 후 /user/detail</li>
+                <li><strong>세션/탈퇴:</strong> 로그아웃(세션 무효화), 회원 삭제 후 메인(/) 이동</li>
               </ul>
             </li>
             <li>
@@ -187,20 +289,20 @@
           <h2>기술적 도전과 해결</h2>
           <p><strong>문제 1 — 검색 요청 폭주로 인한 응답 지연</strong></p>
           <ul>
-            <li><em>원인:</em> 입력마다 즉시 호출되어 서버에 짧은 간격의 중복 요청 다발</li>
-            <li><em>해결:</em> 입력 디바운스(예: 200~300ms)와 이전 요청 취소 토큰 적용, 결과 캐싱으로 재호출 축소</li>
+            <li><strong>원인:</strong> 입력마다 즉시 호출되어 서버에 짧은 간격의 중복 요청 다발</li>
+            <li><strong>해결:</strong> 입력 디바운스(예: 200~300ms)와 이전 요청 취소 토큰 적용, 결과 캐싱으로 재호출 축소</li>
           </ul>
 
           <p><strong>문제 2 — 날짜 범위·페이지네이션 혼합 시 쿼리 일관성</strong></p>
           <ul>
-            <li><em>원인:</em> 기간 조건과 정렬/오프셋 조합에 따라 누락·중복 행 발생 가능</li>
-            <li><em>해결:</em> MyBatis 매퍼에서 정렬 기준 고정(날짜↓, id 보조키), count 쿼리 분리, 경계값 테스트 추가</li>
+            <li><strong>원인:</strong> 기간 조건과 정렬/오프셋 조합에 따라 누락·중복 행 발생 가능</li>
+            <li><strong>해결:</strong> MyBatis 매퍼에서 정렬 기준 고정(날짜↓, id 보조키), count 쿼리 분리, 경계값 테스트 추가</li>
           </ul>
 
           <p><strong>문제 3 — 등록/수정 시 데이터 무결성</strong></p>
           <ul>
-            <li><em>원인:</em> 식단-음식 다건 입력 중 일부 실패 시 부분만 반영될 위험</li>
-            <li><em>해결:</em> 트랜잭션 범위 지정으로 원자성 보장, 서버측 유효성(날짜/타입/칼로리 범위) 선검증</li>
+            <li><strong>원인:</strong> 식단-음식 다건 입력 중 일부 실패 시 부분만 반영될 위험</li>
+            <li><strong>해결:</strong> 트랜잭션 범위 지정으로 원자성 보장, 서버측 유효성(날짜/타입/칼로리 범위) 선검증</li>
           </ul>
         </div>
 

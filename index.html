@@ -21,16 +21,16 @@
     <div class="container">
       <div class="about-grid">
         <div>
-          <h1 class="display-name animate-on-scroll">안희은</h1>
+          <h1 class="display-name">안희은</h1>
 
-          <div class="quote animate-on-scroll" role="note" aria-label="소개 문구">
+          <div class="quote" role="note" aria-label="소개 문구">
             <p>
-              데이터 분석부터 AI 기반 서비스 구현까지<br />
-              Insight를 실현합니다.
+              데이터를 통해 인사이트를 발견하고<br>
+              사람들에게 "꼭" 필요한 서비스를 기획하고 개발하고 싶은 안희은입니다.
             </p>
           </div>
 
-          <div class="meta animate-on-scroll" aria-label="연락처 및 학력">
+          <div class="meta" aria-label="연락처 및 학력">
             <div class="meta-item">
               <span class="icon" aria-hidden="true">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
@@ -64,13 +64,13 @@
           </div>
         </div>
 
-        <div class="about-photo animate-on-scroll">
+        <div class="about-photo">
           <img src="image/profile.png" alt="프로필 사진" />
         </div>
       </div>
 
-      <div class="activity-timeline animate-on-scroll" aria-label="활동 시기 타임라인">
-        <h3 class="subsection-title">timeline</h3>
+      <div class="activity-timeline" aria-label="활동 시기 타임라인">
+        <h3 class="subsection-title">Timeline</h3>
 
         <!-- 연도 눈금 -->
         <div class="timeline-scale" aria-hidden="true">
@@ -127,7 +127,7 @@
     <div class="container">
       <h2 class="section-title">Skills</h2>
       <div class="skill-grid">
-        <div class="card animate-on-scroll">
+        <div class="card">
           <h3>Programming</h3>
           <div class="stack">
             <span class="chip">Python</span>
@@ -136,14 +136,14 @@
             <span class="chip">JavaScript</span>
           </div>
         </div>
-        <div class="card animate-on-scroll">
+        <div class="card">
           <h3>Database</h3>
           <div class="stack">
             <span class="chip">MySQL</span>
             <span class="chip">PostgreSQL</span>
           </div>
         </div>
-        <div class="card animate-on-scroll">
+        <div class="card">
           <h3>Frontend / Backend</h3>
           <div class="stack">
             <span class="chip">Spring Boot</span>
@@ -151,7 +151,7 @@
             <span class="chip">React</span>
           </div>
         </div>
-        <div class="card animate-on-scroll">
+        <div class="card">
           <h3>Visualization</h3>
           <div class="stack">
             <span class="chip viz-chip" data-viz="powerbi">Power BI</span>
@@ -159,7 +159,7 @@
             <span class="chip viz-chip" data-viz="qgis">QGIS</span>
           </div>
         </div>
-        <div class="card animate-on-scroll">
+        <div class="card">
           <h3>Data Analysis & AI</h3>
           <div class="stack">
             <span class="chip">Pandas</span>
@@ -167,7 +167,7 @@
             <span class="chip">OpenAI API</span>
           </div>
         </div>
-        <div class="card animate-on-scroll">
+        <div class="card">
           <h3>Tools</h3>
           <div class="stack">
             <span class="chip">Git</span>
@@ -188,17 +188,29 @@
       <!-- Data Projects -->
       <div class="project-group">
         <h3 class="group-title">Data Projects</h3>
-        <div class="proj-grid">
-          <article class="proj animate-on-scroll">
+        <div class="proj-grid data-proj-grid">
+          <article class="proj">
             <h3>SoundCake</h3>
-            <p>금융 데이터 기반 소비 슬롯 자동분류. 대규모 ETL 파이프라인과 LLM 결합, Flutter 데모 연동.</p>
+            <p class="proj-period">2024.07 ~ 2024.08 (5주)</p>
+            <p>카페 매장 맞춤형 음악 추천 서비스. 데이터 전처리 및 LLM 기반 태그 분류로 추천 정확도 89.7% 달성.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">Python</span>
+              <span class="proj-tag">Pandas</span>
+              <span class="proj-tag">OpenAI API</span>
+            </div>
             <a href="project-soundcake.html" aria-label="SoundCake 상세 보기">프로젝트 상세 보기 →</a>
           </article>
 
-          <article class="proj animate-on-scroll">
-            <h3>논문</h3>
-            <p>기후변화에 따른 외래식물 분포 예측 연구. 데이터 전처리·시각화·모형화 노트 아카이브.</p>
-            <a href="project-others.html" aria-label="논문 상세 보기">논문 상세 보기 →</a>
+          <article class="proj">
+            <h3>기후변화에 따른 외래식물 분포 예측 연구</h3>
+            <p class="proj-period">2023.10 ~ 2024.11 (제1저자)</p>
+            <p>기후변화 시나리오 기반 외래식물 잠재 서식지 예측. MaxEnt 모델로 AUC 0.82 이상 달성. 논문 게재.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">Python</span>
+              <span class="proj-tag">MaxEnt</span>
+              <span class="proj-tag">GeoPandas</span>
+            </div>
+            <a href="project-paper.html" aria-label="논문 상세 보기">프로젝트 상세 보기 →</a>
           </article>
         </div>
       </div>
@@ -207,15 +219,28 @@
       <div class="project-group">
         <h3 class="group-title">Web Projects</h3>
         <div class="proj-grid">
-          <article class="proj animate-on-scroll">
-            <h3>모두루</h3>
-            <p>실시간 여행 일정 공유 웹앱. WebRTC 실시간 협업 및 상태관리 기반 UX.</p>
-            <a href="project-moduru.html" aria-label="모두루 상세 보기">프로젝트 상세 보기 →</a>
+          <article class="proj">
+            <h3>Moduru</h3>
+            <p class="proj-period">2025.07 ~ 2025.08 (5주)</p>
+            <p>실시간 여행 일정 공유 협업 웹앱. WebSocket 기반 실시간 동기화 및 Redux로 복잡한 상태 관리 구현.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">React</span>
+              <span class="proj-tag">Redux</span>
+              <span class="proj-tag">Spring Boot</span>
+              <span class="proj-tag">WebSocket</span>
+            </div>
+            <a href="project-moduru.html" aria-label="Moduru 상세 보기">프로젝트 상세 보기 →</a>
           </article>
 
-          <article class="proj animate-on-scroll">
+          <article class="proj">
             <h3>떡잎냠냠</h3>
-            <p>AI 식단 분석 웹 서비스. Spring Boot + Vue.js 기반 식단 CRUD 및 시각화.</p>
+            <p class="proj-period">2025.05 (1주)</p>
+            <p>개인 맞춤 식단 코칭 서비스. 식단 CRUD 및 음식 검색 기능 전담 구현. Vue 3 + Pinia 상태 관리.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">Vue 3</span>
+              <span class="proj-tag">Spring Boot</span>
+              <span class="proj-tag">MySQL</span>
+            </div>
             <a href="project-meal.html" aria-label="떡잎냠냠 상세 보기">프로젝트 상세 보기 →</a>
           </article>
         </div>
@@ -223,43 +248,54 @@
     </div>
   </section>
 
-  <!-- Experience / Certificate -->
+  <!-- Experience -->
   <section id="experience" class="panel experience">
     <div class="container">
-      <div class="exp-grid">
-        <div class="exp-column">
-          <h2 class="section-title">Experience</h2>
-          <div class="card animate-on-scroll">
-            <div class="exp-item">
-              <h3>SSAFY 13기</h3>
-              <p>2025 · 풀스택 프로젝트 / 알고리즘·DB 집중 과정</p>
-            </div>
-            <div class="exp-item">
-              <h3>연구보조원 – 국립식량과학원</h3>
-              <p>표현형 데이터베이스 구축, 품종 분석 지원</p>
-            </div>
-            <div class="exp-item">
-              <h3>Personal – Wallet Slot</h3>
-              <p>1,400만 건 ETL·LLM 파이프라인, Fintech Demo</p>
-            </div>
-          </div>
+      <h2 class="section-title">Experience</h2>
+      <div class="exp-grid-new">
+        <div class="card exp-card">
+          <h3>삼성청년 SW·AI 아카데미 (SSAFY)</h3>
+          <p>2025.01.07 ~ 현재 · 풀스택 개발 학습, 3회 프로젝트 수행</p>
         </div>
-        <div class="exp-column">
-          <h2 class="section-title">Certificate</h2>
-          <div class="card animate-on-scroll">
-            <div class="exp-item">
-              <h3>정보처리기사</h3>
-              <p>2024 · 한국산업인력공단</p>
-            </div>
-            <div class="exp-item">
-              <h3>SQLD</h3>
-              <p>SQL 개발자 자격증 · 한국데이터산업진흥원</p>
-            </div>
-            <div class="exp-item">
-              <h3>ADsP</h3>
-              <p>데이터 분석 준전문가 · 한국데이터산업진흥원</p>
-            </div>
-          </div>
+        <div class="card exp-card">
+          <h3>한국데이터정보과학지 논문 작성</h3>
+          <p>2023.10.01 ~ 2024.11.15 · 기후변화에 따른 생태계 교란식물 가시상추와 미국쑥부쟁이 잠재분포 예측</p>
+        </div>
+        <div class="card exp-card">
+          <h3>일경험 수련생 – 국립식량과학원</h3>
+          <p>2023.09.05 ~ 2024.02.28 · 품종관리시스템 데이터베이스 구축 보조, 귀리 유전자원 표현형 데이터 분석</p>
+        </div>
+        <div class="card exp-card">
+          <h3>네이버 소프트웨어 멘토링</h3>
+          <p>2023.02.02 ~ 2023.02.07 · 초등학생 대상 소프트웨어 교육 진행</p>
+        </div>
+        <div class="card exp-card">
+          <h3>데이터 분석 청년인재 양성사업</h3>
+          <p>2022.05.30 ~ 2022.08.31 · 데이터 분석 교육, 실무형 프로젝트</p>
+        </div>
+        <div class="card exp-card">
+          <h3>빅데이터 동아리 (이루리DA)</h3>
+          <p>2021.03.29 ~ 2022.02.28 · 프로젝트 수행, 직무분석 경진대회 장려상</p>
+        </div>
+      </div>
+
+      <h2 class="section-title" style="margin-top: var(--space-3);">Certificate</h2>
+      <div class="cert-grid">
+        <div class="card cert-card">
+          <h3>빅데이터분석기사</h3>
+          <p>한국데이터산업진흥원 · 2023.07.14</p>
+        </div>
+        <div class="card cert-card">
+          <h3>SQL 개발자 (SQLD)</h3>
+          <p>한국데이터산업진흥원 · 2024.04.05</p>
+        </div>
+        <div class="card cert-card">
+          <h3>데이터 분석 준전문가 (ADsP)</h3>
+          <p>한국데이터산업진흥원 · 2024.11.29</p>
+        </div>
+        <div class="card cert-card">
+          <h3>사회조사분석사 2급</h3>
+          <p>한국산업인력공단 · 2021.08.20</p>
         </div>
       </div>
     </div>
