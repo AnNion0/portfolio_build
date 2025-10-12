@@ -54,7 +54,6 @@
     font-family: var(--mono); font-size: 14px; color: var(--primary);
   }
 
-  /* 이미지 슬라이드 */
   .image-gallery h2 { text-align: left; margin: 0 0 var(--space-3); }
   .carousel-wrapper {
     position: relative; max-width: 900px; margin: 0 auto;
@@ -74,7 +73,6 @@
     transform: scale(1.1);
   }
 
-  /* 반응형 */
   @media (max-width: 768px) {
     .project-detail { padding: var(--space-4) var(--space-2); }
     .project-title { font-size: clamp(24px, 6vw, 32px); }
@@ -90,7 +88,6 @@
     .tech-tag { font-size: 12px; padding: 6px 10px; }
   }
 
-  /* 프로젝트 네비게이션 탭 */
   .project-nav {
     display: flex; flex-wrap: wrap; gap: var(--space-3);
     margin-bottom: var(--space-5);
@@ -354,7 +351,7 @@
       });
     });
 
-    // 캐러셀 1: 논문
+    // 캐러셀 1
     const t1 = document.querySelector('.carousel-1 .carousel-track');
     const i1 = Array.from(t1.children);
     const p1 = document.querySelector('.prev-btn-1');
@@ -364,7 +361,7 @@
     n1.addEventListener('click', () => { x1 = (x1 + 1) % i1.length; u1(); });
     p1.addEventListener('click', () => { x1 = (x1 - 1 + i1.length) % i1.length; u1(); });
 
-    // 캐러셀 2: Wallet Slot
+    // 캐러셀 2
     const t2 = document.querySelector('.carousel-2 .carousel-track');
     const i2 = Array.from(t2.children);
     const p2 = document.querySelector('.prev-btn-2');

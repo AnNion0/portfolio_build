@@ -1,9 +1,7 @@
-/* =========================
-   0) Design Tokens
-==========================*/
+/* Design Tokens */
 :root {
-  --bg: #c7dad6;              /* hero 배경(목업 톤) */
-  --bg-alt: #f6f8f9;          /* 카드/콘텐츠 배경 */
+  --bg: #c7dad6;
+  --bg-alt: #f6f8f9;
   --text: #1a1e24;
   --text-weak: #5b6675;
   --primary: #7F8CAA;
@@ -25,7 +23,7 @@
   --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
 }
 
-/* 다크 모드 대응(선택) */
+/* 다크 모드 */
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #1c2224;
@@ -39,9 +37,7 @@
   }
 }
 
-/* =========================
-   1) Global & Layout
-==========================*/
+/* Global & Layout */
 html, body {
   height: 100%;
   margin: 0;
@@ -49,7 +45,6 @@ html, body {
   font-family: var(--font-sans);
   background: var(--bg);
 }
-/* 세로 방향 스크롤 */
 html {
   overflow-y: scroll;
   scroll-snap-type: none;
@@ -72,7 +67,7 @@ html {
   transform: translateY(0);
 }
 
-/* 상단 해시 내비 */
+/* 네비게이션 */
 .hash-nav {
   position: fixed;
   top: 12px;
@@ -112,9 +107,7 @@ html {
   font-weight: 600;
 }
 
-/* =========================
-   2) Hero (About Me)
-==========================*/
+/* About Me */
 .about-grid {
   display: grid;
   gap: var(--space-5);
@@ -209,9 +202,7 @@ html {
   text-align: center;
 }
 
-/* =========================
-   3) Skills
-==========================*/
+/* Skills */
 .section-title {
   font-size: clamp(22px, 3.2vw, 32px);
   margin: 0 0 var(--space-4);
@@ -252,9 +243,7 @@ html {
   white-space: nowrap;
 }
 
-/* =========================
-   4) Projects
-==========================*/
+/* Projects */
 .projects { background: var(--bg); }
 .proj-grid {
   display: grid;
@@ -290,9 +279,7 @@ html {
   box-shadow: 0 4px 12px rgba(0,0,0,.2);
 }
 
-/* =========================
-   5) Experience / Certificate
-==========================*/
+/* Experience / Certificate */
 .exp-grid {
   display: grid;
   gap: var(--space-5);
@@ -330,9 +317,7 @@ html {
   line-height: 1.6;
 }
 
-/* =========================
-   6) Scroll Animations
-==========================*/
+/* Scroll Animations */
 .animate-on-scroll {
   opacity: 0;
   transform: translateY(30px);
@@ -344,15 +329,13 @@ html {
   transform: translateY(0);
 }
 
-/* 각 요소별로 약간씩 지연 효과 - 행 단위로 동시에 */
-/* About Me: 위에서 아래로 순차적으로 */
+/* 애니메이션 지연 */
 .display-name { transition-delay: 0.1s; }
 .quote { transition-delay: 0.2s; }
 .meta { transition-delay: 0.3s; }
 .about-photo { transition-delay: 0.3s; }
 .activity-timeline { transition-delay: 0.4s; }
 
-/* Skills: 1,2,3번 동시 -> 4,5,6번 동시 */
 .card:nth-child(1) { transition-delay: 0.1s; }
 .card:nth-child(2) { transition-delay: 0.1s; }
 .card:nth-child(3) { transition-delay: 0.1s; }
@@ -360,20 +343,16 @@ html {
 .card:nth-child(5) { transition-delay: 0.3s; }
 .card:nth-child(6) { transition-delay: 0.3s; }
 
-/* Projects: 1,2번 동시 -> 3,4번 동시 */
 .proj:nth-child(1) { transition-delay: 0.1s; }
 .proj:nth-child(2) { transition-delay: 0.1s; }
 .proj:nth-child(3) { transition-delay: 0.3s; }
 .proj:nth-child(4) { transition-delay: 0.3s; }
 
-/* Experience: 모두 동시에 */
 .exp-item:nth-child(1) { transition-delay: 0.1s; }
 .exp-item:nth-child(2) { transition-delay: 0.1s; }
 .exp-item:nth-child(3) { transition-delay: 0.1s; }
 
-/* =========================
-   8) 활동 시기 타임라인
-==========================*/
+/* 타임라인 */
 .activity-timeline { 
   margin-top: var(--space-4, 24px);
   width: 100%;
@@ -386,10 +365,9 @@ html {
   font-family: var(--font-sans);
 }
 
-/* 상단 연도 눈금 */
 .timeline-scale{
   display: grid;
-  grid-template-columns: repeat(7, 1fr); /* 2019~2025 */
+  grid-template-columns: repeat(7, 1fr);
   font-size: 12px;
   color: var(--text-weak, #666);
   padding: 0 4px 2px;
@@ -400,18 +378,16 @@ html {
   position: relative;
 }
 
-/* 바 영역: 월 단위 84칸(2019.01~2025.12) */
 .timeline-bars{
   position: relative;
   display: grid;
-  grid-template-columns: repeat(84, 1fr); /* 7년 * 12개월 */
+  grid-template-columns: repeat(84, 1fr);
   grid-auto-rows: 42px;
-  gap: 50px 10px; /* 세로 간격을 50px로 늘려서 위쪽 텍스트 공간 확보 */
-  padding: 40px 8px 8px 8px; /* 상단 패딩 늘림 */
+  gap: 50px 10px;
+  padding: 40px 8px 8px 8px;
   border: 1px solid var(--border, #e5e7eb);
   border-radius: 10px;
   background:
-    /* 연도 가이드 라인 7등분 */
     repeating-linear-gradient(
       to right,
       transparent,
@@ -420,9 +396,8 @@ html {
     );
 }
 
-/* 단일 바 */
 .tbar{
-  grid-column: calc(var(--start) + 1) / span var(--span); /* --start: 시작월 index, --span: 개월 수 */
+  grid-column: calc(var(--start) + 1) / span var(--span);
   position: relative;
   background: var(--bar-bg, rgba(59,130,246,1));
   border: 1px solid var(--bar-border, rgba(59,130,246,1));
@@ -431,7 +406,6 @@ html {
   min-height: 42px;
 }
 
-/* 말풍선 라벨 - 위쪽 */
 .tbar.long-text .tooltip-label {
   position: absolute;
   bottom: 100%;
@@ -449,7 +423,6 @@ html {
   font-family: var(--font-sans);
 }
 
-/* 위쪽 화살표 (위쪽 말풍선 -> 아래 막대로) */
 .tbar.long-text .tooltip-arrow {
   position: absolute;
   bottom: 100%;
@@ -463,7 +436,6 @@ html {
   z-index: 1;
 }
 
-/* 말풍선 라벨 - 아래쪽 */
 .tbar.long-text-bottom .tooltip-label {
   position: absolute;
   top: 100%;
@@ -481,7 +453,6 @@ html {
   font-family: var(--font-sans);
 }
 
-/* 아래쪽 화살표 (아래쪽 말풍선 -> 위 막대로) */
 .tbar.long-text-bottom .tooltip-arrow {
   position: absolute;
   top: 100%;
@@ -495,7 +466,6 @@ html {
   z-index: 1;
 }
 
-/* 짧은 텍스트는 막대 안에 */
 .tbar .label{
   position: absolute; 
   left: 10px;
@@ -518,7 +488,6 @@ html {
   font-family: var(--font-sans);
 }
 
-/* 색상 프리셋 */
 .t-uni     { --bar-bg: rgba(59,130,246,1); --bar-border: rgba(59,130,246,1); --badge:#3b82f6; }
 .t-club    { --bar-bg: rgba(16,185,129,1); --bar-border: rgba(16,185,129,1); --badge:#10b981; }
 .t-course  { --bar-bg: rgba(245,158,11,1); --bar-border: rgba(245,158,11,1); --badge:#f59e0b; }
@@ -526,14 +495,11 @@ html {
 .t-paper   { --bar-bg: rgba(236,72,153,1); --bar-border: rgba(236,72,153,1); --badge:#ec4899; }
 .t-ssafy   { --bar-bg: rgba(37,99,235,1); --bar-border: rgba(37,99,235,1); --badge:#2563eb; }
 
-/* 데스크톱: 긴 버전 표시, 짧은 버전 숨김 (기본값) */
 .tooltip-label-mobile {
   display: none;
 }
 
-/* =========================
-   7) 이미지 모달
-==========================*/
+/* 이미지 모달 */
 .viz-chip {
   cursor: pointer;
   transition: all 0.2s ease;
@@ -613,22 +579,19 @@ html {
   color: var(--accent);
 }
 
-/* =========================
-   반응형 (모바일)
-==========================*/
+/* 반응형 - 모바일 */
 @media (max-width: 768px) {
-  /* 네비게이션 */
   .hash-nav {
-    flex-wrap: wrap;
-    gap: var(--space-1);
-    padding: var(--space-1);
+    top: 12px;
+    gap: 4px;
+    padding: 6px;
   }
   .hash-nav a {
-    font-size: 14px;
-    padding: 8px 12px;
+    font-size: 12px;
+    padding: 8px 10px;
+    white-space: nowrap;
   }
 
-  /* 섹션 패딩 조정 */
   html {
     scroll-snap-type: none;
   }
@@ -644,7 +607,6 @@ html {
     width: 95vw;
   }
 
-  /* About Me */
   .about-grid {
     grid-template-columns: 1fr;
     gap: var(--space-3);
@@ -658,7 +620,6 @@ html {
     margin-bottom: var(--space-3);
   }
 
-  /* 타임라인 */
   .activity-timeline {
     overflow-x: visible;
   }
@@ -683,7 +644,6 @@ html {
   .tbar:active {
     transform: scale(1.05);
   }
-  /* 모바일에서는 라벨/기간 기본 숨김 */
   .tbar .label,
   .tbar .period {
     display: none;
@@ -694,7 +654,6 @@ html {
   .tbar.long-text-bottom .tooltip-arrow {
     display: none;
   }
-  /* 터치/클릭 시 활성화 */
   .tbar.active .label,
   .tbar.active .period {
     display: block;
@@ -708,11 +667,7 @@ html {
     bottom: 3px;
     font-size: 8px;
   }
-  /* 터치 시 말풍선 표시 */
-  .tbar.active .tooltip-label-desktop {
-    display: none !important;
-  }
-  /* 위쪽 말풍선 */
+  .tbar.active .tooltip-label-desktop { display: none !important; }
   .tbar.active.long-text .tooltip-label-mobile,
   .tbar.active.long-text .tooltip-label:not(.tooltip-label-desktop):not(.tooltip-label-mobile) {
     display: block;
@@ -747,7 +702,6 @@ html {
     border-right: 6px solid transparent;
     border-top: 8px solid var(--bg-alt);
   }
-  /* 아래쪽 말풍선 */
   .tbar.active.long-text-bottom .tooltip-label-mobile,
   .tbar.active.long-text-bottom .tooltip-label:not(.tooltip-label-desktop):not(.tooltip-label-mobile) {
     display: block;
@@ -782,7 +736,6 @@ html {
     border-right: 6px solid transparent;
     border-bottom: 8px solid var(--bg-alt);
   }
-  /* 막대 안 텍스트 상단 가운데 정렬 (충북대, 논문 등) */
   .tbar.active:not(.long-text):not(.long-text-bottom) .label {
     left: 50%;
     top: 4px;
@@ -794,7 +747,6 @@ html {
     bottom: 4px;
     transform: translateX(-50%);
   }
-  /* 말풍선 있는 막대들의 기간도 하단 가운데 정렬 */
   .tbar.active.long-text .period,
   .tbar.active.long-text-bottom .period {
     display: block !important;
@@ -808,17 +760,14 @@ html {
     opacity: 0.85;
   }
 
-  /* Skills */
   .skill-grid {
     grid-template-columns: 1fr;
   }
 
-  /* Projects */
   .proj-grid {
     grid-template-columns: 1fr;
   }
 
-  /* Experience */
   .exp-grid {
     grid-template-columns: 1fr;
   }
@@ -826,7 +775,14 @@ html {
 
 /* 태블릿 */
 @media (min-width: 769px) and (max-width: 1024px) {
-  /* 섹션 높이 자동 조정 */
+  .hash-nav {
+    gap: var(--space-1);
+  }
+  .hash-nav a {
+    font-size: 15px;
+    padding: 8px 14px;
+  }
+  
   html {
     scroll-snap-type: none;
   }
@@ -842,7 +798,6 @@ html {
     width: 90vw;
   }
   
-  /* 타임라인 - 모바일과 동일하게 터치 방식 */
   .activity-timeline {
     overflow-x: visible;
   }
@@ -867,7 +822,6 @@ html {
   .tbar:active {
     transform: scale(1.05);
   }
-  /* 태블릿에서도 라벨/기간 기본 숨김 */
   .tbar .label,
   .tbar .period {
     display: none;
@@ -878,7 +832,6 @@ html {
   .tbar.long-text-bottom .tooltip-arrow {
     display: none;
   }
-  /* 터치 시 활성화 */
   .tbar.active .label,
   .tbar.active .period {
     display: block;
@@ -892,11 +845,7 @@ html {
     bottom: 4px;
     font-size: 9px;
   }
-  /* 터치 시 말풍선 표시 */
-  .tbar.active .tooltip-label-desktop {
-    display: none !important;
-  }
-  /* 위쪽 말풍선 */
+  .tbar.active .tooltip-label-desktop { display: none !important; }
   .tbar.active.long-text .tooltip-label-mobile,
   .tbar.active.long-text .tooltip-label:not(.tooltip-label-desktop):not(.tooltip-label-mobile) {
     display: block;
@@ -931,7 +880,6 @@ html {
     border-right: 6px solid transparent;
     border-top: 8px solid var(--bg-alt);
   }
-  /* 아래쪽 말풍선 */
   .tbar.active.long-text-bottom .tooltip-label-mobile,
   .tbar.active.long-text-bottom .tooltip-label:not(.tooltip-label-desktop):not(.tooltip-label-mobile) {
     display: block;
@@ -966,7 +914,6 @@ html {
     border-right: 6px solid transparent;
     border-bottom: 8px solid var(--bg-alt);
   }
-  /* 막대 안 텍스트 상단 가운데 정렬 (충북대, 논문 등) */
   .tbar.active:not(.long-text):not(.long-text-bottom) .label {
     left: 50%;
     top: 5px;
@@ -978,7 +925,6 @@ html {
     bottom: 4px;
     transform: translateX(-50%);
   }
-  /* 말풍선 있는 막대들의 기간도 하단 가운데 정렬 */
   .tbar.active.long-text .period,
   .tbar.active.long-text-bottom .period {
     display: block !important;
