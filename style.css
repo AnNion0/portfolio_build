@@ -530,12 +530,12 @@ html {
   font-family: var(--font-sans);
 }
 
-.t-uni     { --bar-bg: rgba(59,130,246,1); --bar-border: rgba(59,130,246,1); --badge:#3b82f6; }
-.t-club    { --bar-bg: rgba(16,185,129,1); --bar-border: rgba(16,185,129,1); --badge:#10b981; }
-.t-course  { --bar-bg: rgba(245,158,11,1); --bar-border: rgba(245,158,11,1); --badge:#f59e0b; }
-.t-intern  { --bar-bg: rgba(99,102,241,1); --bar-border: rgba(99,102,241,1); --badge:#6366f1; }
-.t-paper   { --bar-bg: rgba(236,72,153,1); --bar-border: rgba(236,72,153,1); --badge:#ec4899; }
-.t-ssafy   { --bar-bg: rgba(37,99,235,1); --bar-border: rgba(37,99,235,1); --badge:#2563eb; }
+.t-uni     { --bar-bg: color-mix(in srgb, #3b82f6, transparent 30%); --bar-border: #3b82f6; --badge:#3b82f6; }
+.t-club    { --bar-bg: color-mix(in srgb, #10b981, transparent 30%); --bar-border: #10b981; --badge:#10b981; }
+.t-course  { --bar-bg: color-mix(in srgb, #f59e0b, transparent 30%); --bar-border: #f59e0b; --badge:#f59e0b; }
+.t-intern  { --bar-bg: color-mix(in srgb, #6366f1, transparent 30%); --bar-border: #6366f1; --badge:#6366f1; }
+.t-paper   { --bar-bg: color-mix(in srgb, #ec4899, transparent 30%); --bar-border: #ec4899; --badge:#ec4899; }
+.t-ssafy   { --bar-bg: color-mix(in srgb, var(--primary), transparent 30%); --bar-border: var(--primary); --badge: var(--primary); }
 
 .tooltip-label-mobile {
   display: none;
