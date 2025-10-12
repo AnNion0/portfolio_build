@@ -69,6 +69,25 @@
   .prev-btn:hover, .next-btn:hover {
     background: color-mix(in srgb, var(--primary), black 20%); transform: scale(1.1);
   }
+
+  /* 반응형 */
+  @media (max-width: 768px) {
+    .project-detail { padding: var(--space-4) var(--space-2); }
+    .project-title { font-size: clamp(24px, 6vw, 32px); }
+    .section-block { padding: var(--space-3); }
+    .section-block h2 { font-size: 20px; }
+    .carousel-wrapper { max-width: 100%; }
+    .carousel { max-width: 100%; }
+    .carousel-track img { width: 100%; }
+    .prev-btn, .next-btn { width: 40px; height: 40px; font-size: 24px; }
+    .tech-stack { gap: 8px; }
+    .tech-tag { font-size: 12px; padding: 6px 10px; }
+  }
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .carousel-wrapper { max-width: 700px; }
+    .carousel { max-width: 700px; }
+    .carousel-track img { width: 700px; }
+  }
 </style>
 </head>
 <body>

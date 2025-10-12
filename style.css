@@ -526,6 +526,11 @@ html {
 .t-paper   { --bar-bg: rgba(236,72,153,1); --bar-border: rgba(236,72,153,1); --badge:#ec4899; }
 .t-ssafy   { --bar-bg: rgba(37,99,235,1); --bar-border: rgba(37,99,235,1); --badge:#2563eb; }
 
+/* 데스크톱: 긴 버전 표시, 짧은 버전 숨김 (기본값) */
+.tooltip-label-mobile {
+  display: none;
+}
+
 /* =========================
    7) 이미지 모달
 ==========================*/
@@ -608,3 +613,389 @@ html {
   color: var(--accent);
 }
 
+/* =========================
+   반응형 (모바일)
+==========================*/
+@media (max-width: 768px) {
+  /* 네비게이션 */
+  .hash-nav {
+    flex-wrap: wrap;
+    gap: var(--space-1);
+    padding: var(--space-1);
+  }
+  .hash-nav a {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  /* 섹션 패딩 조정 */
+  html {
+    scroll-snap-type: none;
+  }
+  .panel {
+    padding: var(--space-4) var(--space-2);
+    padding-bottom: var(--space-5);
+    height: auto;
+    min-height: auto;
+    scroll-snap-align: none;
+    overflow: visible;
+  }
+  .container {
+    width: 95vw;
+  }
+
+  /* About Me */
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+  .display-name {
+    font-size: clamp(28px, 8vw, 36px);
+  }
+  .about-photo {
+    max-width: 150px;
+    justify-self: center;
+    margin-bottom: var(--space-3);
+  }
+
+  /* 타임라인 */
+  .activity-timeline {
+    overflow-x: visible;
+  }
+  .activity-timeline .subsection-title {
+    font-size: 16px;
+  }
+  .timeline-scale {
+    width: 100%;
+    font-size: 9px;
+  }
+  .timeline-bars {
+    width: 100%;
+    grid-auto-rows: 28px;
+    gap: 8px 4px;
+    padding: 8px 4px;
+  }
+  .tbar {
+    min-height: 28px;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  .tbar:active {
+    transform: scale(1.05);
+  }
+  /* 모바일에서는 라벨/기간 기본 숨김 */
+  .tbar .label,
+  .tbar .period {
+    display: none;
+  }
+  .tbar.long-text .tooltip-label,
+  .tbar.long-text-bottom .tooltip-label,
+  .tbar.long-text .tooltip-arrow,
+  .tbar.long-text-bottom .tooltip-arrow {
+    display: none;
+  }
+  /* 터치/클릭 시 활성화 */
+  .tbar.active .label,
+  .tbar.active .period {
+    display: block;
+    font-size: 10px;
+  }
+  .tbar.active .label {
+    left: 6px;
+  }
+  .tbar.active .period {
+    right: 6px;
+    bottom: 3px;
+    font-size: 8px;
+  }
+  /* 터치 시 말풍선 표시 */
+  .tbar.active .tooltip-label-desktop {
+    display: none !important;
+  }
+  /* 위쪽 말풍선 */
+  .tbar.active.long-text .tooltip-label-mobile,
+  .tbar.active.long-text .tooltip-label:not(.tooltip-label-desktop):not(.tooltip-label-mobile) {
+    display: block;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text);
+    padding: 6px 12px;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    box-shadow: var(--shadow-1);
+    max-width: 90vw;
+    width: max-content;
+    white-space: normal;
+    z-index: 100;
+  }
+  .tbar.active.long-text .tooltip-arrow {
+    display: block;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 1px;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 8px solid var(--bg-alt);
+  }
+  /* 아래쪽 말풍선 */
+  .tbar.active.long-text-bottom .tooltip-label-mobile,
+  .tbar.active.long-text-bottom .tooltip-label:not(.tooltip-label-desktop):not(.tooltip-label-mobile) {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text);
+    padding: 6px 12px;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    box-shadow: var(--shadow-1);
+    max-width: 90vw;
+    width: max-content;
+    white-space: normal;
+    z-index: 100;
+  }
+  .tbar.active.long-text-bottom .tooltip-arrow {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 1px;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 8px solid var(--bg-alt);
+  }
+  /* 막대 안 텍스트 상단 가운데 정렬 (충북대, 논문 등) */
+  .tbar.active:not(.long-text):not(.long-text-bottom) .label {
+    left: 50%;
+    top: 4px;
+    transform: translateX(-50%) translateY(0);
+  }
+  .tbar.active:not(.long-text):not(.long-text-bottom) .period {
+    left: 50%;
+    right: auto;
+    bottom: 4px;
+    transform: translateX(-50%);
+  }
+  /* 말풍선 있는 막대들의 기간도 하단 가운데 정렬 */
+  .tbar.active.long-text .period,
+  .tbar.active.long-text-bottom .period {
+    display: block !important;
+    position: absolute;
+    left: 50%;
+    right: auto;
+    bottom: 3px;
+    transform: translateX(-50%);
+    font-size: 8px;
+    color: white;
+    opacity: 0.85;
+  }
+
+  /* Skills */
+  .skill-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Projects */
+  .proj-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Experience */
+  .exp-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 태블릿 */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* 섹션 높이 자동 조정 */
+  html {
+    scroll-snap-type: none;
+  }
+  .panel {
+    height: auto;
+    min-height: auto;
+    padding: var(--space-5) var(--space-3);
+    scroll-snap-align: none;
+    overflow: visible;
+  }
+  
+  .container {
+    width: 90vw;
+  }
+  
+  /* 타임라인 - 모바일과 동일하게 터치 방식 */
+  .activity-timeline {
+    overflow-x: visible;
+  }
+  .activity-timeline .subsection-title {
+    font-size: 17px;
+  }
+  .timeline-scale {
+    width: 100%;
+    font-size: 10px;
+  }
+  .timeline-bars {
+    width: 100%;
+    grid-auto-rows: 32px;
+    gap: 10px 5px;
+    padding: 10px 6px;
+  }
+  .tbar {
+    min-height: 32px;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  .tbar:active {
+    transform: scale(1.05);
+  }
+  /* 태블릿에서도 라벨/기간 기본 숨김 */
+  .tbar .label,
+  .tbar .period {
+    display: none;
+  }
+  .tbar.long-text .tooltip-label,
+  .tbar.long-text-bottom .tooltip-label,
+  .tbar.long-text .tooltip-arrow,
+  .tbar.long-text-bottom .tooltip-arrow {
+    display: none;
+  }
+  /* 터치 시 활성화 */
+  .tbar.active .label,
+  .tbar.active .period {
+    display: block;
+    font-size: 11px;
+  }
+  .tbar.active .label {
+    left: 8px;
+  }
+  .tbar.active .period {
+    right: 8px;
+    bottom: 4px;
+    font-size: 9px;
+  }
+  /* 터치 시 말풍선 표시 */
+  .tbar.active .tooltip-label-desktop {
+    display: none !important;
+  }
+  /* 위쪽 말풍선 */
+  .tbar.active.long-text .tooltip-label-mobile,
+  .tbar.active.long-text .tooltip-label:not(.tooltip-label-desktop):not(.tooltip-label-mobile) {
+    display: block;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text);
+    padding: 6px 12px;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    box-shadow: var(--shadow-1);
+    max-width: 85vw;
+    width: max-content;
+    white-space: normal;
+    z-index: 100;
+  }
+  .tbar.active.long-text .tooltip-arrow {
+    display: block;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 1px;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 8px solid var(--bg-alt);
+  }
+  /* 아래쪽 말풍선 */
+  .tbar.active.long-text-bottom .tooltip-label-mobile,
+  .tbar.active.long-text-bottom .tooltip-label:not(.tooltip-label-desktop):not(.tooltip-label-mobile) {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text);
+    padding: 6px 12px;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    box-shadow: var(--shadow-1);
+    max-width: 85vw;
+    width: max-content;
+    white-space: normal;
+    z-index: 100;
+  }
+  .tbar.active.long-text-bottom .tooltip-arrow {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 1px;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 8px solid var(--bg-alt);
+  }
+  /* 막대 안 텍스트 상단 가운데 정렬 (충북대, 논문 등) */
+  .tbar.active:not(.long-text):not(.long-text-bottom) .label {
+    left: 50%;
+    top: 5px;
+    transform: translateX(-50%) translateY(0);
+  }
+  .tbar.active:not(.long-text):not(.long-text-bottom) .period {
+    left: 50%;
+    right: auto;
+    bottom: 4px;
+    transform: translateX(-50%);
+  }
+  /* 말풍선 있는 막대들의 기간도 하단 가운데 정렬 */
+  .tbar.active.long-text .period,
+  .tbar.active.long-text-bottom .period {
+    display: block !important;
+    position: absolute;
+    left: 50%;
+    right: auto;
+    bottom: 3px;
+    transform: translateX(-50%);
+    font-size: 8px;
+    color: white;
+    opacity: 0.85;
+  }
+  
+  .skill-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .proj-grid {
+    grid-template-columns: 1fr;
+  }
+}

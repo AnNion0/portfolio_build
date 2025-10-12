@@ -74,6 +74,22 @@
     transform: scale(1.1);
   }
 
+  /* 반응형 */
+  @media (max-width: 768px) {
+    .project-detail { padding: var(--space-4) var(--space-2); }
+    .project-title { font-size: clamp(24px, 6vw, 32px); }
+    .section-block { padding: var(--space-3); }
+    .section-block h2 { font-size: 20px; }
+    .project-nav { gap: var(--space-2); }
+    .project-tab { font-size: 14px; padding: 8px 14px; }
+    .carousel-wrapper { max-width: 100%; }
+    .carousel { max-width: 100%; }
+    .carousel-track img { width: 100%; }
+    .prev-btn, .next-btn { width: 40px; height: 40px; font-size: 24px; }
+    .tech-stack { gap: 8px; }
+    .tech-tag { font-size: 12px; padding: 6px 10px; }
+  }
+
   /* 프로젝트 네비게이션 탭 */
   .project-nav {
     display: flex; flex-wrap: wrap; gap: var(--space-3);

@@ -209,7 +209,13 @@ function getCurrentPanel() {
   return closestIndex;
 }
 
+// 페이지 고정 스크롤 (데스크톱만)
 window.addEventListener('wheel', (e) => {
+  // 모바일/태블릿에서는 일반 스크롤 사용
+  if (window.innerWidth <= 1024) {
+    return;
+  }
+  
   // 모달이 열려있으면 페이지 이동하지 않음
   if (modal.style.display === 'block') {
     return;
@@ -237,4 +243,37 @@ window.addEventListener('wheel', (e) => {
     setTimeout(() => { isScrolling = false; }, 1100);
   }
 }, { passive: false });
+
+// 타임라인 터치 인터랙션 (모바일 + 태블릿)
+if (window.innerWidth <= 1024) {
+  const timelineBars = document.querySelectorAll('.tbar');
+  
+  timelineBars.forEach(bar => {
+    bar.addEventListener('click', function(e) {
+      e.stopPropagation();
+      
+      // 다른 모든 바의 active 클래스 제거
+      timelineBars.forEach(b => {
+        if (b !== this) b.classList.remove('active');
+      });
+      
+      // 현재 바 토글
+      this.classList.toggle('active');
+    });
+  });
+  
+  // 바깥 영역 클릭 시 모든 active 제거
+  document.addEventListener('click', function() {
+    timelineBars.forEach(b => b.classList.remove('active'));
+  });
+}
+
+// 화면 크기 변경 시 재초기화
+window.addEventListener('resize', function() {
+  if (window.innerWidth > 1024) {
+    document.querySelectorAll('.tbar').forEach(bar => {
+      bar.classList.remove('active');
+    });
+  }
+});
 
