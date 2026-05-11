@@ -1398,16 +1398,53 @@ body:has(> nav.hash-nav.projects-site-nav) > .project-detail {
   max-width: 420px;
   gap: var(--space-3);
 }
-/* 톤디핏: 2·3·5번만 세로 기준으로 맞춰 비율 유지 확대 */
-.project-detail .carousel-wrapper--tonedfit .carousel-slide--tonedfit-height-fit {
-  align-items: center;
+/* 톤디핏: 모두루와 동일한 바깥 폭, 프레임 높이는 주요 화면 이미지 상한과 동일. 슬라이드 안 여백은 검정 */
+.project-detail .carousel-wrapper--tonedfit {
+  max-width: min(900px, 100%);
+  gap: var(--space-4);
 }
-.project-detail .carousel-wrapper--tonedfit .carousel-slide--tonedfit-height-fit img {
+.project-detail .carousel-wrapper--tonedfit .carousel-track {
+  height: 100%;
+  align-items: stretch;
+}
+.project-detail .carousel-wrapper--tonedfit .carousel-slide {
+  align-items: center;
+  justify-content: center;
+  background: #000000;
+  height: 100%;
+  min-height: 0;
+}
+.project-detail .carousel-wrapper--tonedfit .carousel-slide img {
+  max-height: none;
+  max-width: none;
   width: auto;
-  max-width: 100%;
-  height: min(80vh, 760px);
+  height: auto;
   object-fit: contain;
   object-position: center center;
+  vertical-align: middle;
+}
+/* 1·4·6: 세로(높이) 우선 맞춤(세로형 스샷) — 좌우 검정 여백 */
+.project-detail .carousel-wrapper--tonedfit .carousel-slide--tonedfit-height-fit img {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  object-position: center center;
+}
+/* 2·3·5: 가로(너비) 기준 맞춤 — 위아래 검정 여백 */
+.project-detail .carousel-wrapper--tonedfit .carousel-slide--tonedfit-width-fit img {
+  max-height: 100%;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center center;
+}
+.project-detail .carousel-wrapper--tonedfit .carousel {
+  background: #000000;
+  height: min(88vh, 920px);
+  min-height: 320px;
 }
 /* Wallet Slot ①·②: 원본 해상도가 달라도 같은 프레임 높이·가운데 맞춤(OCR 구간 미적용) */
 .project-detail .carousel-wrapper--wallet-gif-frame .carousel {
@@ -1717,8 +1754,9 @@ body:has(> nav.hash-nav.projects-site-nav) > .project-detail {
   .project-detail .scenario-media img {
     max-width: 100%;
   }
-  .project-detail .carousel-wrapper--tonedfit .carousel-slide--tonedfit-height-fit img {
-    height: min(68vh, 600px);
+  .project-detail .carousel-wrapper--tonedfit .carousel {
+    height: min(72vh, 640px);
+    min-height: 280px;
   }
   .project-detail .assoc-pair-row {
     grid-template-columns: 1fr;
