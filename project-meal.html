@@ -5,191 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>떡잎냠냠 - Heeeun Ahn Portfolio</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    /* 프로젝트 상세 페이지 컨테이너 */
-    .project-detail {
-      min-height: 100vh;
-      padding: calc(var(--space-6) * 2) var(--space-4);
-      background: var(--bg);
-    }
-
-    /* 돌아가기 버튼 */
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 20px;
-      background: var(--primary);
-      color: white;
-      text-decoration: none;
-      margin-bottom: var(--space-5);
-      border-radius: var(--radius);
-      font-weight: 600;
-      font-size: 14px;
-      transition: all 0.3s ease;
-    }
-
-    .back-link:hover {
-      background: color-mix(in srgb, var(--primary), black 20%);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,.2);
-    }
-
-    /* 프로젝트 헤더 영역 */
-    .project-header {
-      margin-bottom: var(--space-6);
-    }
-
-    .project-title {
-      font-size: clamp(32px, 5vw, 48px);
-      font-weight: 800;
-      margin: 0;
-    }
-    .project-subtitle {
-      margin: var(--space-2) 0 0;
-      font-size: 1.1rem;
-      color: var(--text-weak);
-      font-weight: 500;
-    }
-
-    /* 프로젝트 콘텐츠 영역 */
-    .project-content {
-      display: grid;
-      gap: var(--space-5);
-    }
-
-    /* 섹션 블록 */
-    .section-block {
-      background: var(--bg-alt);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: var(--space-5);
-      box-shadow: var(--shadow-1);
-    }
-
-    .section-block h2 {
-      margin: 0 0 var(--space-3);
-      font-size: 24px;
-      color: var(--primary);
-    }
-
-    .section-block h3 {
-      margin: var(--space-4) 0 var(--space-2);
-      font-size: 20px;
-      color: var(--text);
-      font-weight: 700;
-    }
-
-    .section-block p,
-    .section-block li {
-      line-height: 1.8;
-      color: var(--text-weak);
-    }
-
-    .section-block ul {
-      margin: var(--space-3) 0;
-      padding-left: var(--space-4);
-    }
-
-    .section-block ul ul {
-      margin: var(--space-2) 0;
-    }
-
-    /* 기술 스택 태그 */
-    .tech-stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: var(--space-3);
-    }
-
-    .tech-tag {
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: color-mix(in srgb, var(--primary), transparent 90%);
-      font-family: var(--mono);
-      font-size: 14px;
-      color: var(--primary);
-    }
-
-    /* 이미지 갤러리 */
-    .image-gallery h2 {
-      margin: 0 0 var(--space-3);
-    }
-
-    /* 이미지 스크롤 박스 */
-    .image-scroll-box {
-      width: 850px;
-      height: 478px;
-      margin: 0 auto;
-      overflow-y: auto;
-      overflow-x: hidden;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-1);
-    }
-
-    .image-scroll-box img {
-      width: 850px;
-      height: auto;
-      display: block;
-    }
-
-    /* 모바일 반응형 (768px 이하) */
-    @media (max-width: 768px) {
-      .project-detail {
-        padding: var(--space-4) var(--space-2);
-      }
-
-      .project-title {
-        font-size: clamp(24px, 6vw, 32px);
-      }
-
-      .section-block {
-        padding: var(--space-3);
-      }
-
-      .section-block h2 {
-        font-size: 20px;
-      }
-
-      .section-block h3 {
-        font-size: 18px;
-      }
-
-      .image-scroll-box {
-        width: 100%;
-        max-width: 100%;
-        height: 400px;
-      }
-
-      .image-scroll-box img {
-        width: 100%;
-      }
-
-      .tech-stack {
-        gap: 8px;
-      }
-
-      .tech-tag {
-        font-size: 12px;
-        padding: 6px 10px;
-      }
-    }
-
-    /* 태블릿 반응형 (769px ~ 1024px) */
-    @media (min-width: 769px) and (max-width: 1024px) {
-      .image-scroll-box {
-        width: 100%;
-        max-width: 700px;
-        height: 450px;
-      }
-
-      .image-scroll-box img {
-        width: 100%;
-      }
-    }
-  </style>
 </head>
 <body>
   <div class="project-detail">
@@ -203,7 +18,7 @@
 
       <div class="project-content">
         <!-- 프로젝트 개요 -->
-        <div class="section-block">
+        <div class="section-block" id="overview">
           <h2>프로젝트 개요</h2>
           <p>
             사용자가 회원가입/로그인을 통해 개인 식단을 기록·관리하고 음식 검색으로 손쉽게 식단에 음식을 추가할 수 있는
@@ -224,7 +39,7 @@
         </div>
 
         <!-- 서비스 주요 화면 -->
-        <div class="section-block image-gallery">
+        <div class="section-block image-gallery" id="screens">
           <h2>서비스 주요 화면</h2>
           <div class="image-scroll-box">
             <img src="image/meal_1.png" alt="로그인/회원가입 화면" />
@@ -237,7 +52,7 @@
         </div>
 
         <!-- 주요 기능 -->
-        <div class="section-block">
+        <div class="section-block" id="features">
           <h2>주요 기능</h2>
           <ul>
             <li>
@@ -268,7 +83,7 @@
         </div>
 
         <!-- 나의 역할 -->
-        <div class="section-block">
+        <div class="section-block" id="my-role">
           <h2>나의 역할</h2>
           <ul>
             <li>
@@ -298,7 +113,7 @@
         </div>
 
         <!-- 핵심 성과 -->
-        <div class="section-block">
+        <div class="section-block" id="impact">
           <h2>핵심 성과</h2>
           <ul>
             <li><strong>식단 기록 경험 개선:</strong> 식단 저장·수정 후 별도 새로고침 없이 목록·대시보드(주간 칼로리·최근 식단 등)가 바로 갱신되도록 연동</li>
@@ -309,7 +124,7 @@
         </div>
 
         <!-- 기술적 도전과 해결 -->
-        <div class="section-block">
+        <div class="section-block" id="challenges">
           <h2>기술적 도전과 해결</h2>
           <p><strong>대규모 음식 데이터 검색 지연</strong></p>
           <ul>
@@ -326,7 +141,7 @@
         </div>
 
         <!-- 사용한 기술 스택 -->
-        <div class="section-block">
+        <div class="section-block" id="stack">
           <h2>사용한 기술 스택</h2>
           <ul>
             <li><strong>Frontend:</strong> Vue 3, Vite, Pinia, Axios</li>

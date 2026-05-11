@@ -5,175 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Wallet Slot - Heeeun Ahn Portfolio</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    .project-detail {
-      min-height: 100vh;
-      padding: calc(var(--space-6) * 2) var(--space-4);
-      background: var(--bg);
-    }
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 20px;
-      background: var(--primary);
-      color: white;
-      text-decoration: none;
-      margin-bottom: var(--space-5);
-      border-radius: var(--radius);
-      font-weight: 600;
-      font-size: 14px;
-      transition: all 0.3s ease;
-    }
-    .back-link:hover {
-      background: color-mix(in srgb, var(--primary), black 20%);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,.2);
-    }
-    .project-header { margin-bottom: var(--space-6); }
-    .project-title {
-      font-size: clamp(32px, 5vw, 48px);
-      font-weight: 800;
-      margin: 0;
-    }
-    .project-subtitle {
-      margin: var(--space-2) 0 0;
-      font-size: 1.1rem;
-      color: var(--text-weak);
-      font-weight: 500;
-    }
-    .project-content { display: grid; gap: var(--space-5); }
-    .section-block {
-      background: var(--bg-alt);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: var(--space-5);
-      box-shadow: var(--shadow-1);
-    }
-    .section-block h2 {
-      margin: 0 0 var(--space-3);
-      font-size: 24px;
-      color: var(--primary);
-    }
-    .section-block h3 {
-      margin: var(--space-4) 0 var(--space-2);
-      font-size: 20px;
-      color: var(--text);
-      font-weight: 700;
-    }
-    .section-block p,
-    .section-block li { line-height: 1.8; color: var(--text-weak); }
-    .section-block ul {
-      margin: var(--space-3) 0;
-      padding-left: var(--space-4);
-    }
-    .section-block ul ul { margin: var(--space-2) 0; }
-    .tech-stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: var(--space-3);
-    }
-    .tech-tag {
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: color-mix(in srgb, var(--primary), transparent 90%);
-      font-family: var(--mono);
-      font-size: 14px;
-      color: var(--primary);
-    }
-    .image-gallery h2 { margin: 0 0 var(--space-2); }
-    .scenario-block-lead {
-      margin: 0 0 var(--space-5);
-      padding: var(--space-4);
-      background: color-mix(in srgb, var(--bg), var(--primary) 6%);
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      color: var(--text-weak);
-      line-height: 1.75;
-      font-size: 0.98rem;
-    }
-    .scenario-block-lead strong {
-      color: var(--text);
-    }
-    .scenario-step {
-      margin-bottom: var(--space-6);
-      padding-bottom: var(--space-5);
-      border-bottom: 1px solid var(--border);
-    }
-    .scenario-step:last-of-type {
-      border-bottom: none;
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
-    .scenario-step h3 {
-      margin: 0 0 var(--space-2);
-      font-size: 1.15rem;
-      color: var(--primary);
-    }
-    .scenario-step > p {
-      margin: 0 0 var(--space-2);
-      color: var(--text-weak);
-      line-height: 1.7;
-      font-size: 0.95rem;
-    }
-    .scenario-step > ul {
-      margin-top: var(--space-2);
-    }
-    .scenario-media {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-3);
-      margin-top: var(--space-3);
-    }
-    .scenario-media img {
-      width: 100%;
-      max-width: 380px;
-      margin: 0 auto;
-      display: block;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-1);
-    }
-    .scenario-media-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-3);
-      justify-content: center;
-      margin-top: var(--space-3);
-    }
-    .scenario-media-row img {
-      width: 100%;
-      max-width: 320px;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-1);
-    }
-    .scenario-flow-summary {
-      margin-top: var(--space-5);
-      padding: var(--space-4);
-      background: color-mix(in srgb, var(--primary), transparent 92%);
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-    }
-    .scenario-flow-summary h3 {
-      margin: 0 0 var(--space-2);
-      font-size: 1.05rem;
-      color: var(--text);
-    }
-    .scenario-flow-summary p {
-      margin: 0;
-      font-size: 0.95rem;
-    }
-    @media (max-width: 768px) {
-      .project-detail { padding: var(--space-4) var(--space-2); }
-      .project-title { font-size: clamp(24px, 6vw, 32px); }
-      .section-block { padding: var(--space-3); }
-      .section-block h2 { font-size: 20px; }
-      .section-block h3 { font-size: 18px; }
-      .tech-tag { font-size: 12px; padding: 6px 10px; }
-      .scenario-media img { max-width: 100%; }
-    }
-  </style>
 </head>
 <body>
   <div class="project-detail">
@@ -182,7 +13,7 @@
 
       <div class="project-header">
         <h1 class="project-title">Wallet Slot</h1>
-        <p class="project-subtitle">슬롯 기반 AI 예산 관리 서비스</p>
+        <p class="project-subtitle">슬롯 기반 AI 예산 관리 — React Native 모바일 앱</p>
       </div>
 
       <div class="project-content">
@@ -190,7 +21,7 @@
           <h2>프로젝트 개요</h2>
           <p>
             추가 통장 개설 없이 하나의 계좌 안에서 <strong>지출 목적별 슬롯</strong>을 생성하고 관리할 수 있는
-            <strong>AI 기반 예산 관리 플랫폼</strong>입니다.
+            <strong>AI 기반 예산 관리 서비스</strong>로, 클라이언트는 <strong>React Native</strong> 기반 모바일 앱으로 구현했습니다.
             거래내역 분석과 LLM 기반 슬롯 분류를 통해 소비 패턴을 자동 분석하고 예산 편성과 지출 관리를 지원했습니다.
           </p>
           <ul>
@@ -200,9 +31,11 @@
           </ul>
           <p><strong>기술 스택</strong></p>
           <ul>
-            <li>Python, pandas, MySQL, Spring Boot, LLM</li>
+            <li><strong>앱:</strong> React Native</li>
+            <li><strong>백엔드·데이터 (담당 DE 영역):</strong> Python, pandas, MySQL, Spring Boot, LLM</li>
           </ul>
           <div class="tech-stack" aria-label="기술 태그">
+            <span class="tech-tag">React Native</span>
             <span class="tech-tag">Python</span>
             <span class="tech-tag">pandas</span>
             <span class="tech-tag">MySQL</span>
@@ -228,11 +61,6 @@
               <li>비밀번호 설정 및 푸시 알림 동의</li>
               <li>회원가입 완료</li>
             </ul>
-            <div class="scenario-media">
-              <img src="image/회원가입.gif" alt="Wallet Slot 회원가입 화면" loading="lazy" />
-              <img src="image/1원인증.gif" alt="휴대폰 1원 인증" loading="lazy" />
-              <img src="image/비밀번호푸시알림.gif" alt="비밀번호 설정 및 푸시 알림 동의" loading="lazy" />
-            </div>
           </div>
 
           <div class="scenario-step">
@@ -243,20 +71,33 @@
               <li>금융기관에서 계좌 가져오기</li>
               <li>대표 계좌 선택</li>
             </ul>
-            <div class="scenario-media">
-              <img src="image/마이데이터1.gif" alt="마이데이터 연동 화면 1" loading="lazy" />
-              <img src="image/마이데이터2.gif" alt="마이데이터 연동 화면 2" loading="lazy" />
+          </div>
+
+          <p class="scenario-carousel-hint">
+            아래 캐러셀에서 <strong>← →</strong> 버튼으로 시나리오 #1·#2에 해당하는 화면을 순서대로 넘겨 볼 수 있습니다.
+          </p>
+          <div class="carousel-wrapper carousel-wrapper--narrow" data-wallet-carousel role="region" aria-label="시나리오 1~2 화면">
+            <button type="button" class="prev-btn" aria-label="이전 화면">‹</button>
+            <div class="carousel">
+              <div class="carousel-track">
+                <div class="carousel-slide"><img src="image/회원가입.gif" alt="Wallet Slot 회원가입 화면" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="image/1원인증.gif" alt="휴대폰 1원 인증" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="image/비밀번호푸시알림.gif" alt="비밀번호 설정 및 푸시 알림 동의" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="image/마이데이터1.gif" alt="마이데이터 연동 화면 1" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="image/마이데이터2.gif" alt="마이데이터 연동 화면 2" loading="lazy" /></div>
+              </div>
             </div>
+            <button type="button" class="next-btn" aria-label="다음 화면">›</button>
           </div>
         </div>
 
         <div class="section-block image-gallery" id="screens-part2">
-          <h2>서비스 주요 화면 ② — 시나리오 #3~끝</h2>
+          <h2>서비스 주요 화면 ② — 시나리오 #3·#4·#5·#7 (OCR 제외)</h2>
           <p class="scenario-block-lead">
             <strong>슬롯을 잡고 나면 본격적인 예산 운영 단계</strong>입니다.
             거래 내역을 바탕으로 AI가 슬롯(지출 목적 통)을 추천·확정하고, 대시보드에서 슬롯별 지출을 봅니다.
-            결제가 들어오면 자동 분류·예산 초과를 푸시로 알리고, 한 건의 영수증을 OCR로 쪼개 넣을 수 있으며,
-            쌓인 소비는 AI 리포트로 요약해 볼 수 있습니다. 화면 수가 많아 <strong>#3 이후를 한 블록</strong>으로 묶었습니다.
+            결제가 들어오면 자동 분류·예산 초과를 푸시로 알립니다.
+            <strong>OCR 금액 나누기</strong>는 아래 <strong>③절</strong>에서 따로 캐러셀로 확인할 수 있습니다.
           </p>
 
           <div class="scenario-step">
@@ -268,10 +109,6 @@
               <li>거래내역 분석 기간 및 슬롯 추천 기준 결정 후 추천</li>
               <li>추천받은 슬롯 수정 및 확정</li>
             </ul>
-            <div class="scenario-media">
-              <img src="image/슬롯추천1.gif" alt="슬롯 추천 화면" loading="lazy" />
-              <img src="image/슬롯추천2.gif" alt="분석 기간·추천 기준 및 슬롯 편집" loading="lazy" />
-            </div>
           </div>
 
           <div class="scenario-step">
@@ -280,9 +117,6 @@
             <ul>
               <li>슬롯별 지출 현황 확인</li>
             </ul>
-            <div class="scenario-media">
-              <img src="image/대시보드.gif" alt="대시보드 화면" loading="lazy" />
-            </div>
           </div>
 
           <div class="scenario-step">
@@ -292,23 +126,6 @@
               <li>지출 내역 자동 슬롯 분류 알림</li>
               <li>예산 초과 알림</li>
             </ul>
-            <div class="scenario-media">
-              <img src="image/푸시알림.jpg" alt="푸시 알림 예시" loading="lazy" />
-            </div>
-          </div>
-
-          <div class="scenario-step">
-            <h3>6. OCR 금액 나누기</h3>
-            <p>한 번에 여러 품목이 묶인 결제(예: 다이소)를 영수증 이미지로 읽어, 품목별 금액을 나눈 뒤 슬롯에 반영합니다.</p>
-            <ul>
-              <li>OCR로 상품명·금액 추출</li>
-              <li>해당 슬롯에서 금액 차감·분할</li>
-            </ul>
-            <div class="scenario-media-row">
-              <img src="image/ocr금액나누기1.jpg" alt="OCR 금액 나누기 1" loading="lazy" />
-              <img src="image/ocr금액나누기2.jpg" alt="OCR 금액 나누기 2" loading="lazy" />
-              <img src="image/ocr금액나누기3.jpg" alt="OCR 금액 나누기 3" loading="lazy" />
-            </div>
           </div>
 
           <div class="scenario-step">
@@ -322,16 +139,61 @@
             <p>소비 리포트 상세 화면 GIF·스크린샷은 추가 시 이 구간에 연결할 수 있습니다.</p>
           </div>
 
+          <p class="scenario-carousel-hint">
+            아래 캐러셀에서 <strong>← →</strong>로 시나리오 #3·#4·#5 화면(슬롯 확정·대시보드·푸시)을 넘겨 볼 수 있습니다. (#6 OCR은 ③절, #7 소비 리포트는 텍스트만)
+          </p>
+          <div class="carousel-wrapper carousel-wrapper--narrow" data-wallet-carousel role="region" aria-label="시나리오 3~5 화면">
+            <button type="button" class="prev-btn" aria-label="이전 화면">‹</button>
+            <div class="carousel">
+              <div class="carousel-track">
+                <div class="carousel-slide"><img src="image/슬롯추천1.gif" alt="슬롯 추천 화면" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="image/슬롯추천2.gif" alt="분석 기간·추천 기준 및 슬롯 편집" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="image/대시보드.gif" alt="대시보드 화면" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="image/푸시알림.jpg" alt="푸시 알림 예시" loading="lazy" /></div>
+              </div>
+            </div>
+            <button type="button" class="next-btn" aria-label="다음 화면">›</button>
+          </div>
+
           <div class="scenario-flow-summary">
-            <h3>시연 흐름 요약 (① + ② 전체)</h3>
+            <h3>시연 흐름 요약 (① + ② + ③)</h3>
             <p>
               <strong>①</strong> 회원가입 → 마이데이터 연동 → 서비스에 연동할 계좌 선택 → 메인 계좌 선택
               → <strong>②</strong> 슬롯 추천 → 슬롯 리스트 확정 → 대시보드 진입
               → (결제 내역 발생) 지출이 자동 슬롯 분류되었다는 푸시 알림
               → (예산 초과 지출 발생) 예산 초과 푸시 알림
-              → 다이소 등 결제 건을 선택해 OCR로 결제 내역 분리
+              → <strong>③</strong> 다이소 등 결제 건을 선택해 OCR로 결제 내역 분리
               → (AI 소비 리포트 발생) 알림 탭에서 리포트 알림을 눌러 소비 리포트 화면으로 진입
             </p>
+          </div>
+        </div>
+
+        <div class="section-block image-gallery" id="screens-ocr">
+          <h2>서비스 주요 화면 ③ — OCR 금액 나누기</h2>
+          <p class="scenario-block-lead">
+            한 번에 여러 품목이 묶인 결제(예: 다이소)를 영수증 이미지로 읽어, 품목별 금액을 나눈 뒤 슬롯에 반영하는 구간입니다.
+          </p>
+          <div class="scenario-step">
+            <h3>6. OCR 금액 나누기</h3>
+            <p>영수증에서 상품명·금액을 추출하고, 해당 슬롯에서 금액을 차감·분할합니다.</p>
+            <ul>
+              <li>OCR로 상품명·금액 추출</li>
+              <li>해당 슬롯에서 금액 차감·분할</li>
+            </ul>
+          </div>
+          <p class="scenario-carousel-hint">
+            아래 캐러셀에서 <strong>← →</strong>로 OCR 처리 화면을 넘겨 볼 수 있습니다.
+          </p>
+          <div class="carousel-wrapper carousel-wrapper--narrow" data-wallet-carousel role="region" aria-label="OCR 금액 나누기 화면">
+            <button type="button" class="prev-btn" aria-label="이전 화면">‹</button>
+            <div class="carousel">
+              <div class="carousel-track">
+                <div class="carousel-slide"><img src="image/ocr금액나누기1.jpg" alt="OCR 금액 나누기 1" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="image/ocr금액나누기2.jpg" alt="OCR 금액 나누기 2" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="image/ocr금액나누기3.jpg" alt="OCR 금액 나누기 3" loading="lazy" /></div>
+              </div>
+            </div>
+            <button type="button" class="next-btn" aria-label="다음 화면">›</button>
           </div>
         </div>
 
@@ -433,5 +295,33 @@
       </div>
     </div>
   </div>
+  <script>
+    (function () {
+      document.querySelectorAll('[data-wallet-carousel]').forEach(function (root) {
+        var carousel = root.querySelector('.carousel');
+        var track = root.querySelector('.carousel-track');
+        var prevBtn = root.querySelector('.prev-btn');
+        var nextBtn = root.querySelector('.next-btn');
+        if (!carousel || !track || !prevBtn || !nextBtn) return;
+        var n = track.children.length;
+        if (n === 0) return;
+        var index = 0;
+        function updateSlide() {
+          var w = carousel.getBoundingClientRect().width;
+          track.style.transform = 'translateX(' + -index * w + 'px)';
+        }
+        nextBtn.addEventListener('click', function () {
+          index = (index + 1) % n;
+          updateSlide();
+        });
+        prevBtn.addEventListener('click', function () {
+          index = (index - 1 + n) % n;
+          updateSlide();
+        });
+        window.addEventListener('resize', updateSlide);
+        updateSlide();
+      });
+    })();
+  </script>
 </body>
 </html>

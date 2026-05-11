@@ -5,226 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Moduru - Heeeun Ahn Portfolio</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    /* 프로젝트 상세 페이지 컨테이너 */
-    .project-detail {
-      min-height: 100vh;
-      padding: calc(var(--space-6) * 2) var(--space-4);
-      background: var(--bg);
-    }
-
-    /* 돌아가기 버튼 */
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 20px;
-      background: var(--primary);
-      color: white;
-      text-decoration: none;
-      margin-bottom: var(--space-5);
-      border-radius: var(--radius);
-      font-weight: 600;
-      font-size: 14px;
-      transition: all 0.3s ease;
-    }
-    .back-link:hover {
-      background: color-mix(in srgb, var(--primary), black 20%);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,.2);
-    }
-
-    /* 프로젝트 헤더 영역 */
-    .project-header {
-      margin-bottom: var(--space-6);
-    }
-
-    .project-title {
-      font-size: clamp(32px, 5vw, 48px);
-      font-weight: 800;
-      margin: 0;
-    }
-
-    /* 프로젝트 콘텐츠 영역 */
-    .project-content {
-      display: grid;
-      gap: var(--space-5);
-    }
-
-    /* 섹션 블록 */
-    .section-block {
-      background: var(--bg-alt);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: var(--space-5);
-      box-shadow: var(--shadow-1);
-    }
-
-    .section-block h2 {
-      margin: 0 0 var(--space-3);
-      font-size: 24px;
-      color: var(--primary);
-    }
-
-    .section-block h3 {
-      margin: var(--space-4) 0 var(--space-2);
-      font-size: 20px;
-      color: var(--text);
-      font-weight: 700;
-    }
-
-    .section-block p,
-    .section-block li {
-      line-height: 1.8;
-      color: var(--text-weak);
-    }
-
-    .section-block ul {
-      margin: var(--space-3) 0;
-      padding-left: var(--space-4);
-    }
-
-    .section-block ul ul {
-      margin: var(--space-2) 0;
-    }
-
-    /* 기술 스택 태그 */
-    .tech-stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: var(--space-3);
-    }
-
-    .tech-tag {
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: color-mix(in srgb, var(--primary), transparent 90%);
-      font-family: var(--mono);
-      font-size: 14px;
-      color: var(--primary);
-    }
-
-    /* 이미지 갤러리 */
-    .image-gallery h2 {
-      margin: 0 0 var(--space-3);
-    }
-
-    /* 캐러셀 컴포넌트 */
-    .carousel-wrapper {
-      position: relative;
-      max-width: 900px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      gap: var(--space-4);
-    }
-
-    .carousel {
-      overflow: hidden;
-      flex: 1;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-1);
-    }
-
-    .carousel-track {
-      display: flex;
-      transition: transform 0.4s ease-in-out;
-    }
-
-    .carousel-track img {
-      width: 100%;
-      flex-shrink: 0;
-    }
-
-    .prev-btn, .next-btn {
-      background: var(--primary);
-      border: none;
-      color: white;
-      font-size: 32px;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 10;
-    }
-
-    .prev-btn:hover, .next-btn:hover {
-      background: color-mix(in srgb, var(--primary), black 20%);
-      transform: scale(1.1);
-    }
-
-    /* 모바일 반응형 (768px 이하) */
-    @media (max-width: 768px) {
-      .project-detail {
-        padding: var(--space-4) var(--space-2);
-      }
-
-      .project-title {
-        font-size: clamp(24px, 6vw, 32px);
-      }
-
-      .section-block {
-        padding: var(--space-3);
-      }
-
-      .section-block h2 {
-        font-size: 20px;
-      }
-
-      .section-block h3 {
-        font-size: 18px;
-      }
-
-      .carousel-wrapper {
-        max-width: 100%;
-      }
-
-      .carousel {
-        max-width: 100%;
-      }
-
-      .carousel-track img {
-        width: 100%;
-      }
-
-      .prev-btn, .next-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 24px;
-      }
-
-      .tech-stack {
-        gap: 8px;
-      }
-
-      .tech-tag {
-        font-size: 12px;
-        padding: 6px 10px;
-      }
-    }
-
-    /* 태블릿 반응형 (769px ~ 1024px) */
-    @media (min-width: 769px) and (max-width: 1024px) {
-      .carousel-wrapper {
-        max-width: 700px;
-      }
-
-      .carousel {
-        max-width: 700px;
-      }
-
-      .carousel-track img {
-        width: 700px;
-      }
-    }
-  </style>
 </head>
 <body>
   <div class="project-detail">
@@ -233,6 +13,7 @@
       
       <div class="project-header">
         <h1 class="project-title">Moduru</h1>
+        <p class="project-subtitle">실시간 여행 일정 협업 웹 서비스</p>
       </div>
 
       <div class="project-content">
@@ -263,16 +44,16 @@
         <div class="section-block image-gallery" id="screens">
           <h2>서비스 주요 화면</h2>
           <div class="carousel-wrapper" role="region" aria-label="서비스 화면 캐러셀">
-            <button class="prev-btn" aria-label="이전 이미지">‹</button>
+            <button type="button" class="prev-btn" aria-label="이전 이미지">‹</button>
             <div class="carousel">
               <div class="carousel-track">
-                <img src="image/moduru_1.jpeg" alt="모두루 화면 1" />
-                <img src="image/moduru_2.gif" alt="모두루 화면 2" />
-                <img src="image/moduru_3.gif" alt="모두루 화면 3" />
-                <img src="image/moduru_4.gif" alt="모두루 화면 4" />
+                <div class="carousel-slide"><img src="image/moduru_1.jpeg" alt="모두루 화면 1" /></div>
+                <div class="carousel-slide"><img src="image/moduru_2.gif" alt="모두루 화면 2" /></div>
+                <div class="carousel-slide"><img src="image/moduru_3.gif" alt="모두루 화면 3" /></div>
+                <div class="carousel-slide"><img src="image/moduru_4.gif" alt="모두루 화면 4" /></div>
               </div>
             </div>
-            <button class="next-btn" aria-label="다음 이미지">›</button>
+            <button type="button" class="next-btn" aria-label="다음 이미지">›</button>
           </div>
         </div>
 
@@ -409,25 +190,31 @@
 
   <!-- 캐러셀 스크립트 -->
   <script>
-    const track = document.querySelector('.carousel-track');
-    const images = Array.from(track.children);
-    const prevBtn = document.querySelector('.prev-btn');
-    const nextBtn = document.querySelector('.next-btn');
-    let index = 0;
-
-    function updateSlide() {
-      track.style.transform = `translateX(-${index * 100}%)`;
-    }
-
-    nextBtn.addEventListener('click', () => {
-      index = (index + 1) % images.length;
+    (function () {
+      var root = document.querySelector('.image-gallery .carousel-wrapper');
+      if (!root) return;
+      var carousel = root.querySelector('.carousel');
+      var track = root.querySelector('.carousel-track');
+      var slides = track ? track.children.length : 0;
+      var prevBtn = root.querySelector('.prev-btn');
+      var nextBtn = root.querySelector('.next-btn');
+      if (!carousel || !track || slides === 0) return;
+      var index = 0;
+      function updateSlide() {
+        var w = carousel.getBoundingClientRect().width;
+        track.style.transform = 'translateX(' + -index * w + 'px)';
+      }
+      nextBtn.addEventListener('click', function () {
+        index = (index + 1) % slides;
+        updateSlide();
+      });
+      prevBtn.addEventListener('click', function () {
+        index = (index - 1 + slides) % slides;
+        updateSlide();
+      });
+      window.addEventListener('resize', updateSlide);
       updateSlide();
-    });
-
-    prevBtn.addEventListener('click', () => {
-      index = (index - 1 + images.length) % images.length;
-      updateSlide();
-    });
+    })();
   </script>
 </body>
 </html>

@@ -5,205 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SoundCake - Heeeun Ahn Portfolio</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    /* 프로젝트 상세 페이지 컨테이너 */
-    .project-detail {
-      min-height: 100vh;
-      padding: calc(var(--space-6) * 2) var(--space-4);
-      background: var(--bg);
-    }
-
-    /* 돌아가기 버튼 */
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 20px;
-      background: var(--primary);
-      color: white;
-      text-decoration: none;
-      margin-bottom: var(--space-5);
-      border-radius: var(--radius);
-      font-weight: 600;
-      font-size: 14px;
-      transition: all 0.3s ease;
-    }
-
-    .back-link:hover {
-      background: color-mix(in srgb, var(--primary), black 20%);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,.2);
-    }
-
-    /* 프로젝트 헤더 영역 */
-    .project-header {
-      margin-bottom: var(--space-6);
-    }
-
-    .project-title {
-      font-size: clamp(32px, 5vw, 48px);
-      font-weight: 800;
-      margin: 0;
-    }
-    .project-subtitle {
-      margin: var(--space-2) 0 0;
-      font-size: 1.1rem;
-      color: var(--text-weak);
-      font-weight: 500;
-    }
-
-    /* 프로젝트 콘텐츠 영역 */
-    .project-content {
-      display: grid;
-      gap: var(--space-5);
-    }
-
-    /* 섹션 블록 */
-    .section-block {
-      background: var(--bg-alt);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: var(--space-5);
-      box-shadow: var(--shadow-1);
-    }
-
-    .section-block h2 {
-      margin: 0 0 var(--space-3);
-      font-size: 24px;
-      color: var(--primary);
-    }
-
-    .section-block h3 {
-      margin: var(--space-4) 0 var(--space-2);
-      font-size: 20px;
-      color: var(--text);
-      font-weight: 700;
-    }
-
-    .section-block p,
-    .section-block li {
-      line-height: 1.8;
-      color: var(--text-weak);
-    }
-
-    .section-block ul {
-      margin: var(--space-3) 0;
-      padding-left: var(--space-4);
-    }
-
-    .section-block ul ul {
-      margin: var(--space-2) 0;
-    }
-
-    /* 이미지 및 캡션 */
-    figure {
-      margin: var(--space-4) 0;
-    }
-
-    figure img {
-      width: 100%;
-      border-radius: 8px;
-      box-shadow: var(--shadow-1);
-      display: block;
-    }
-
-    figure.small-image {
-      max-width: 400px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    figcaption {
-      text-align: center;
-      color: var(--text-weak);
-      margin-top: 0.5rem;
-      font-size: 14px;
-    }
-
-    /* 기술 스택 태그 */
-    .tech-stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: var(--space-3);
-    }
-
-    .tech-tag {
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: color-mix(in srgb, var(--primary), transparent 90%);
-      font-family: var(--mono);
-      font-size: 14px;
-      color: var(--primary);
-    }
-
-    /* 이미지 갤러리 */
-    .image-gallery h2 {
-      margin: 0 0 var(--space-3);
-    }
-
-    /* 비디오 미디어 */
-    .single-media {
-      max-width: 900px;
-      margin: 0 auto;
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow-1);
-      aspect-ratio: 16/9;
-      background: #000;
-    }
-
-    .single-media video,
-    .single-media img {
-      width: 100%;
-      display: block;
-    }
-
-    /* 모바일 반응형 (768px 이하) */
-    @media (max-width: 768px) {
-      .project-detail {
-        padding: var(--space-4) var(--space-2);
-      }
-
-      .project-title {
-        font-size: clamp(24px, 6vw, 32px);
-      }
-
-      .section-block {
-        padding: var(--space-3);
-      }
-
-      .section-block h2 {
-        font-size: 20px;
-      }
-
-      .section-block h3 {
-        font-size: 18px;
-      }
-
-      .single-media {
-        max-width: 100%;
-      }
-
-      .tech-stack {
-        gap: 8px;
-      }
-
-      .tech-tag {
-        font-size: 12px;
-        padding: 6px 10px;
-      }
-
-      figcaption {
-        font-size: 12px;
-      }
-
-      figure.small-image {
-        max-width: 100%;
-      }
-    }
-  </style>
 </head>
 <body>
   <div class="project-detail">
@@ -217,7 +18,7 @@
 
       <div class="project-content">
         <!-- 프로젝트 개요 -->
-        <div class="section-block">
+        <div class="section-block" id="overview">
           <h2>프로젝트 개요</h2>
           <p>
             카페 매장을 위한 <strong>B2B 음악 추천 서비스</strong>로,
@@ -238,7 +39,7 @@
         </div>
 
         <!-- 서비스 주요 화면 -->
-        <div class="section-block image-gallery">
+        <div class="section-block image-gallery" id="screens">
           <h2>서비스 주요 화면</h2>
           <div class="single-media">
             <video src="image/soundcake_demo.mp4" autoplay muted loop playsinline controls></video>
@@ -246,7 +47,7 @@
         </div>
 
         <!-- 주요 기능 -->
-        <div class="section-block">
+        <div class="section-block" id="features">
           <h2>주요 기능</h2>
           <ul>
             <li>
@@ -285,7 +86,7 @@
         </div>
 
         <!-- 나의 역할 -->
-        <div class="section-block">
+        <div class="section-block" id="my-role">
           <h2>나의 역할</h2>
 
           <h3>데이터 전처리</h3>
@@ -341,7 +142,7 @@
         </div>
 
         <!-- 핵심 성과 -->
-        <div class="section-block">
+        <div class="section-block" id="impact">
           <h2>핵심 성과</h2>
           <ul>
             <li>
@@ -364,7 +165,7 @@
         </div>
 
         <!-- 기술적 도전과 해결 -->
-        <div class="section-block">
+        <div class="section-block" id="challenges">
           <h2>기술적 도전과 해결</h2>
 
           <p><strong>문제 — 불용어 및 비관련 텍스트 제거 규칙 정의의 어려움</strong></p>
@@ -416,7 +217,7 @@
         </div>
 
         <!-- 사용한 기술 스택 -->
-        <div class="section-block">
+        <div class="section-block" id="stack">
           <h2>사용한 기술 스택</h2>
           <ul>
             <li><strong>Data/AI:</strong> Python, Jupyter, pandas, numpy, matplotlib, mlxtend, OpenAI API</li>

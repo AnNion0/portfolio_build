@@ -5,105 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>LPAY 고객 세그멘테이션 - Heeeun Ahn Portfolio</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    .project-detail {
-      min-height: 100vh;
-      padding: calc(var(--space-6) * 2) var(--space-4);
-      background: var(--bg);
-    }
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 20px;
-      background: var(--primary);
-      color: white;
-      text-decoration: none;
-      margin-bottom: var(--space-5);
-      border-radius: var(--radius);
-      font-weight: 600;
-      font-size: 14px;
-      transition: all 0.3s ease;
-    }
-    .back-link:hover {
-      background: color-mix(in srgb, var(--primary), black 20%);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,.2);
-    }
-    .project-header { margin-bottom: var(--space-6); }
-    .project-title {
-      font-size: clamp(26px, 4vw, 42px);
-      font-weight: 800;
-      margin: 0;
-      line-height: 1.25;
-    }
-    .project-subtitle {
-      margin: var(--space-2) 0 0;
-      font-size: 1.05rem;
-      color: var(--text-weak);
-      font-weight: 500;
-      line-height: 1.5;
-    }
-    .project-content { display: grid; gap: var(--space-5); }
-    .section-block {
-      background: var(--bg-alt);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: var(--space-5);
-      box-shadow: var(--shadow-1);
-    }
-    .section-block h2 {
-      margin: 0 0 var(--space-3);
-      font-size: 24px;
-      color: var(--primary);
-    }
-    .section-block h3 {
-      margin: var(--space-4) 0 var(--space-2);
-      font-size: 20px;
-      color: var(--text);
-      font-weight: 700;
-    }
-    .section-block h4 {
-      margin: var(--space-3) 0 var(--space-2);
-      font-size: 17px;
-      color: var(--text);
-      font-weight: 700;
-    }
-    .section-block p,
-    .section-block li { line-height: 1.8; color: var(--text-weak); }
-    .section-block ul { margin: var(--space-3) 0; padding-left: var(--space-4); }
-    .section-block ul ul { margin: var(--space-2) 0; }
-    .cluster-card {
-      margin-top: var(--space-3);
-      padding: var(--space-3);
-      border-left: 3px solid var(--primary);
-      background: color-mix(in srgb, var(--bg), var(--primary) 4%);
-      border-radius: 0 var(--radius) var(--radius) 0;
-    }
-    .cluster-card p { margin: 0.35rem 0 0; }
-    .tech-stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: var(--space-3);
-    }
-    .tech-tag {
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: color-mix(in srgb, var(--primary), transparent 90%);
-      font-family: var(--mono);
-      font-size: 14px;
-      color: var(--primary);
-    }
-    @media (max-width: 768px) {
-      .project-detail { padding: var(--space-4) var(--space-2); }
-      .section-block { padding: var(--space-3); }
-      .section-block h2 { font-size: 20px; }
-      .section-block h3 { font-size: 18px; }
-      .tech-tag { font-size: 12px; padding: 6px 10px; }
-    }
-  </style>
 </head>
 <body>
   <div class="project-detail">
@@ -178,8 +79,90 @@
           </ul>
         </div>
 
+        <div class="section-block" id="schema">
+          <h2>Star Schema 구축 예시</h2>
+          <p>
+            전처리 단계에서 Python·SQLite3로 설계한 <strong>6개 테이블</strong> 구조를 도식화한 예시입니다.
+            <strong>01_DEMO</strong>(고객 인구통계)를 중심으로 <strong>02_PDDE</strong> 상품 구매,
+            <strong>03_COP_U</strong> 제휴사 이용, <strong>06_LPAY</strong> 엘페이 이용 내역이 <strong>고객번호</strong>로 연결되고,
+            구매 사실은 <strong>05_BR</strong> 점포·<strong>04_PD_CLAC</strong> 상품 분류 마스터와 조인되도록 구성했습니다.
+          </p>
+          <figure class="schema-figure">
+            <img
+              src="image/lpay_star_schema.png"
+              alt="Star Schema: 01_DEMO 고객 인구통계를 중심으로 02_PDDE, 03_COP_U, 06_LPAY가 고객번호로 연결되고 05_BR 점포·04_PD_CLAC 상품분류와 연결되는 ER 다이어그램"
+              loading="lazy"
+            />
+            <figcaption>LPAY(엘포인트) 고객 세그멘테이션 분석용 DB 설계 예시</figcaption>
+          </figure>
+        </div>
+
+        <div class="section-block" id="process">
+          <h2>분석 프로세스</h2>
+          <p>
+            원천 데이터를 <strong>전처리</strong>해 분석 가능한 단위로 만든 뒤, <strong>군집·연관 분석</strong>으로 패턴을 도출하고,
+            필요 시 <strong>분류 모델</strong>로 신규 고객 등에 대한 군집 예측·확장을 염두에 둔 흐름을 정리했습니다.
+            아래 도표는 프로젝트에서 사용·검토한 단계를 요약한 것입니다.
+          </p>
+          <figure class="schema-figure">
+            <img
+              src="image/lpay_analysis_process.png"
+              alt="LPAY 분석 프로세스: 전처리(구매일자 기반 계절 파생, 고객코드별 구매시간 평균·금액 중앙값·계절 최빈값 집계), 분석(Elbow·K-Prototypes 군집, 군집별 Apriori 연관분석), 분류모델(Random Forest, Extra Trees, Light GBM) 순 흐름도"
+              loading="lazy"
+            />
+            <figcaption>전처리 → 군집·연관 분석 → 분류 모델 단계 요약</figcaption>
+          </figure>
+        </div>
+
         <div class="section-block" id="clusters">
           <h2>군집 분석 결과</h2>
+          <div
+            class="cluster-slider-wrap"
+            id="cluster-table-slider"
+            role="region"
+            aria-roledescription="캐러셀"
+            aria-label="성별 군집 대표값 분석 표"
+          >
+            <p class="cluster-slider-hint">
+              남성·여성 군집별 대표값(최빈값·평균·중앙값·인원) 요약 표입니다. 좌우로 스와이프하거나 아래 버튼으로 넘겨 보실 수 있습니다.
+            </p>
+            <div class="cluster-slider-toolbar">
+              <button type="button" class="cluster-slider-btn" data-cluster-slide="prev" aria-controls="cluster-slider-viewport">
+                ← 이전
+              </button>
+              <div class="cluster-slider-tabs" role="tablist" aria-label="표 선택">
+                <button type="button" class="cluster-slider-tab" role="tab" aria-selected="true" aria-controls="cluster-slide-0" id="cluster-tab-0" data-cluster-slide="0">
+                  남성 (4군집)
+                </button>
+                <button type="button" class="cluster-slider-tab" role="tab" aria-selected="false" aria-controls="cluster-slide-1" id="cluster-tab-1" data-cluster-slide="1">
+                  여성 (6군집)
+                </button>
+              </div>
+              <button type="button" class="cluster-slider-btn" data-cluster-slide="next" aria-controls="cluster-slider-viewport">
+                다음 →
+              </button>
+            </div>
+            <div class="cluster-slider-viewport" id="cluster-slider-viewport" tabindex="0" aria-live="polite">
+              <figure class="cluster-slide schema-figure" id="cluster-slide-0" role="tabpanel" aria-labelledby="cluster-tab-0">
+                <img
+                  src="image/lpay_cluster_male.png"
+                  alt="남성 군집화 결과 대표값 분석: 연령대·거주지·채널·상품 대·소분류·구매계절·구매시간·구매금액·고객수를 군집 0~3별로 정리한 표"
+                  loading="eager"
+                  decoding="async"
+                />
+                <figcaption>1-1. 남성 군집화 결과 — 대표값 분석</figcaption>
+              </figure>
+              <figure class="cluster-slide schema-figure" id="cluster-slide-1" role="tabpanel" aria-labelledby="cluster-tab-1">
+                <img
+                  src="image/lpay_cluster_female.png"
+                  alt="여성 군집화 결과 대표값 분석: 연령대·거주지·채널·상품 대·소분류·구매계절·구매시간·구매금액·고객수를 군집 0~5별로 정리한 표"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption>2-1. 여성 군집화 결과 — 대표값 분석</figcaption>
+              </figure>
+            </div>
+          </div>
 
           <h3>남성 군집 (4개)</h3>
           <div class="cluster-card">
@@ -226,6 +209,34 @@
           </div>
         </div>
 
+        <div class="section-block" id="association">
+          <h2>연관 분석 결과 예시</h2>
+          <p>
+            군집별로 Apriori 연관 규칙을 산출하고, Support 기준 상위 규칙을 바탕으로 군집 해석과 묶음 추천 아이디어를 정리했습니다.
+            아래는 성별 각각에서 <strong>대표 군집 2개</strong>(남성 군집 1·2, 여성 군집 1·2)의 Top 10 규칙을 한 장에 모은 예시입니다.
+          </p>
+          <div class="assoc-pair-row" aria-label="남성·여성 연관분석 결과 나란히 보기">
+            <figure>
+              <img
+                src="image/lpay_association_male.png"
+                alt="남성 군집 1·2 연관분석: 상품 중분류 쌍별 Support 상위 10개 규칙과 군집별 요약 말풍선"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>남성 군집 1·2 — 연관 규칙 (Support Top 10)</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="image/lpay_association_female.png"
+                alt="여성 군집 1·2 연관분석: 상품 중분류 쌍별 Support 상위 10개 규칙과 군집별 요약 말풍선"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>여성 군집 1·2 — 연관 규칙 (Support Top 10)</figcaption>
+            </figure>
+          </div>
+        </div>
+
         <div class="section-block" id="impact">
           <h2>핵심 성과</h2>
           <ul>
@@ -265,5 +276,74 @@
       </div>
     </div>
   </div>
+  <script>
+    (function () {
+      var viewport = document.getElementById('cluster-slider-viewport');
+      if (!viewport) return;
+
+      var tabs = Array.prototype.slice.call(
+        document.querySelectorAll('#cluster-table-slider .cluster-slider-tab')
+      );
+
+      function slideCount() {
+        return viewport.children.length;
+      }
+
+      function currentIndex() {
+        var w = viewport.clientWidth;
+        if (!w) return 0;
+        var i = Math.round(viewport.scrollLeft / w);
+        return Math.max(0, Math.min(slideCount() - 1, i));
+      }
+
+      function setTabState(index) {
+        tabs.forEach(function (tab, i) {
+          tab.setAttribute('aria-selected', i === index ? 'true' : 'false');
+        });
+      }
+
+      function goTo(index) {
+        var max = slideCount() - 1;
+        var i = Math.max(0, Math.min(max, index));
+        viewport.scrollTo({
+          left: i * viewport.clientWidth,
+          behavior: 'smooth',
+        });
+        setTabState(i);
+      }
+
+      function syncFromScroll() {
+        setTabState(currentIndex());
+      }
+
+      var scrollScheduled;
+      viewport.addEventListener('scroll', function () {
+        if (scrollScheduled) return;
+        scrollScheduled = requestAnimationFrame(function () {
+          scrollScheduled = null;
+          syncFromScroll();
+        });
+      });
+
+      viewport.addEventListener('scrollend', syncFromScroll);
+
+      document.getElementById('cluster-table-slider').addEventListener('click', function (e) {
+        var t = e.target;
+        if (!(t instanceof HTMLElement)) return;
+        var action = t.getAttribute('data-cluster-slide');
+        if (!action) return;
+        var idx = currentIndex();
+        if (action === 'prev') goTo(idx - 1);
+        else if (action === 'next') goTo(idx + 1);
+        else if (/^\d+$/.test(action)) goTo(parseInt(action, 10));
+      });
+
+      window.addEventListener('resize', function () {
+        goTo(currentIndex());
+      });
+
+      setTabState(0);
+    })();
+  </script>
 </body>
 </html>
