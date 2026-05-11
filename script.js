@@ -1,4 +1,4 @@
-// 해시 스크롤 - 기본은 Projects(메인)
+// 해시 스크롤 - 기본은 Projects(메인 허브)
 window.addEventListener('DOMContentLoaded', () => {
   if (!window.location.hash) {
     window.location.hash = '#projects';
