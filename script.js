@@ -83,11 +83,13 @@ function smoothScrollTo(target, duration = 600) {
   requestAnimationFrame(animation);
 }
 
-// 네비게이션 링크 클릭
+// 네비게이션 링크 클릭 (같은 페이지 내 #섹션만 부드럽게 스크롤)
 document.querySelectorAll('.hash-nav a').forEach(link => {
   link.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    if (!href || !href.startsWith('#')) return;
     e.preventDefault();
-    const targetSection = document.querySelector(this.getAttribute('href'));
+    const targetSection = document.querySelector(href);
     if (targetSection) smoothScrollTo(targetSection, 500);
   });
 });

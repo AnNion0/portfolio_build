@@ -83,6 +83,52 @@
       font-size: 14px;
       color: var(--primary);
     }
+    .image-gallery h2 { margin: 0 0 var(--space-3); }
+    .carousel-wrapper {
+      position: relative;
+      max-width: 420px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+    .carousel {
+      overflow: hidden;
+      flex: 1;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-1);
+      background: var(--bg);
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.4s ease-in-out;
+    }
+    .carousel-track img {
+      width: 100%;
+      flex-shrink: 0;
+      display: block;
+      vertical-align: top;
+    }
+    .prev-btn, .next-btn {
+      background: var(--primary);
+      border: none;
+      color: white;
+      font-size: 28px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+    .prev-btn:hover, .next-btn:hover {
+      background: color-mix(in srgb, var(--primary), black 20%);
+      transform: scale(1.08);
+    }
     @media (max-width: 768px) {
       .project-detail { padding: var(--space-4) var(--space-2); }
       .project-title { font-size: clamp(24px, 6vw, 32px); }
@@ -90,13 +136,19 @@
       .section-block h2 { font-size: 20px; }
       .section-block h3 { font-size: 18px; }
       .tech-tag { font-size: 12px; padding: 6px 10px; }
+      .carousel-wrapper { max-width: 100%; gap: var(--space-2); }
+      .carousel-track img { width: 100%; }
+      .prev-btn, .next-btn { width: 38px; height: 38px; font-size: 22px; }
+    }
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .carousel-wrapper { max-width: 380px; }
     }
   </style>
 </head>
 <body>
   <div class="project-detail">
     <div class="container">
-      <a href="index.html#projects" class="back-link" aria-label="프로젝트 목록으로 돌아가기">← 돌아가기</a>
+      <a href="projects-dev.html" class="back-link" aria-label="개발 프로젝트 목록으로 돌아가기">← 돌아가기</a>
 
       <div class="project-header">
         <h1 class="project-title">ToneDfit</h1>
@@ -127,6 +179,24 @@
             <span class="tech-tag">Dio</span>
             <span class="tech-tag">Geolocator</span>
             <span class="tech-tag">Firebase Analytics</span>
+          </div>
+        </div>
+
+        <div class="section-block image-gallery" id="screens">
+          <h2>서비스 주요 화면</h2>
+          <div class="carousel-wrapper" role="region" aria-label="톤디핏 화면 캐러셀">
+            <button type="button" class="prev-btn" aria-label="이전 화면">‹</button>
+            <div class="carousel">
+              <div class="carousel-track">
+                <img src="image/toneDfit1.png" alt="톤디핏 스플래시·온보딩 화면" loading="lazy" />
+                <img src="image/toneDfit2.gif" alt="홈·날씨 및 날씨 기반 추천 흐름" loading="lazy" />
+                <img src="image/toneDfit3.gif" alt="카테고리·컬러 필터 검색" loading="lazy" />
+                <img src="image/toneDfit4.gif" alt="4축 의류 추천 입력 모달" loading="lazy" />
+                <img src="image/toneDfit5.gif" alt="ToneDfit Assistant AI 챗봇" loading="lazy" />
+                <img src="image/toneDfit6.gif" alt="이미지 검색 촬영 확인 화면" loading="lazy" />
+              </div>
+            </div>
+            <button type="button" class="next-btn" aria-label="다음 화면">›</button>
           </div>
         </div>
 
@@ -244,5 +314,26 @@
       </div>
     </div>
   </div>
+  <script>
+    (function () {
+      const track = document.querySelector('.carousel-track');
+      if (!track) return;
+      const slides = Array.from(track.children);
+      const prevBtn = document.querySelector('.prev-btn');
+      const nextBtn = document.querySelector('.next-btn');
+      let index = 0;
+      function updateSlide() {
+        track.style.transform = 'translateX(-' + index * 100 + '%)';
+      }
+      nextBtn.addEventListener('click', function () {
+        index = (index + 1) % slides.length;
+        updateSlide();
+      });
+      prevBtn.addEventListener('click', function () {
+        index = (index - 1 + slides.length) % slides.length;
+        updateSlide();
+      });
+    })();
+  </script>
 </body>
 </html>

@@ -83,40 +83,86 @@
       font-size: 14px;
       color: var(--primary);
     }
-    .image-gallery h2 {
-      margin: 0 0 var(--space-3);
-    }
-    .screens-slot {
-      min-height: min(52vh, 440px);
-      border: 2px dashed var(--border);
-      border-radius: var(--radius);
-      background: color-mix(in srgb, var(--bg-alt), var(--primary) 5%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
+    .image-gallery h2 { margin: 0 0 var(--space-2); }
+    .scenario-block-lead {
+      margin: 0 0 var(--space-5);
       padding: var(--space-4);
-      box-sizing: border-box;
-    }
-    .screens-slot .placeholder-text {
-      margin: 0;
-      font-size: 0.95rem;
+      background: color-mix(in srgb, var(--bg), var(--primary) 6%);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
       color: var(--text-weak);
-      max-width: 28rem;
-      line-height: 1.6;
+      line-height: 1.75;
+      font-size: 0.98rem;
     }
-    .screens-gallery {
+    .scenario-block-lead strong {
+      color: var(--text);
+    }
+    .scenario-step {
+      margin-bottom: var(--space-6);
+      padding-bottom: var(--space-5);
+      border-bottom: 1px solid var(--border);
+    }
+    .scenario-step:last-of-type {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .scenario-step h3 {
+      margin: 0 0 var(--space-2);
+      font-size: 1.15rem;
+      color: var(--primary);
+    }
+    .scenario-step > p {
+      margin: 0 0 var(--space-2);
+      color: var(--text-weak);
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+    .scenario-step > ul {
+      margin-top: var(--space-2);
+    }
+    .scenario-media {
       display: flex;
       flex-direction: column;
-      gap: var(--space-4);
+      gap: var(--space-3);
+      margin-top: var(--space-3);
     }
-    .screens-gallery img {
+    .scenario-media img {
       width: 100%;
-      max-width: 900px;
+      max-width: 380px;
       margin: 0 auto;
       display: block;
       border-radius: var(--radius);
       box-shadow: var(--shadow-1);
+    }
+    .scenario-media-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      justify-content: center;
+      margin-top: var(--space-3);
+    }
+    .scenario-media-row img {
+      width: 100%;
+      max-width: 320px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-1);
+    }
+    .scenario-flow-summary {
+      margin-top: var(--space-5);
+      padding: var(--space-4);
+      background: color-mix(in srgb, var(--primary), transparent 92%);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+    .scenario-flow-summary h3 {
+      margin: 0 0 var(--space-2);
+      font-size: 1.05rem;
+      color: var(--text);
+    }
+    .scenario-flow-summary p {
+      margin: 0;
+      font-size: 0.95rem;
     }
     @media (max-width: 768px) {
       .project-detail { padding: var(--space-4) var(--space-2); }
@@ -125,16 +171,14 @@
       .section-block h2 { font-size: 20px; }
       .section-block h3 { font-size: 18px; }
       .tech-tag { font-size: 12px; padding: 6px 10px; }
-      .screens-slot {
-        min-height: 280px;
-      }
+      .scenario-media img { max-width: 100%; }
     }
   </style>
 </head>
 <body>
   <div class="project-detail">
     <div class="container">
-      <a href="index.html#projects" class="back-link" aria-label="프로젝트 목록으로 돌아가기">← 돌아가기</a>
+      <a href="projects-dev.html" class="back-link" aria-label="개발 프로젝트 목록으로 돌아가기">← 돌아가기</a>
 
       <div class="project-header">
         <h1 class="project-title">Wallet Slot</h1>
@@ -167,17 +211,127 @@
           </div>
         </div>
 
-        <!-- 캡처 추가: 주석의 img를 살리고 .screens-slot 블록은 제거하면 됩니다. -->
-        <div class="section-block image-gallery" id="screens">
-          <h2>서비스 주요 화면</h2>
-          <div class="screens-gallery" role="region" aria-label="서비스 주요 화면">
-            <div class="screens-slot">
-              <p class="placeholder-text">화면 캡처·데모 영상 추가 예정</p>
+        <div class="section-block image-gallery" id="screens-part1">
+          <h2>서비스 주요 화면 ① — 시나리오 #1~2</h2>
+          <p class="scenario-block-lead">
+            <strong>계정을 만들고, 실제 지출이 있는 계좌를 안전하게 연결하는 구간</strong>입니다.
+            회원가입·본인 확인(1원 인증)으로 최소한의 신원을 확보한 뒤, 마이데이터로 금융사 계좌를 불러와
+            서비스에서 쓸 <strong>대표 계좌</strong>를 고릅니다. 이후 슬롯 추천·대시보드는 모두 이 계좌의 거래를 기준으로 동작합니다.
+          </p>
+
+          <div class="scenario-step">
+            <h3>1. 회원가입</h3>
+            <p>앱 진입 후 약관·정보 입력, 휴대폰 1원 인증으로 연락처를 확인하고, 비밀번호·푸시 알림 동의까지 마치면 가입이 완료됩니다.</p>
+            <ul>
+              <li>회원가입</li>
+              <li>휴대폰 인증 (1원 인증)</li>
+              <li>비밀번호 설정 및 푸시 알림 동의</li>
+              <li>회원가입 완료</li>
+            </ul>
+            <div class="scenario-media">
+              <img src="image/회원가입.gif" alt="Wallet Slot 회원가입 화면" loading="lazy" />
+              <img src="image/1원인증.gif" alt="휴대폰 1원 인증" loading="lazy" />
+              <img src="image/비밀번호푸시알림.gif" alt="비밀번호 설정 및 푸시 알림 동의" loading="lazy" />
             </div>
-            <!--
-            <img src="image/wallet_slot_1.png" alt="Wallet Slot 화면 1" />
-            <img src="image/wallet_slot_2.png" alt="Wallet Slot 화면 2" />
-            -->
+          </div>
+
+          <div class="scenario-step">
+            <h3>2. 마이데이터 연동</h3>
+            <p>마이데이터 인증 흐름을 거쳐 은행·카드 계좌를 불러오고, 예산·슬롯에 쓸 <strong>연동 계좌</strong>와 <strong>메인(대표) 계좌</strong>를 선택합니다.</p>
+            <ul>
+              <li>마이데이터 연동 화면</li>
+              <li>금융기관에서 계좌 가져오기</li>
+              <li>대표 계좌 선택</li>
+            </ul>
+            <div class="scenario-media">
+              <img src="image/마이데이터1.gif" alt="마이데이터 연동 화면 1" loading="lazy" />
+              <img src="image/마이데이터2.gif" alt="마이데이터 연동 화면 2" loading="lazy" />
+            </div>
+          </div>
+        </div>
+
+        <div class="section-block image-gallery" id="screens-part2">
+          <h2>서비스 주요 화면 ② — 시나리오 #3~끝</h2>
+          <p class="scenario-block-lead">
+            <strong>슬롯을 잡고 나면 본격적인 예산 운영 단계</strong>입니다.
+            거래 내역을 바탕으로 AI가 슬롯(지출 목적 통)을 추천·확정하고, 대시보드에서 슬롯별 지출을 봅니다.
+            결제가 들어오면 자동 분류·예산 초과를 푸시로 알리고, 한 건의 영수증을 OCR로 쪼개 넣을 수 있으며,
+            쌓인 소비는 AI 리포트로 요약해 볼 수 있습니다. 화면 수가 많아 <strong>#3 이후를 한 블록</strong>으로 묶었습니다.
+          </p>
+
+          <div class="scenario-step">
+            <h3>3. 슬롯 리스트 확정</h3>
+            <p>기준일을 정하면 그 날짜를 축으로 슬롯 목록·금액 편성·소비 리포트가 같이 움직입니다. 분석에 쓸 거래 기간과 추천 기준을 정한 뒤 추천을 받고, 이름·비율을 손봐 최종 확정합니다.</p>
+            <ul>
+              <li>슬롯 추천 화면</li>
+              <li>기준일 선택 — 슬롯 리스트·금액 편성·소비 리포트 등의 기준 날짜</li>
+              <li>거래내역 분석 기간 및 슬롯 추천 기준 결정 후 추천</li>
+              <li>추천받은 슬롯 수정 및 확정</li>
+            </ul>
+            <div class="scenario-media">
+              <img src="image/슬롯추천1.gif" alt="슬롯 추천 화면" loading="lazy" />
+              <img src="image/슬롯추천2.gif" alt="분석 기간·추천 기준 및 슬롯 편집" loading="lazy" />
+            </div>
+          </div>
+
+          <div class="scenario-step">
+            <h3>4. 대시보드</h3>
+            <p>확정한 슬롯 기준으로 한눈에 잔액·지출 흐름을 보는 화면입니다. 슬롯별로 얼마 썼는지 비교하기 좋습니다.</p>
+            <ul>
+              <li>슬롯별 지출 현황 확인</li>
+            </ul>
+            <div class="scenario-media">
+              <img src="image/대시보드.gif" alt="대시보드 화면" loading="lazy" />
+            </div>
+          </div>
+
+          <div class="scenario-step">
+            <h3>5. 푸시 알림</h3>
+            <p>백그라운드에서 슬롯 매칭·예산 검사가 끝나면 사용자에게 알려 줍니다. 자동 분류가 끝났는지, 한도를 넘었는지 빠르게 인지할 수 있습니다.</p>
+            <ul>
+              <li>지출 내역 자동 슬롯 분류 알림</li>
+              <li>예산 초과 알림</li>
+            </ul>
+            <div class="scenario-media">
+              <img src="image/푸시알림.jpg" alt="푸시 알림 예시" loading="lazy" />
+            </div>
+          </div>
+
+          <div class="scenario-step">
+            <h3>6. OCR 금액 나누기</h3>
+            <p>한 번에 여러 품목이 묶인 결제(예: 다이소)를 영수증 이미지로 읽어, 품목별 금액을 나눈 뒤 슬롯에 반영합니다.</p>
+            <ul>
+              <li>OCR로 상품명·금액 추출</li>
+              <li>해당 슬롯에서 금액 차감·분할</li>
+            </ul>
+            <div class="scenario-media-row">
+              <img src="image/ocr금액나누기1.jpg" alt="OCR 금액 나누기 1" loading="lazy" />
+              <img src="image/ocr금액나누기2.jpg" alt="OCR 금액 나누기 2" loading="lazy" />
+              <img src="image/ocr금액나누기3.jpg" alt="OCR 금액 나누기 3" loading="lazy" />
+            </div>
+          </div>
+
+          <div class="scenario-step">
+            <h3>7. 소비 리포트</h3>
+            <p>기준일이 지나면 소비 패턴을 AI가 짧게 요약합니다. 알림 탭에서 리포트 생성 알림을 누르면 상세 화면으로 이어집니다.</p>
+            <ul>
+              <li>기준일에 맞춰 소비 리포트 생성</li>
+              <li>소비 데이터 AI 분석·요약</li>
+              <li>알림 탭에서 리포트 알림 확인 후 상세 화면 진입</li>
+            </ul>
+            <p>소비 리포트 상세 화면 GIF·스크린샷은 추가 시 이 구간에 연결할 수 있습니다.</p>
+          </div>
+
+          <div class="scenario-flow-summary">
+            <h3>시연 흐름 요약 (① + ② 전체)</h3>
+            <p>
+              <strong>①</strong> 회원가입 → 마이데이터 연동 → 서비스에 연동할 계좌 선택 → 메인 계좌 선택
+              → <strong>②</strong> 슬롯 추천 → 슬롯 리스트 확정 → 대시보드 진입
+              → (결제 내역 발생) 지출이 자동 슬롯 분류되었다는 푸시 알림
+              → (예산 초과 지출 발생) 예산 초과 푸시 알림
+              → 다이소 등 결제 건을 선택해 OCR로 결제 내역 분리
+              → (AI 소비 리포트 발생) 알림 탭에서 리포트 알림을 눌러 소비 리포트 화면으로 진입
+            </p>
           </div>
         </div>
 
