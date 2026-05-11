@@ -571,6 +571,30 @@ body > nav.hash-nav + .panel {
 @media (min-width: 1080px) {
   .cert-grid { grid-template-columns: repeat(4, 1fr); }
 }
+.award-grid {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: 1fr;
+}
+@media (min-width: 760px) {
+  .award-grid { grid-template-columns: repeat(2, 1fr); }
+}
+.award-card h3 {
+  margin: 0 0 var(--space-1);
+  font-size: 16px;
+  font-weight: 700;
+}
+.award-card p {
+  margin: 0;
+  color: var(--text-weak);
+  font-size: 13px;
+}
+.award-card .award-project {
+  margin-top: 4px;
+  color: var(--text);
+  font-weight: 600;
+}
+
 .cert-card h3 {
   margin: 0 0 var(--space-1);
   font-size: 16px;
