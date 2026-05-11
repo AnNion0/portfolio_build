@@ -1400,7 +1400,7 @@ body:has(> nav.hash-nav.projects-site-nav) > .project-detail {
 }
 /* 톤디핏: 모두루와 동일한 바깥 폭, 프레임 높이는 주요 화면 이미지 상한과 동일. 슬라이드 안 여백은 검정 */
 .project-detail .carousel-wrapper--tonedfit {
-  max-width: min(900px, 100%);
+  max-width: min(1080px, 100%);
   gap: var(--space-4);
 }
 .project-detail .carousel-wrapper--tonedfit .carousel-track {
@@ -1423,13 +1423,16 @@ body:has(> nav.hash-nav.projects-site-nav) > .project-detail {
   object-position: center center;
   vertical-align: middle;
 }
-/* 1·4·6: 세로(높이) 우선 맞춤(세로형 스샷) — 좌우 검정 여백 */
+/* 1·4·6: 세로형 — 높이 꽉 채우고 좌우 검정 여백 */
+.project-detail .carousel-wrapper--tonedfit .carousel-slide--tonedfit-height-fit {
+  overflow: hidden;
+}
 .project-detail .carousel-wrapper--tonedfit .carousel-slide--tonedfit-height-fit img {
-  max-height: 100%;
-  max-width: 100%;
+  max-height: none;
+  max-width: none;
   width: auto;
-  height: auto;
-  object-fit: contain;
+  height: 100%;
+  object-fit: cover;
   object-position: center center;
 }
 /* 2·3·5: 가로 이미지 영역 최대 — 너비 100% 채우고 높이는 비율 유지 */
@@ -1448,8 +1451,8 @@ body:has(> nav.hash-nav.projects-site-nav) > .project-detail {
 }
 .project-detail .carousel-wrapper--tonedfit .carousel {
   background: #000000;
-  height: min(88vh, 920px);
-  min-height: 320px;
+  height: min(92vh, 1060px);
+  min-height: 380px;
 }
 /* Wallet Slot ①·②: 원본 해상도가 달라도 같은 프레임 높이·가운데 맞춤(OCR 구간 미적용) */
 .project-detail .carousel-wrapper--wallet-gif-frame .carousel {
@@ -1760,8 +1763,8 @@ body:has(> nav.hash-nav.projects-site-nav) > .project-detail {
     max-width: 100%;
   }
   .project-detail .carousel-wrapper--tonedfit .carousel {
-    height: min(72vh, 640px);
-    min-height: 280px;
+    height: min(80vh, 780px);
+    min-height: 320px;
   }
   .project-detail .assoc-pair-row {
     grid-template-columns: 1fr;
