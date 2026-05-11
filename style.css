@@ -54,12 +54,34 @@ body > nav.hash-nav + .panel {
 .intro-panel {
   background: var(--bg);
 }
+.intro-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  text-align: center;
+}
+.intro-photo {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: var(--shadow-2);
+}
+.intro-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
 .intro-lead {
-  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  font-size: clamp(1.1rem, 2.2vw, 1.6rem);
   font-weight: 700;
   line-height: 1.6;
   color: var(--text);
-  text-align: center;
+  margin: 0;
+}
+.intro-accent {
+  color: var(--primary);
 }
 .container {
   width: min(1080px, 92vw);
@@ -437,10 +459,24 @@ body > nav.hash-nav + .panel {
 
 /* Projects */
 .projects { background: var(--bg); }
+.section-header-row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+.section-header-row .section-title {
+  margin: 0;
+  flex-shrink: 0;
+}
+.section-header-row .projects-hub-lead {
+  margin: 0;
+}
 #dev-projects, #data-projects {
-  align-items: start;
+  align-content: start;
   overflow-y: auto;
-  padding-top: var(--space-4);
+  padding-top: calc(56px + var(--space-5));
+  padding-bottom: var(--space-5);
 }
 .proj-grid {
   display: grid;
@@ -820,6 +856,17 @@ body > nav.hash-nav + .panel {
 
 /* 반응형 - 모바일 */
 @media (max-width: 768px) {
+  .intro-photo {
+    width: 140px;
+    height: 140px;
+  }
+  .intro-photo {
+    width: 140px;
+    height: 140px;
+  }
+  .intro-lead {
+    font-size: clamp(1rem, 4vw, 1.2rem);
+  }
   .hash-nav {
     top: 12px;
     gap: 4px;
