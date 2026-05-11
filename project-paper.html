@@ -7,16 +7,9 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <nav class="hash-nav projects-site-nav" aria-label="사이트 네비게이션">
-    <a href="index.html#projects">프로젝트</a>
-    <a href="projects-data.html">데이터 프로젝트</a>
-    <a href="projects-dev.html">개발 프로젝트</a>
-    <a href="index.html#skills">Skills</a>
-    <a href="index.html#experience">Experience</a>
-  </nav>
   <div class="project-detail">
     <div class="container">
-      <a href="projects-data.html" class="back-link" aria-label="데이터 프로젝트 목록으로 돌아가기">← 돌아가기</a>
+      <a href="index.html#data-projects" class="back-link" aria-label="데이터 프로젝트 목록으로 돌아가기">← 돌아가기</a>
 
       <div class="project-header">
         <h1 class="project-title">기후변화 기반 외래식물 분포 예측 연구</h1>
@@ -27,9 +20,9 @@
         <div class="section-block" id="overview">
           <h2>연구 개요</h2>
           <p>
-            기후변화 시나리오(<strong>RCP4.5 / RCP8.5</strong>) 환경에서 외래·교란 식물의 잠재 서식지를 예측하고,
+            기후변화 시나리오(<strong>RCP4.5 / RCP8.5</strong>) 환경에서 외래, 교란 식물의 잠재 서식지를 예측하고
             주요 환경 결정요인을 분석한 연구입니다.
-            출현자료 기반 <span class="highlight">MaxEnt</span> 모델을 활용해 전국 단위 위험지도를 구축하고,
+            출현자료 기반 <span class="highlight">MaxEnt</span> 모델을 활용해 전국 단위 위험지도를 구축하고
             침입종이 토종 식물 적합도에 미치는 영향을 공간적으로 분석했습니다.
           </p>
           <ul>
@@ -100,16 +93,60 @@
           <h3>분포 예측 분석</h3>
           <ul>
             <li>
-              <strong>가시상추:</strong> RCP8.5 환경에서 적합도 확대,
-              수도권·서해안·경상권 중심 확장 가능성 도출
+              <strong>가시상추:</strong> RCP8.5 환경에서 적합도 확대.
+              수도권, 서해안, 경상권 중심 확장 가능성 도출
             </li>
             <li>
-              <strong>미국쑥부쟁이:</strong> 남해·동해·서해 해안축 중심 확장 경향 확인
+              <strong>미국쑥부쟁이:</strong> 남해, 동해, 서해 해안축 중심 확장 경향 확인
             </li>
             <li>
               <strong>종간 영향:</strong> 토종 쑥부쟁이 적합도 감소 지역 식별
             </li>
           </ul>
+        </div>
+
+        <div class="section-block image-gallery" id="results-map">
+          <h2>분포 예측 결과</h2>
+
+          <h3>가시상추</h3>
+          <div class="paper-map-grid">
+            <figure class="paper-map-figure">
+              <img src="image/paper_rcp45_gasi_30s.png" alt="RCP4.5 가시상추 2030s 잠재 서식지" loading="lazy" />
+              <figcaption>RCP4.5 · 2030s</figcaption>
+            </figure>
+            <figure class="paper-map-figure">
+              <img src="image/paper_rcp45_gasi_50s.png" alt="RCP4.5 가시상추 2050s 잠재 서식지" loading="lazy" />
+              <figcaption>RCP4.5 · 2050s</figcaption>
+            </figure>
+            <figure class="paper-map-figure">
+              <img src="image/paper_rcp85_gasi_30s.png" alt="RCP8.5 가시상추 2030s 잠재 서식지" loading="lazy" />
+              <figcaption>RCP8.5 · 2030s</figcaption>
+            </figure>
+            <figure class="paper-map-figure">
+              <img src="image/paper_rcp85_gasi_50s.png" alt="RCP8.5 가시상추 2050s 잠재 서식지" loading="lazy" />
+              <figcaption>RCP8.5 · 2050s</figcaption>
+            </figure>
+          </div>
+
+          <h3>미국쑥부쟁이</h3>
+          <div class="paper-map-grid">
+            <figure class="paper-map-figure">
+              <img src="image/paper_rcp45_miguk_30s.png" alt="RCP4.5 미국쑥부쟁이 2030s 잠재 서식지" loading="lazy" />
+              <figcaption>RCP4.5 · 2030s</figcaption>
+            </figure>
+            <figure class="paper-map-figure">
+              <img src="image/paper_rcp45_miguk_50s.png" alt="RCP4.5 미국쑥부쟁이 2050s 잠재 서식지" loading="lazy" />
+              <figcaption>RCP4.5 · 2050s</figcaption>
+            </figure>
+            <figure class="paper-map-figure">
+              <img src="image/paper_rcp85_miguk_30s.png" alt="RCP8.5 미국쑥부쟁이 2030s 잠재 서식지" loading="lazy" />
+              <figcaption>RCP8.5 · 2030s</figcaption>
+            </figure>
+            <figure class="paper-map-figure">
+              <img src="image/paper_rcp85_miguk_50s.png" alt="RCP8.5 미국쑥부쟁이 2050s 잠재 서식지" loading="lazy" />
+              <figcaption>RCP8.5 · 2050s</figcaption>
+            </figure>
+          </div>
         </div>
 
         <div class="section-block" id="impact">

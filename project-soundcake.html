@@ -7,16 +7,9 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <nav class="hash-nav projects-site-nav" aria-label="사이트 네비게이션">
-    <a href="index.html#projects">프로젝트</a>
-    <a href="projects-data.html">데이터 프로젝트</a>
-    <a href="projects-dev.html">개발 프로젝트</a>
-    <a href="index.html#skills">Skills</a>
-    <a href="index.html#experience">Experience</a>
-  </nav>
   <div class="project-detail">
     <div class="container">
-      <a href="projects-data.html" class="back-link" aria-label="데이터 프로젝트 목록으로 돌아가기">← 돌아가기</a>
+      <a href="index.html#data-projects" class="back-link" aria-label="데이터 프로젝트 목록으로 돌아가기">← 돌아가기</a>
 
       <div class="project-header">
         <h1 class="project-title">SoundCake</h1>
@@ -28,9 +21,9 @@
         <div class="section-block" id="overview">
           <h2>프로젝트 개요</h2>
           <p>
-            카페 매장을 위한 <strong>B2B 음악 추천 서비스</strong>로,
-            매장의 콘셉트·객층·시간대를 반영해 최적의 플레이리스트를 추천합니다.
-            LLM을 활용한 태그 문맥 이해로 추천 정확도를 높이고,
+            카페 매장을 위한 <strong>B2B 음악 추천 서비스</strong>로
+            매장의 콘셉트, 객층, 시간대를 반영해 최적의 플레이리스트를 추천합니다.
+            LLM을 활용한 태그 문맥 이해로 추천 정확도를 높이고
             매장 전용 AI 생성 플레이리스트를 제공하여 브랜드 이미지 강화와 운영 효율을 동시에 지원합니다.
           </p>
           <ul>
@@ -106,7 +99,7 @@
           <p>
             카카오 아레나 <strong>MELON PLAYLIST DATASET</strong>을 활용
             (플레이리스트 148,826개, 곡 707,989개, 장르 254개).
-            결측치 제거 및 불용어 정리(특수문자·숫자, 서비스와 무관한 태그, 단일 문자 제거),
+            결측치 제거 및 불용어 정리(특수문자, 숫자, 서비스와 무관한 태그, 단일 문자 제거),
             태그 빈도 기준 추출(빈도 ≥ 19),
             ChatGPT 프롬프트 기반 태그 6개 범주 자동 분류(분위기/날씨/시간/장소/감정/상황),
             연령대 파생 변수 생성.
@@ -115,11 +108,11 @@
 
           <h3>데이터 분석</h3>
           <p>
-            플레이리스트 태그 분포·장르 다양성 등 전반적 데이터 구조 분석,
+            플레이리스트 태그 분포, 장르 다양성 등 전반적 데이터 구조 분석,
             연령대별 주요 태그 비교
             (10~20대: 사랑/힐링/청춘, 30~40대: 회상/가을/레트로, 50대 이상: 회상/레트로/부모님),
             카페 태그 연관 분석(카페–감성 태그 <strong>22.3%</strong> 동시 등장, <strong>31.5%</strong> 조건부 확률),
-            카페 관련 플레이리스트 주요 태그 시각화로 감성·겨울·가을·비오는 날 등 계절·날씨 패턴 확인.
+            카페 관련 플레이리스트 주요 태그 시각화로 감성, 겨울, 가을, 비오는 날 등 계절, 날씨 패턴 확인.
           </p>
 
           <ul>
@@ -161,13 +154,13 @@
             <li>
               <strong>데이터 품질 향상 및 추천 정확도 개선:</strong>
               결측 제거, 불용어 정리, 태그 분류 등 전처리를 통해 데이터 일관성을 확보하고 노이즈를 최소화함.
-              전처리된 태그 데이터를 기반으로 AutoEncoder 구조와 Optimizer를 조정한 결과,
+              전처리된 태그 데이터를 기반으로 AutoEncoder 구조와 Optimizer를 조정한 결과
               <strong>모델 추천 정확도 약 89.7%</strong>를 달성하며 성능을 향상시킴.
             </li>
             <li>
               <strong>사용자 인사이트 도출:</strong>
-              연령대·카페 태그 분석을 통해 주요 소비층별 음악 취향 패턴을 도출하고,
-              매장 콘셉트·시간대·고객 특성에 따라 <strong>맞춤형 추천 UX 설계</strong>에 반영함.
+              연령대, 카페 태그 분석을 통해 주요 소비층별 음악 취향 패턴을 도출하고
+              매장 콘셉트, 시간대, 고객 특성에 따라 <strong>맞춤형 추천 UX 설계</strong>에 반영함.
             </li>
             <li>
               <strong>비즈니스 확장 가능성 검증:</strong>
@@ -191,10 +184,10 @@
             </li>
             <li>
               <strong>해결:</strong>
-              EDA를 통해 태그의 빈도와 형태 패턴을 분석한 뒤,
+              EDA를 통해 태그의 빈도와 형태 패턴을 분석한 뒤
               <strong>3단계 전처리 규칙</strong>을 수립함.
               <ul>
-                <li>① 특수문자·숫자 제거 (ex. '#', '123' 등)</li>
+                <li>① 특수문자, 숫자 제거 (ex. '#', '123' 등)</li>
                 <li>② 서비스 관련 없는 일반 단어 제거 (ex. '노래', '음악', '차트', '플레이리스트' 등)</li>
                 <li>③ 의미 없는 단일 문자 및 의성어 필터링 (ex. 'R', '쫑', '헿' 등)</li>
               </ul>
@@ -223,7 +216,7 @@
             </li>
             <li>
               <strong>결과:</strong>
-              수작업 라벨 없이도 초기 <strong>카테고리별 태그 세트</strong>를 자동 구축했고,
+              수작업 라벨 없이도 초기 <strong>카테고리별 태그 세트</strong>를 자동 구축했고
               <strong>5번 반복 분류 중 4번 이상 동일한 결과만 반영</strong>하는 방식으로 품질을 안정화함.
             </li>
           </ul>

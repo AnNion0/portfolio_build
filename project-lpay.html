@@ -7,16 +7,9 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <nav class="hash-nav projects-site-nav" aria-label="사이트 네비게이션">
-    <a href="index.html#projects">프로젝트</a>
-    <a href="projects-data.html">데이터 프로젝트</a>
-    <a href="projects-dev.html">개발 프로젝트</a>
-    <a href="index.html#skills">Skills</a>
-    <a href="index.html#experience">Experience</a>
-  </nav>
   <div class="project-detail">
     <div class="container">
-      <a href="projects-data.html" class="back-link" aria-label="데이터 프로젝트 목록으로 돌아가기">← 돌아가기</a>
+      <a href="index.html#data-projects" class="back-link" aria-label="데이터 프로젝트 목록으로 돌아가기">← 돌아가기</a>
 
       <div class="project-header">
         <h1 class="project-title">엘페이 고객 군집 분류 기반 맞춤 서비스 제안</h1>
@@ -27,7 +20,7 @@
         <div class="section-block" id="overview">
           <h2>프로젝트 개요</h2>
           <p>
-            <strong>LPAY</strong> 고객 구매 데이터를 기반으로 고객 군집을 분류하고, 군집별 맞춤 마케팅 전략을 제안한 데이터 분석 프로젝트입니다.
+            <strong>LPAY</strong> 고객 구매 데이터를 기반으로 고객 군집을 분류하고 군집별 맞춤 마케팅 전략을 제안한 데이터 분석 프로젝트입니다.
             <strong>K-Prototypes</strong> 기반 군집화와 <strong>연관 규칙</strong> 분석을 결합하여 신규 LPAY 고객에게도 군집 예측이 가능한 파이프라인을 설계했습니다.
             군집별 연관 규칙 분석을 통해 묶음 상품 추천, 시간대별 혜택 등 구체적인 맞춤 서비스 전략을 도출했습니다.
           </p>
@@ -57,7 +50,7 @@
           <ul>
             <li>구매 데이터 기반 고객 군집 분류</li>
             <li>LPAY 고객 군집별 분류 수행</li>
-            <li>시간대·계절별 맞춤 서비스 제공</li>
+            <li>시간대, 계절별 맞춤 서비스 제공</li>
           </ul>
         </div>
 
@@ -66,13 +59,13 @@
           <ul>
             <li>
               <strong>데이터 전처리:</strong>
-              Python·SQLite3로 Star Schema 구조 DB 제작(6개 테이블: 고객 인구통계, 상품 구매내역, 제휴사 이용, 상품분류, 점포정보, 엘페이 이용내역),
+              Python, SQLite3로 Star Schema 구조 DB 제작(6개 테이블: 고객 인구통계, 상품 구매내역, 제휴사 이용, 상품분류, 점포정보, 엘페이 이용내역),
               구매일자 → 구매계절 파생변수 생성,
-              고객코드 기준 대푯값 그룹핑(채널·구매시간: 평균, 구매금액: 중앙값, 구매계절·상품: 최빈값)
+              고객코드 기준 대푯값 그룹핑(채널, 구매시간: 평균, 구매금액: 중앙값, 구매계절, 상품: 최빈값)
             </li>
             <li>
               <strong>군집화 (K-Prototypes):</strong>
-              수치형·명목형 혼재 데이터에 K-Prototypes 적용, Min-Max Scaling, Elbow Method로 최적 군집 수 결정,
+              수치형, 명목형 혼재 데이터에 K-Prototypes 적용, Min-Max Scaling, Elbow Method로 최적 군집 수 결정,
               성별 분리 군집화(남성 4개 군집, 여성 6개 군집)
             </li>
             <li>
@@ -87,15 +80,15 @@
         <div class="section-block" id="schema">
           <h2>Star Schema 구축 예시</h2>
           <p>
-            전처리 단계에서 Python·SQLite3로 설계한 <strong>6개 테이블</strong> 구조를 도식화한 예시입니다.
+            전처리 단계에서 Python, SQLite3로 설계한 <strong>6개 테이블</strong> 구조를 도식화한 예시입니다.
             <strong>01_DEMO</strong>(고객 인구통계)를 중심으로 <strong>02_PDDE</strong> 상품 구매,
             <strong>03_COP_U</strong> 제휴사 이용, <strong>06_LPAY</strong> 엘페이 이용 내역이 <strong>고객번호</strong>로 연결되고,
-            구매 사실은 <strong>05_BR</strong> 점포·<strong>04_PD_CLAC</strong> 상품 분류 마스터와 조인되도록 구성했습니다.
+            구매 사실은 <strong>05_BR</strong> 점포, <strong>04_PD_CLAC</strong> 상품 분류 마스터와 조인되도록 구성했습니다.
           </p>
           <figure class="schema-figure">
             <img
               src="image/lpay_star_schema.png"
-              alt="Star Schema: 01_DEMO 고객 인구통계를 중심으로 02_PDDE, 03_COP_U, 06_LPAY가 고객번호로 연결되고 05_BR 점포·04_PD_CLAC 상품분류와 연결되는 ER 다이어그램"
+              alt="Star Schema: 01_DEMO 고객 인구통계를 중심으로 02_PDDE, 03_COP_U, 06_LPAY가 고객번호로 연결되고 05_BR 점포, 04_PD_CLAC 상품분류와 연결되는 ER 다이어그램"
               loading="lazy"
             />
             <figcaption>LPAY(엘포인트) 고객 세그멘테이션 분석용 DB 설계 예시</figcaption>
@@ -105,17 +98,17 @@
         <div class="section-block" id="process">
           <h2>분석 프로세스</h2>
           <p>
-            원천 데이터를 <strong>전처리</strong>해 분석 가능한 단위로 만든 뒤, <strong>군집·연관 분석</strong>으로 패턴을 도출하고,
-            필요 시 <strong>분류 모델</strong>로 신규 고객 등에 대한 군집 예측·확장을 염두에 둔 흐름을 정리했습니다.
-            아래 도표는 프로젝트에서 사용·검토한 단계를 요약한 것입니다.
+            원천 데이터를 <strong>전처리</strong>해 분석 가능한 단위로 만든 뒤 <strong>군집, 연관 분석</strong>으로 패턴을 도출하고
+            필요 시 <strong>분류 모델</strong>로 신규 고객 등에 대한 군집 예측, 확장을 염두에 둔 흐름을 정리했습니다.
+            아래 도표는 프로젝트에서 사용, 검토한 단계를 요약한 것입니다.
           </p>
           <figure class="schema-figure">
             <img
               src="image/lpay_analysis_process.png"
-              alt="LPAY 분석 프로세스: 전처리(구매일자 기반 계절 파생, 고객코드별 구매시간 평균·금액 중앙값·계절 최빈값 집계), 분석(Elbow·K-Prototypes 군집, 군집별 Apriori 연관분석), 분류모델(Random Forest, Extra Trees, Light GBM) 순 흐름도"
+              alt="LPAY 분석 프로세스: 전처리(구매일자 기반 계절 파생, 고객코드별 구매시간 평균, 금액 중앙값, 계절 최빈값 집계), 분석(Elbow, K-Prototypes 군집, 군집별 Apriori 연관분석), 분류모델(Random Forest, Extra Trees, Light GBM) 순 흐름도"
               loading="lazy"
             />
-            <figcaption>전처리 → 군집·연관 분석 → 분류 모델 단계 요약</figcaption>
+            <figcaption>전처리 → 군집, 연관 분석 → 분류 모델 단계 요약</figcaption>
           </figure>
         </div>
 
@@ -129,7 +122,7 @@
             aria-label="성별 군집 대표값 분석 표"
           >
             <p class="cluster-slider-hint">
-              남성·여성 군집별 대표값(최빈값·평균·중앙값·인원) 요약 표입니다. 좌우로 스와이프하거나 위 탭으로 전환할 수 있습니다.
+              남성, 여성 군집별 대표값(최빈값, 평균, 중앙값, 인원) 요약 표입니다. 좌우로 스와이프하거나 위 탭으로 전환할 수 있습니다.
             </p>
             <div class="cluster-slider-toolbar">
               <div class="cluster-slider-tabs" role="tablist" aria-label="표 선택">
@@ -145,7 +138,7 @@
               <figure class="cluster-slide schema-figure" id="cluster-slide-0" role="tabpanel" aria-labelledby="cluster-tab-0">
                 <img
                   src="image/lpay_cluster_male.png"
-                  alt="남성 군집화 결과 대표값 분석: 연령대·거주지·채널·상품 대·소분류·구매계절·구매시간·구매금액·고객수를 군집 0~3별로 정리한 표"
+                  alt="남성 군집화 결과 대표값 분석: 연령대, 거주지, 채널, 상품 대·소분류, 구매계절, 구매시간, 구매금액, 고객수를 군집 0~3별로 정리한 표"
                   loading="eager"
                   decoding="async"
                 />
@@ -154,7 +147,7 @@
               <figure class="cluster-slide schema-figure" id="cluster-slide-1" role="tabpanel" aria-labelledby="cluster-tab-1">
                 <img
                   src="image/lpay_cluster_female.png"
-                  alt="여성 군집화 결과 대표값 분석: 연령대·거주지·채널·상품 대·소분류·구매계절·구매시간·구매금액·고객수를 군집 0~5별로 정리한 표"
+                  alt="여성 군집화 결과 대표값 분석: 연령대, 거주지, 채널, 상품 대·소분류, 구매계절, 구매시간, 구매금액, 고객수를 군집 0~5별로 정리한 표"
                   loading="lazy"
                   decoding="async"
                 />
@@ -177,16 +170,16 @@
                 <td>40대, 겨울 구매 多, 일반우유 중심</td>
               </tr>
               <tr>
-                <th scope="row">1 · 과자·주류 구매층</th>
-                <td>40~50대, 봄 구매 多, 일반스낵·소주</td>
+                <th scope="row">1 · 과자, 주류 구매층</th>
+                <td>40~50대, 봄 구매 多, 일반스낵, 소주</td>
               </tr>
               <tr>
                 <th scope="row">2 · 생필품 구매층</th>
                 <td>청소/세탁/욕실용품, 종량제봉투</td>
               </tr>
               <tr>
-                <th scope="row">3 · 담배·주류 구매층</th>
-                <td>30대, 국산담배·수입맥주 선호</td>
+                <th scope="row">3 · 담배, 주류 구매층</th>
+                <td>30대, 국산담배, 수입맥주 선호</td>
               </tr>
             </tbody>
           </table>
@@ -202,23 +195,23 @@
             <tbody>
               <tr>
                 <th scope="row">0 · 온라인 과자 구매층</th>
-                <td>40대, 온라인 이용, 감자스낵·상품권</td>
+                <td>40대, 온라인 이용, 감자스낵, 상품권</td>
               </tr>
               <tr>
-                <th scope="row">1 · 외식·문구 구매층</th>
+                <th scope="row">1 · 외식, 문구 구매층</th>
                 <td>50대, 테넌트/음식점, 팬시용품</td>
               </tr>
               <tr>
                 <th scope="row">2 · 간식 구매층</th>
-                <td>가을 구매 多, 일반스낵·군것질</td>
+                <td>가을 구매 多, 일반스낵, 군것질</td>
               </tr>
               <tr>
-                <th scope="row">3 · 유제품·생필품층</th>
+                <th scope="row">3 · 유제품, 생필품층</th>
                 <td>30대, 겨울 구매 多, 종량제봉투</td>
               </tr>
               <tr>
                 <th scope="row">4 · 유제품 저녁 구매층</th>
-                <td>40대, 저녁 구매 多, 일반우유·생필품</td>
+                <td>40대, 저녁 구매 多, 일반우유, 생필품</td>
               </tr>
               <tr>
                 <th scope="row">5 · 임대매출 외식층</th>
@@ -231,10 +224,10 @@
         <div class="section-block" id="association">
           <h2>연관 분석 결과 예시</h2>
           <p>
-            군집별로 Apriori 연관 규칙을 산출하고, Support 기준 상위 규칙을 바탕으로 군집 해석과 묶음 추천 아이디어를 정리했습니다.
+            군집별로 Apriori 연관 규칙을 산출하고 Support 기준 상위 규칙을 바탕으로 군집 해석과 묶음 추천 아이디어를 정리했습니다.
             아래는 성별 각각에서 <strong>대표 군집 2개</strong>(남성 군집 1·2, 여성 군집 1·2)의 Top 10 규칙을 한 장에 모은 예시입니다.
           </p>
-          <div class="assoc-pair-row" aria-label="남성·여성 연관분석 결과 나란히 보기">
+          <div class="assoc-pair-row" aria-label="남성, 여성 연관분석 결과 나란히 보기">
             <figure>
               <img
                 src="image/lpay_association_male.png"
@@ -260,7 +253,7 @@
           <h2>핵심 성과</h2>
           <ul>
             <li><strong>고객 세그멘테이션 완성:</strong> 남성 4개 + 여성 6개, 총 10개 군집으로 LPAY 고객 전체 분류 파이프라인 구축</li>
-            <li><strong>LPAY 신규 고객 대응 방안:</strong> 기존 고객은 구매 데이터 기반 자동 분류, 신규 고객은 설문 기반 군집 분류 수행 제안</li>
+            <li><strong>LPAY 신규 고객 대응 방안:</strong> 기존 고객은 구매 데이터 기반 자동 분류. 신규 고객은 설문 기반 군집 분류 수행 제안</li>
             <li><strong>군집별 마케팅 전략:</strong> 연관 규칙 결과 기반 묶음 상품 추천, 시간대별 혜택, 계절 할인 전략 수립</li>
           </ul>
         </div>
@@ -268,16 +261,16 @@
         <div class="section-block" id="challenges">
           <h2>기술적 도전과 해결</h2>
 
-          <p><strong>1. 수치형·명목형 혼재 데이터 군집화 문제</strong></p>
+          <p><strong>1. 수치형, 명목형 혼재 데이터 군집화 문제</strong></p>
           <ul>
-            <li><strong>문제:</strong> 구매시간·구매금액(수치형)과 연령대·채널구분·구매계절·상품대분류명(명목형)이 혼재하여 일반 K-Means 적용 불가</li>
+            <li><strong>문제:</strong> 구매시간, 구매금액(수치형)과 연령대, 채널구분, 구매계절, 상품대분류명(명목형)이 혼재하여 일반 K-Means 적용 불가</li>
             <li><strong>해결:</strong> K-Means(수치형)와 K-Modes(명목형)를 결합한 K-Prototypes 적용, 수치형 유클리드 거리와 명목형 불일치 비율을 γ 파라미터로 가중 결합</li>
-            <li><strong>결과:</strong> 수치·명목 변수를 동시에 반영한 군집화 완성, 성별 분리 군집화로 소수 집단(남성) 특성까지 유효하게 도출</li>
+            <li><strong>결과:</strong> 수치, 명목 변수를 동시에 반영한 군집화 완성, 성별 분리 군집화로 소수 집단(남성) 특성까지 유효하게 도출</li>
           </ul>
 
           <p><strong>2. 연관 규칙 분석을 위한 트랜잭션 데이터 구성 문제</strong></p>
           <ul>
-            <li><strong>문제:</strong> 원본이 고객별·상품별 행 단위라 Apriori용 트랜잭션 형태 변환이 필요. 같은 날 구매 상품을 함께 구매로 간주하는 기준을 코드로 구현해야 함</li>
+            <li><strong>문제:</strong> 원본이 고객별, 상품별 행 단위라 Apriori용 트랜잭션 형태 변환이 필요. 같은 날 구매 상품을 함께 구매로 간주하는 기준을 코드로 구현해야 함</li>
             <li><strong>해결:</strong> 고객번호 기준 정렬 후 동일 고객의 연속 행을 하나의 트랜잭션으로 묶는 로직 구현, 고객번호 변경 시점에서 트랜잭션 ID 순차 부여, TransactionEncoder로 Apriori 입력 형태 가공</li>
             <li><strong>결과:</strong> 고객별 구매 내역의 트랜잭션 단위 변환 완료, 군집별 독립 트랜잭션 데이터셋으로 연관 규칙 파이프라인 완성</li>
           </ul>
@@ -286,9 +279,9 @@
         <div class="section-block" id="limitations">
           <h2>한계 및 개선 방향</h2>
           <p>
-            분석 학습 초기에 진행한 프로젝트로, 지금 돌아보면 아쉬운 점이 있습니다.
-            <strong>Lift &gt; 1</strong> 필터링 미적용으로 우연에 의한 규칙이 포함됐을 가능성이 있고,
-            <code>min_support</code> 임계값을 데이터 분포 기반이 아닌 실험적으로 조정한 점,
+            분석 학습 초기에 진행한 프로젝트로 지금 돌아보면 아쉬운 점이 있습니다.
+            <strong>Lift &gt; 1</strong> 필터링 미적용으로 우연에 의한 규칙이 포함됐을 가능성이 있고
+            <code>min_support</code> 임계값을 데이터 분포 기반이 아닌 실험적으로 조정한 점
             트랜잭션 구성 시 고객번호 연속성 기반 로직을 사용했으나 <strong>groupby</strong> 방식이 더 안정적이었을 것입니다.
           </p>
         </div>

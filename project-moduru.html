@@ -7,16 +7,9 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <nav class="hash-nav projects-site-nav" aria-label="사이트 네비게이션">
-    <a href="index.html#projects">프로젝트</a>
-    <a href="projects-data.html">데이터 프로젝트</a>
-    <a href="projects-dev.html">개발 프로젝트</a>
-    <a href="index.html#skills">Skills</a>
-    <a href="index.html#experience">Experience</a>
-  </nav>
   <div class="project-detail">
     <div class="container">
-      <a href="projects-dev.html" class="back-link" aria-label="개발 프로젝트 목록으로 돌아가기">← 돌아가기</a>
+      <a href="index.html#dev-projects" class="back-link" aria-label="개발 프로젝트 목록으로 돌아가기">← 돌아가기</a>
       
       <div class="project-header">
         <h1 class="project-title">Moduru</h1>
@@ -28,9 +21,9 @@
         <div class="section-block" id="overview">
           <h2>프로젝트 개요</h2>
           <p>
-            여행 일정 동시 편집 서비스 <strong>MODURU</strong>를 개발하여 친구들과 실시간 장소 공유·투표·
+            여행 일정 동시 편집 서비스 <strong>MODURU</strong>를 개발하여 친구들과 실시간 장소 공유, 투표,
             <strong>AI 추천 일정/동선</strong> 반영이 가능한 실시간 여행 일정 협업 플랫폼을 구축했습니다.
-            WebSocket(STOMP+SockJS)·Redux 기반의 실시간 협업, Drag & Drop 편집, 지도 시각화, 리뷰·마이페이지 기능을 제공합니다.
+            WebSocket(STOMP+SockJS), Redux 기반의 실시간 협업, Drag & Drop 편집, 지도 시각화, 리뷰, 마이페이지 기능을 제공합니다.
           </p>
           <ul>
             <li><strong>프로젝트명:</strong> MODURU (실시간 여행 일정 협업 서비스)</li>
@@ -100,7 +93,7 @@
         <div class="section-block" id="my-role">
           <h2>나의 역할</h2>
           <ul>
-            <li><strong>팀장 및 프론트엔드:</strong> Jira 기반 일정 관리 및 팀 회의 주도, 프론트엔드에서 실시간 동기화 화면 구현</li>
+            <li><strong>팀장 및 프론트엔드:</strong> Jira 기반 일정 관리 및 팀 회의 주도. 프론트엔드에서 실시간 동기화 화면 구현</li>
             <li>Redux 상태 관리 설계 및 WebSocket(STOMP) 연동 로직 개발 → 사용자 동기화 체감 속도 개선</li>
             <li>일정 Drag & Drop UI: 직관적인 일정 편집 인터페이스 구현</li>
             <li>희망 장소 공유 기능: 실시간 WebSocket 연동으로 협업 반영</li>
@@ -113,63 +106,35 @@
         <div class="section-block" id="impact">
           <h2>핵심 성과</h2>
           <ul>
-            <li><strong>재연결·동기화 안정성:</strong> WebSocket 연결 관리·구독 재설정·발행 큐로 끊김·재연결 구간에서도 일정 변경이 누락되지 않도록 정리해, 재연결 상황에서 반영 안정성을 높임</li>
-            <li><strong>과도 발행·트래픽 억제:</strong> 일정 동기화 발행 미들웨어(디바운스·동일 payload 생략·수신 메시지 재발행 차단)로 같은 날짜에 대해 약 <strong>10회</strong> 발생하던 발행 요청을 <strong>1회</strong> 수준으로 줄여, 중복 WebSocket 트래픽 약 <strong>90%</strong> 감소를 확인</li>
-            <li><strong>협업 UX 완성도:</strong> 희망 장소 공유·투표·좋아요가 보드/지도에 실시간 반영되는 협업 경험 구현</li>
-            <li><strong>AI 추천 활용성 증대:</strong> 일정·경로 추천 결과를 카드/보드에 매핑하여 <strong>즉시 편집</strong> 가능</li>
+            <li><strong>재연결, 동기화 안정성:</strong> WebSocket 연결 관리, 구독 재설정, 발행 큐로 끊김, 재연결 구간에서도 일정 변경이 누락되지 않도록 정리해 재연결 상황에서 반영 안정성을 높임</li>
+            <li><strong>과도 발행, 트래픽 억제:</strong> 일정 동기화 발행 미들웨어(디바운스, 동일 payload 생략, 수신 메시지 재발행 차단)로 같은 날짜에 대해 약 <strong>10회</strong> 발생하던 발행 요청을 <strong>1회</strong> 수준으로 줄여 중복 WebSocket 트래픽 약 <strong>90%</strong> 감소를 확인</li>
+            <li><strong>협업 UX 완성도:</strong> 희망 장소 공유, 투표, 좋아요가 보드/지도에 실시간 반영되는 협업 경험 구현</li>
+            <li><strong>AI 추천 활용성 증대:</strong> 일정, 경로 추천 결과를 카드/보드에 매핑하여 <strong>즉시 편집</strong> 가능</li>
           </ul>
         </div>
 
-        <!-- 도전 과제와 해결 과정 -->
         <div class="section-block" id="challenges">
-          <h2>도전 과제와 해결 과정</h2>
+          <h2>기술적 도전과 해결</h2>
 
-          <p>
-            실시간 여행 일정 협업 서비스 <strong>MODURU</strong>에서 프론트엔드를 맡아 WebSocket 기반 일정 동시 편집 기능을 구현했습니다.
-          </p>
-
-          <p><strong>문제 1: WebSocket 끊김·재연결 이후 일정 변경이 화면에 반영되지 않는 경우</strong></p>
-          <p>
-            개발 과정에서 사용자들이 동시에 일정을 수정하는 상황에서 WebSocket 연결이 끊기거나 재연결되면,
-            일부 상황에서 다른 사용자의 일정 변경이 화면에 반영되지 않는 문제가 발생했습니다.
-          </p>
-          <p>
-            이를 단순한 렌더링 성능 저하가 아니라,
-            <strong>WebSocket 재연결 이후 구독 복구와 메시지 발행 타이밍이 맞지 않아 동기화가 누락되는 구조적 문제</strong>로 판단했습니다.
-            연결이 끊긴 상태에서 발생한 변경 요청이 전송되지 못하거나, 재연결 이후 기존 구독 상태가 정상적으로 복원되지 않으면
-            사용자마다 서로 다른 일정 상태를 보게 될 가능성이 있다고 보았습니다.
-          </p>
+          <p><strong>1. WebSocket 끊김, 재연결 시 동기화 누락</strong></p>
           <ul>
-            <li>
-              <strong>해결:</strong> 연결이 끊기면 기존 구독 정보를 정리해 불완전한 상태를 제거하고, 재연결이 이루어지면 모든 구독을 다시 설정하도록 구성해 동기화 누락 가능성을 줄였습니다.
-              연결이 복구되기 전에 발생한 발행 요청은 별도 큐에 저장해 두었다가, 재연결 이후 순차적으로 전송되도록 처리해 변경 사항이 유실되지 않도록 했습니다.
-            </li>
+            <li><strong>문제:</strong> 재연결 이후 구독 복구, 발행 타이밍 불일치로 다른 사용자의 일정 변경이 화면에 반영되지 않음</li>
+            <li><strong>해결:</strong> 끊김 시 기존 구독 정리 후 재연결 시 전체 구독 재설정. 미전송 발행 요청은 큐에 저장했다가 재연결 후 순차 전송</li>
+            <li><strong>결과:</strong> 재연결 구간에서도 일정 변경 누락 없이 안정적 동기화 확보</li>
           </ul>
 
-          <p><strong>문제 2: Drag &amp; Drop 연속 변경으로 전송·상태 갱신이 과도하게 누적되는 문제</strong></p>
-          <p>
-            장소 카드를 날짜별 일정 보드에 Drag &amp; Drop으로 추가·이동·삭제하거나 같은 날짜 안에서 순서를 바꾸는 과정에서는
-            상태 변경이 짧은 시간 안에 반복적으로 발생하면서 전송 요청과 상태 갱신이 과도하게 누적되었습니다.
-            그 결과 화면 반응이 느려지고, 실시간 협업의 안정성이 떨어지는 문제가 나타났습니다.
-          </p>
-          <p>
-            특히 <strong>연속 편집 구간에서는 동일한 일정 변경이 지나치게 자주 전송되는 구조적 문제</strong>로 보았습니다.
-          </p>
+          <p><strong>2. Drag &amp; Drop 연속 변경으로 전송 과다 누적</strong></p>
           <ul>
-            <li>
-              <strong>해결:</strong> 일정 동기화 발행을 제어하는 미들웨어를 설계하여, Drag &amp; Drop 과정에서 같은 날짜에 대한 연속 변경은 짧은 시간 동안 하나의 요청으로 압축하도록 디바운스를 적용했습니다.
-              직전 발행 내용과 동일한 경우에는 재전송을 생략했고, WebSocket으로 수신된 메시지가 다시 로컬에서 재발행되지 않도록 처리해 동기화 루프도 차단했습니다.
-            </li>
-            <li>
-              <strong>결과:</strong> 재연결 상황에서 일정 변경 반영의 안정성을 높일 수 있었고, 같은 날짜에 대해 10회 발생하던 발행 요청을 1회 수준으로 줄여 약 90%의 중복 트래픽 감소 효과를 확인했습니다.
-            </li>
+            <li><strong>문제:</strong> 같은 날짜에 대한 연속 편집이 짧은 시간 내 반복 발생하면서 전송 요청, 상태 갱신이 과도하게 누적되어 화면 반응 저하</li>
+            <li><strong>해결:</strong> 동기화 발행 미들웨어 설계. 디바운스로 연속 변경을 하나로 압축하고 동일 payload 재전송 생략, 수신 메시지 재발행 차단으로 동기화 루프 방지</li>
+            <li><strong>결과:</strong> 같은 날짜에 대해 약 <strong>10회</strong> → <strong>1회</strong> 수준으로 줄여 중복 WebSocket 트래픽 약 <strong>90%</strong> 감소</li>
           </ul>
 
-          <p><strong>문제 3: 일정/경로 추천 결과 UI 반영 어려움</strong></p>
+          <p><strong>3. AI 추천 결과 UI 매핑 어려움</strong></p>
           <ul>
-            <li><strong>원인 분석:</strong> AI 서버 응답 데이터 구조가 복잡해 Redux 상태와 UI 간 매핑 과정에서 일관성 깨짐</li>
-            <li><strong>내 행동(해결 방법):</strong> aiScheduleSlice, aiRouteSlice를 직접 설계하여 추천 결과 구조화, 카드형 UI와 Drag & Drop 보드에 매핑되도록 컴포넌트 구현</li>
-            <li><strong>결과:</strong> AI 추천 일정을 즉시 확인·편집 가능해짐</li>
+            <li><strong>문제:</strong> AI 서버 응답 구조가 복잡해 Redux 상태와 UI 간 매핑에서 일관성 깨짐</li>
+            <li><strong>해결:</strong> aiScheduleSlice, aiRouteSlice를 설계해 추천 결과를 구조화하고 카드형 UI, Drag &amp; Drop 보드에 매핑되도록 컴포넌트 구현</li>
+            <li><strong>결과:</strong> AI 추천 일정을 즉시 확인, 편집 가능</li>
           </ul>
         </div>
       </div>

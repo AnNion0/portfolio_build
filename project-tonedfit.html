@@ -7,28 +7,21 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <nav class="hash-nav projects-site-nav" aria-label="사이트 네비게이션">
-    <a href="index.html#projects">프로젝트</a>
-    <a href="projects-data.html">데이터 프로젝트</a>
-    <a href="projects-dev.html">개발 프로젝트</a>
-    <a href="index.html#skills">Skills</a>
-    <a href="index.html#experience">Experience</a>
-  </nav>
   <div class="project-detail">
     <div class="container">
-      <a href="projects-dev.html" class="back-link" aria-label="개발 프로젝트 목록으로 돌아가기">← 돌아가기</a>
+      <a href="index.html#dev-projects" class="back-link" aria-label="개발 프로젝트 목록으로 돌아가기">← 돌아가기</a>
 
       <div class="project-header">
-        <h1 class="project-title">ToneDfit</h1>
-        <p class="project-subtitle">톤디핏 — 날씨·검색 기반 의류 추천 모바일 앱</p>
+        <h1 class="project-title">ToneDfit(톤디핏)</h1>
+        <p class="project-subtitle">날씨, 검색 기반 의류 추천 모바일 앱</p>
       </div>
 
       <div class="project-content">
         <div class="section-block" id="overview">
           <h2>프로젝트 개요</h2>
           <p>
-            사용자의 <strong>현재 위치 날씨</strong>와 <strong>일정</strong>에 맞춰 의류를 추천하고,
-            텍스트·카테고리·이미지 기반으로 상품을 검색할 수 있는 <strong>Flutter</strong> 모바일 앱입니다.
+            사용자의 <strong>현재 위치 날씨</strong>와 <strong>일정</strong>에 맞춰 의류를 추천하고
+            텍스트/카테고리/이미지 기반으로 상품을 검색할 수 있는 <strong>Flutter</strong> 모바일 앱입니다.
           </p>
           <ul>
             <li><strong>기간:</strong> 2025.10.20 ~ 2025.11.25</li>
@@ -37,8 +30,8 @@
           </ul>
           <p><strong>기술 스택</strong></p>
           <div class="tech-stack" aria-label="기술 태그">
-            <span class="tech-tag">Flutter 3.35</span>
-            <span class="tech-tag">Dart 3.9</span>
+            <span class="tech-tag">Flutter</span>
+            <span class="tech-tag">Dart</span>
             <span class="tech-tag">Riverpod</span>
             <span class="tech-tag">Dio</span>
             <span class="tech-tag">Geolocator</span>
@@ -46,31 +39,61 @@
           </div>
         </div>
 
-        <div class="section-block image-gallery" id="screens">
-          <h2>서비스 주요 화면</h2>
-          <div class="carousel-wrapper carousel-wrapper--tonedfit" role="region" aria-label="톤디핏 화면 캐러셀">
-            <button type="button" class="prev-btn" aria-label="이전 화면">‹</button>
+        <div class="section-block image-gallery" id="screens-part1">
+          <h2>서비스 주요 화면 ①</h2>
+          <p class="scenario-block-lead">날씨 기반 의류 추천, 미래 날씨 의류 추천, 체감온도·분위기·장소·일정 정보 조합 추천 화면입니다.</p>
+          <div class="carousel-wrapper carousel-wrapper--narrow carousel-wrapper--wallet-gif-frame carousel-wrapper--single-slide" role="region" aria-label="추천 기능 시연 영상">
             <div class="carousel">
               <div class="carousel-track">
-                <div class="carousel-slide carousel-slide--tonedfit-height-fit"><img src="image/toneDfit1.png" alt="톤디핏 스플래시·온보딩 화면" loading="lazy" /></div>
-                <div class="carousel-slide carousel-slide--tonedfit-width-fit"><img src="image/toneDfit2.gif" alt="홈·날씨 및 날씨 기반 추천 흐름" loading="lazy" /></div>
-                <div class="carousel-slide carousel-slide--tonedfit-width-fit"><img src="image/toneDfit3.gif" alt="카테고리·컬러 필터 검색" loading="lazy" /></div>
-                <div class="carousel-slide carousel-slide--tonedfit-height-fit"><img src="image/toneDfit4.gif" alt="4축 의류 추천 입력 모달" loading="lazy" /></div>
-                <div class="carousel-slide carousel-slide--tonedfit-width-fit"><img src="image/toneDfit5.gif" alt="ToneDfit Assistant AI 챗봇" loading="lazy" /></div>
-                <div class="carousel-slide carousel-slide--tonedfit-height-fit"><img src="image/toneDfit6.gif" alt="이미지 검색 촬영 확인 화면" loading="lazy" /></div>
+                <div class="carousel-slide">
+                  <video controls playsinline preload="metadata" aria-label="추천 기능 시연">
+                    <source src="image/toneDfit1.mp4" type="video/mp4" />
+                  </video>
+                </div>
               </div>
             </div>
-            <button type="button" class="next-btn" aria-label="다음 화면">›</button>
+          </div>
+        </div>
+
+        <div class="section-block image-gallery" id="screens-part2">
+          <h2>서비스 주요 화면 ②</h2>
+          <p class="scenario-block-lead">인기·최근 검색어, 대·중·소분류 3단계 카테고리 검색, 텍스트 검색, 챗봇, 카메라·갤러리 이미지 검색 화면입니다.</p>
+          <div class="carousel-wrapper carousel-wrapper--narrow carousel-wrapper--wallet-gif-frame carousel-wrapper--single-slide" role="region" aria-label="검색 기능 시연 영상">
+            <div class="carousel">
+              <div class="carousel-track">
+                <div class="carousel-slide">
+                  <video controls playsinline preload="metadata" aria-label="검색 기능 시연">
+                    <source src="image/toneDfit2.mp4" type="video/mp4" />
+                  </video>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-block image-gallery" id="screens-part3">
+          <h2>서비스 주요 화면 ③</h2>
+          <p class="scenario-block-lead">AI 기반 캐릭터 의류 합성 기능 화면입니다.</p>
+          <div class="carousel-wrapper carousel-wrapper--narrow carousel-wrapper--wallet-gif-frame carousel-wrapper--single-slide" role="region" aria-label="AI 캐릭터 시연 영상">
+            <div class="carousel">
+              <div class="carousel-track">
+                <div class="carousel-slide">
+                  <video controls playsinline preload="metadata" aria-label="AI 캐릭터 의류 합성 시연">
+                    <source src="image/toneDfit3.mp4" type="video/mp4" />
+                  </video>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="section-block" id="features">
           <h2>주요 기능</h2>
 
-          <h3>실시간 날씨·일기예보 기반 의류 추천</h3>
+          <h3>실시간 날씨, 일기예보 기반 의류 추천</h3>
           <ul>
             <li>실시간 날씨 / 대기질 / 시간별 / 7일 예보 조회</li>
-            <li>체감온도·강수량·풍속·습도 기반 추천</li>
+            <li>체감온도, 강수량, 풍속, 습도 기반 추천</li>
             <li>캘린더 선택 날짜의 일기예보 기반 추천</li>
             <li>시간별 그래프, 날씨 상세 모달 제공</li>
           </ul>
@@ -87,17 +110,17 @@
             <li>텍스트 검색, 인기·최근 검색어</li>
             <li>대·중·소분류 3단계 카테고리 검색</li>
             <li>카메라·갤러리 기반 이미지 검색</li>
-            <li>가격·색상·소재·사이즈 필터 제공</li>
+            <li>가격, 색상, 소재, 사이즈 필터 제공</li>
           </ul>
 
-          <h3>일정 기반 코디 캘린더·북마크</h3>
+          <h3>일정 기반 코디 캘린더, 북마크</h3>
           <ul>
             <li>캘린더 기반 일정 등록 및 편집</li>
             <li>날짜별 착장 기록 및 의류 평가</li>
             <li>상품 북마크 토글 및 카드 상태 동기화</li>
           </ul>
 
-          <h3>AI 캐릭터·챗봇</h3>
+          <h3>AI 캐릭터, 챗봇</h3>
           <ul>
             <li>메인 캐릭터 및 날씨 모달 캐릭터 렌더링</li>
             <li>AI 기반 캐릭터 의류 합성 기능</li>
@@ -110,18 +133,18 @@
           <ul>
             <li>
               <strong>Flutter 프로젝트 초기 아키텍처 및 공통 인프라:</strong>
-              features / core / shared 계층 구조, 화면 전환 표준화, 공통 헤더·하단 네비·스플래시 컴포넌트화,
+              features / core / shared 계층 구조, 화면 전환 표준화, 공통 헤더, 하단 네비, 스플래시 컴포넌트화,
               Firebase Analytics 기반 화면 추적
             </li>
             <li>
               <strong>Riverpod 기반 다층 캐시 상태 관리:</strong>
-              날씨·의류·검색·인증 도메인 구조, 성별·대분류·소분류 3단계 캐시 키로 중복 API 호출 최소화,
+              날씨, 의류, 검색, 인증 도메인 구조, 성별, 대분류, 소분류 3단계 캐시 키로 중복 API 호출 최소화,
               병렬 로드 및 자동 페이지네이션
             </li>
             <li>
               <strong>Provider 기반 다축 추천:</strong>
-              추천 Provider가 날씨 Provider를 참조, 체감온도·강수량·풍속·습도를 추천 API 파라미터로 통합,
-              현재 날씨·미래 일기예보·일정 기반 추천을 동일 흐름으로 관리
+              추천 Provider가 날씨 Provider를 참조, 체감온도, 강수량, 풍속, 습도를 추천 API 파라미터로 통합,
+              현재 날씨, 미래 일기예보, 일정 기반 추천을 동일 흐름으로 관리
             </li>
             <li>
               <strong>4축 추천 모달:</strong>
@@ -131,11 +154,11 @@
             <li>
               <strong>이미지 검색 파이프라인:</strong>
               카메라·갤러리 → 영역 크롭 → 업로드 직전 재압축 → 멀티파트 업로드,
-              검색·홈 화면에서 동일 흐름 재사용 가능하도록 모듈화
+              검색, 홈 화면에서 동일 흐름 재사용 가능하도록 모듈화
             </li>
             <li>
               <strong>북마크 및 상태 동기화:</strong>
-              북마크 토글 API·상태 관리, 카드별 개별 API 호출을 ID 집합 기반 Provider로 리팩토링,
+              북마크 토글 API, 상태 관리, 카드별 개별 API 호출을 ID 집합 기반 Provider로 리팩토링,
               카드 간 북마크 상태 동기화
             </li>
           </ul>
@@ -144,9 +167,9 @@
         <div class="section-block" id="impact">
           <h2>핵심 성과</h2>
           <ul>
-            <li><strong>다층 캐시 기반 API 호출 최소화:</strong> 성별·대분류·소분류 3단계 캐시로 동일 조건 재호출 차단, 병렬 로드·자동 페이지네이션으로 상품 로딩 최적화</li>
+            <li><strong>다층 캐시 기반 API 호출 최소화:</strong> 성별, 대분류, 소분류 3단계 캐시로 동일 조건 재호출 차단, 병렬 로드, 자동 페이지네이션으로 상품 로딩 최적화</li>
             <li><strong>다축 추천 흐름 단일화:</strong> 체감온도·분위기·장소·일정을 단일 추천 흐름으로 통합, 날짜별 저장으로 재진입 시 즉시 복원</li>
-            <li><strong>이미지 검색 업로드 최적화:</strong> 다운스케일 → 크롭 → 재압축 → 멀티파트로 페이로드·전송 부담 감소</li>
+            <li><strong>이미지 검색 업로드 최적화:</strong> 다운스케일 → 크롭 → 재압축 → 멀티파트로 페이로드, 전송 부담 감소</li>
             <li><strong>북마크 N+1 제거:</strong> ID 집합 기반 Provider로 카드별 API 호출 제거, 단일 상태 변경으로 전체 카드 동기화</li>
           </ul>
         </div>
@@ -154,23 +177,23 @@
         <div class="section-block" id="challenges">
           <h2>기술적 도전과 해결</h2>
 
-          <p><strong>1. 화면 간 카테고리·추천 API 중복 호출</strong></p>
+          <p><strong>1. 화면 간 카테고리, 추천 API 중복 호출</strong></p>
           <ul>
-            <li><strong>문제:</strong> 메인·검색·카테고리·상품 목록에서 동일 조건 데이터 반복 호출, 대용량(100건 이상) 시 페이지네이션 누락으로 일부 상품 미표시 가능</li>
-            <li><strong>해결:</strong> 성별·대분류·소분류 3단계 캐시 Provider, hit 시 호출 생략, miss 시 첫 페이지 후 전체 페이지 자동 수집, 병렬 로드·강제 갱신 옵션</li>
+            <li><strong>문제:</strong> 메인, 검색, 카테고리, 상품 목록에서 동일 조건 데이터 반복 호출, 대용량(100건 이상) 시 페이지네이션 누락으로 일부 상품 미표시 가능</li>
+            <li><strong>해결:</strong> 성별, 대분류, 소분류 3단계 캐시 Provider, hit 시 호출 생략, miss 시 첫 페이지 후 전체 페이지 자동 수집, 병렬 로드, 강제 갱신 옵션</li>
             <li><strong>결과:</strong> 동일 조건 재호출 제거, 페이지네이션 누락 해소, 화면 간 데이터 일관성 확보</li>
           </ul>
 
           <p><strong>2. 모바일 이미지 검색 업로드 지연</strong></p>
           <ul>
-            <li><strong>문제:</strong> 원본 그대로 업로드 시 전송 지연·실패 증가, 배경 포함으로 검색 품질 저하 가능</li>
-            <li><strong>해결:</strong> 1차 다운스케일 → 검색 영역 크롭 → 업로드 직전 재압축 → 멀티파트, 위젯·서비스 단위 모듈화</li>
-            <li><strong>결과:</strong> 페이로드 단계적 감소, 전송 안정성 개선, 검색·홈에서 일관된 이미지 검색 흐름</li>
+            <li><strong>문제:</strong> 원본 그대로 업로드 시 전송 지연, 실패 증가, 배경 포함으로 검색 품질 저하 가능</li>
+            <li><strong>해결:</strong> 1차 다운스케일 → 검색 영역 크롭 → 업로드 직전 재압축 → 멀티파트, 위젯, 서비스 단위 모듈화</li>
+            <li><strong>결과:</strong> 페이로드 단계적 감소, 전송 안정성 개선, 검색, 홈에서 일관된 이미지 검색 흐름</li>
           </ul>
 
           <p><strong>3. 북마크 카드별 N+1 API 호출</strong></p>
           <ul>
-            <li><strong>문제:</strong> 카드 마운트마다 북마크 목록 API 개별 호출, 화면 전환·재렌더 시 반복</li>
+            <li><strong>문제:</strong> 카드 마운트마다 북마크 목록 API 개별 호출, 화면 전환, 재렌더 시 반복</li>
             <li><strong>해결:</strong> 북마크 productId 집합 전용 Provider, 목록 로드 시 한 번만 ID 집합 구성, 카드는 집합 구독, 토글 시 Provider에 add/remove, dispose 시 구독 해제</li>
             <li><strong>결과:</strong> 카드별 추가 호출 제거, 전체 카드 동기화, 메모리 누수 방지</li>
           </ul>
@@ -178,32 +201,5 @@
       </div>
     </div>
   </div>
-  <script>
-    (function () {
-      var root = document.querySelector('.image-gallery .carousel-wrapper');
-      if (!root) return;
-      var carousel = root.querySelector('.carousel');
-      var track = root.querySelector('.carousel-track');
-      var slides = track ? track.children.length : 0;
-      var prevBtn = root.querySelector('.prev-btn');
-      var nextBtn = root.querySelector('.next-btn');
-      if (!carousel || !track || slides === 0) return;
-      var index = 0;
-      function updateSlide() {
-        var w = carousel.getBoundingClientRect().width;
-        track.style.transform = 'translateX(' + -index * w + 'px)';
-      }
-      nextBtn.addEventListener('click', function () {
-        index = (index + 1) % slides;
-        updateSlide();
-      });
-      prevBtn.addEventListener('click', function () {
-        index = (index - 1 + slides) % slides;
-        updateSlide();
-      });
-      window.addEventListener('resize', updateSlide);
-      updateSlide();
-    })();
-  </script>
 </body>
 </html>

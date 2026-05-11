@@ -7,16 +7,9 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <nav class="hash-nav projects-site-nav" aria-label="사이트 네비게이션">
-    <a href="index.html#projects">프로젝트</a>
-    <a href="projects-data.html">데이터 프로젝트</a>
-    <a href="projects-dev.html">개발 프로젝트</a>
-    <a href="index.html#skills">Skills</a>
-    <a href="index.html#experience">Experience</a>
-  </nav>
   <div class="project-detail">
     <div class="container">
-      <a href="projects-dev.html" class="back-link" aria-label="개발 프로젝트 목록으로 돌아가기">← 돌아가기</a>
+      <a href="index.html#dev-projects" class="back-link" aria-label="개발 프로젝트 목록으로 돌아가기">← 돌아가기</a>
 
       <div class="project-header">
         <h1 class="project-title">떡잎냠냠</h1>
@@ -28,8 +21,8 @@
         <div class="section-block" id="overview">
           <h2>프로젝트 개요</h2>
           <p>
-            사용자가 회원가입/로그인을 통해 개인 식단을 기록·관리하고 음식 검색으로 손쉽게 식단에 음식을 추가할 수 있는
-            <strong>개인 맞춤 식단 코칭 서비스</strong>입니다. 식단 분석·기간 리포트·그래프 시각화와 AI 코멘트/추천을 제공해
+            사용자가 회원가입/로그인을 통해 개인 식단을 기록, 관리하고 음식 검색으로 손쉽게 식단에 음식을 추가할 수 있는
+            <strong>개인 맞춤 식단 코칭 서비스</strong>입니다. 식단 분석, 기간 리포트, 그래프 시각화와 AI 코멘트/추천을 제공해
             일상적인 식습관 개선을 돕습니다.
           </p>
           <ul>
@@ -101,8 +94,8 @@
           <ul>
             <li>
               <strong>식단 CRUD 전담:</strong>
-              기간(시작일~종료일)으로 식단 목록 조회, 상세 보기, 새 식단 등록, 기존 식단 수정·삭제까지 한 흐름으로 구현하고,
-              화면·API 양쪽에서 입력값 검증 처리
+              기간(시작일~종료일)으로 식단 목록 조회, 상세 보기, 새 식단 등록, 기존 식단 수정, 삭제까지 한 흐름으로 구현하고
+              화면, API 양쪽에서 입력값 검증 처리
             </li>
             <li>
               <strong>음식 검색:</strong>
@@ -110,17 +103,17 @@
               카테고리를 먼저 고른 뒤 검색해 결과 후보를 줄이는 방식으로 검색 부담 완화
             </li>
             <li>
-              <strong>UI·상태 관리:</strong>
-              Vue 3와 Pinia로 식단 작성·수정 화면의 입력값·목록·검색 결과 등을 한곳에서 관리하고,
+              <strong>UI, 상태 관리:</strong>
+              Vue 3와 Pinia로 식단 작성, 수정 화면의 입력값, 목록, 검색 결과 등을 한곳에서 관리하고
               식단 추가/편집 화면을 구조적으로 나누어 비슷한 UI를 재사용하기 쉽게 구성
             </li>
             <li>
               <strong>백엔드 연동:</strong>
-              로그인 후 받은 토큰을 API 요청마다 자동으로 붙이고, Spring Boot REST API와 요청·응답 형식(DTO)을 맞춤
+              로그인 후 받은 토큰을 API 요청마다 자동으로 붙이고 Spring Boot REST API와 요청, 응답 형식(DTO)을 맞춤
             </li>
             <li>
               <strong>데이터 계층:</strong>
-              MyBatis로 식단·식단에 담긴 음식 조회·저장용 SQL 매핑 작성
+              MyBatis로 식단, 식단에 담긴 음식 조회, 저장용 SQL 매핑 작성
             </li>
           </ul>
         </div>
@@ -129,9 +122,9 @@
         <div class="section-block" id="impact">
           <h2>핵심 성과</h2>
           <ul>
-            <li><strong>식단 기록 경험 개선:</strong> 식단 저장·수정 후 별도 새로고침 없이 목록·대시보드(주간 칼로리·최근 식단 등)가 바로 갱신되도록 연동</li>
-            <li><strong>검색 효율 향상:</strong> 짧은 시간 연속 입력에도 검색 요청이 과하게 나가지 않게 하고, 카테고리로 범위를 좁힌 뒤 이름으로 찾아 결과량 감소</li>
-            <li><strong>안정성 확보:</strong> 날짜·음식 미선정, 같은 음식 중복 추가, 지원하지 않는 단위 선택 등은 화면에서 선제 차단, 서버에서 요청 데이터 일부 검증 처리</li>
+            <li><strong>식단 기록 경험 개선:</strong> 식단 저장, 수정 후 별도 새로고침 없이 목록, 대시보드(주간 칼로리, 최근 식단 등)가 바로 갱신되도록 연동</li>
+            <li><strong>검색 효율 향상:</strong> 짧은 시간 연속 입력에도 검색 요청이 과하게 나가지 않게 하고 카테고리로 범위를 좁힌 뒤 이름으로 찾아 결과량 감소</li>
+            <li><strong>안정성 확보:</strong> 날짜, 음식 미선정, 같은 음식 중복 추가, 지원하지 않는 단위 선택 등은 화면에서 선제 차단. 서버에서 요청 데이터 일부 검증 처리</li>
             <li><strong>유지보수성 향상:</strong> 식단 관련 API 호출과 화면 상태를 Pinia 스토어 한곳에 모아 컴포넌트는 표시에 집중하도록 정리</li>
           </ul>
         </div>
@@ -141,14 +134,8 @@
           <h2>기술적 도전과 해결</h2>
           <p><strong>대규모 음식 데이터 검색 지연</strong></p>
           <ul>
-            <li><strong>원인 분석:</strong> 음식 데이터가 약 14만 건 규모인데 이름만으로 넓게 조회해 매 요청마다 검색 후보가 과다해지고 응답·화면 갱신 부담이 커짐</li>
-            <li>
-              <strong>해결 방법:</strong>
-              <code>foods</code> 테이블에 <code>category</code> 컬럼을 추가해 음식마다 분류를 저장하고,
-              카테고리와 키워드를 함께 받는 음식 검색 API로 변경.
-              MyBatis에서는 조건부 WHERE로 조회 범위를 줄였고,
-              Vue 식단 작성·수정 화면에서는 카테고리 선택과 입력 디바운스로 서버 호출 빈도를 낮춤
-            </li>
+            <li><strong>원인 분석:</strong> 음식 데이터가 약 14만 건 규모인데 이름만으로 넓게 조회해 매 요청마다 검색 후보가 과다해지고 응답, 화면 갱신 부담이 커짐</li>
+            <li><strong>해결 방법:</strong> 음식 테이블에 분류(카테고리) 컬럼을 추가해 음식마다 분류를 저장하고 카테고리와 키워드를 함께 받는 음식 검색 API로 변경. MyBatis에서는 조건부 WHERE로 조회 범위를 줄이고 Vue 식단 작성, 수정 화면에서는 카테고리 선택과 입력 디바운스로 서버 호출 빈도를 낮춤</li>
             <li><strong>결과:</strong> 카테고리 적용 시 검색 후보군을 전체 대비 약 80% 축소하여 체감 조회 속도와 자동완성 사용성 개선</li>
           </ul>
         </div>
