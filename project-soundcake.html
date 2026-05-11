@@ -45,6 +45,12 @@
       font-weight: 800;
       margin: 0;
     }
+    .project-subtitle {
+      margin: var(--space-2) 0 0;
+      font-size: 1.1rem;
+      color: var(--text-weak);
+      font-weight: 500;
+    }
 
     /* 프로젝트 콘텐츠 영역 */
     .project-content {
@@ -206,6 +212,7 @@
 
       <div class="project-header">
         <h1 class="project-title">SoundCake</h1>
+        <p class="project-subtitle">카페 매장을 위한 B2B 음악 추천 서비스</p>
       </div>
 
       <div class="project-content">
@@ -222,14 +229,11 @@
             <li><strong>프로젝트명:</strong> SoundCake</li>
             <li><strong>기간:</strong> 2024.07.07 ~ 2024.08.06</li>
             <li><strong>팀 구성:</strong> 6명 (PL 1, 기획 2, 데이터 1, 모델링 1, 웹개발 1)</li>
+            <li><strong>역할:</strong> 데이터 전처리 및 분석</li>
           </ul>
           <p><strong>기술 스택</strong></p>
           <ul>
-            <li><strong>Frontend:</strong> React</li>
-            <li><strong>Backend:</strong> Node.js</li>
-            <li><strong>Data/ML:</strong> Python, Jupyter</li>
-            <li><strong>Database:</strong> MySQL (Amazon RDS)</li>
-            <li><strong>협업/도구:</strong> Figma, Notion, Google Drive, VS Code</li>
+            <li>Python, Jupyter, pandas, numpy 등</li>
           </ul>
         </div>
 
@@ -248,35 +252,33 @@
             <li>
               <strong>컨텍스트 기반 입력 수집</strong>
               <ul>
-                <li>매장 정보(입지/분위기/영업시간)와 고객 정보(성별/연령대)를 UI에서 입력</li>
-                <li>현재 위치의 날씨(비/눈/맑음 등)를 자동 반영</li>
+                <li>매장 정보(입지/분위기/영업시간) 입력</li>
+                <li>고객 정보(성별/연령대) 입력</li>
+                <li>현재 위치 날씨 자동 반영</li>
               </ul>
             </li>
             <li>
               <strong>플레이리스트 추천</strong>
               <ul>
-                <li>플레이리스트의 태그 데이터를 중심으로 SentenceTransformer 임베딩과 AutoEncoder 잠재공간 유사도로 후보 탐색</li>
-                <li>태그 교집합 기준으로 기존 플레이리스트 추천</li>
+                <li>SentenceTransformer 임베딩 기반 후보 탐색</li>
+                <li>AutoEncoder 잠재공간 유사도 활용</li>
+                <li>태그 교집합 기준 추천</li>
               </ul>
             </li>
             <li>
               <strong>플레이리스트 생성</strong>
               <ul>
-                <li>매장 정보, 고객 정보, 현재 위치의 날씨 등을 반영해 곡을 새로 조합해 매장 전용 플레이리스트 생성</li>
-                <li>GPT를 활용한 플레이리스트 제목 자동 생성</li>
-              </ul>
-            </li>
-            <li>
-              <strong>플레이리스트 커버 이미지 생성</strong>
-              <ul>
-                <li>플레이리스트의 태그 기반 커버 이미지 자동 생성(스테이블 디퓨젼)</li>
+                <li>매장 전용 플레이리스트 자동 생성</li>
+                <li>GPT 기반 제목 자동 생성</li>
+                <li>스테이블 디퓨젼 커버 이미지 생성</li>
               </ul>
             </li>
             <li>
               <strong>Spotify 재생 연동</strong>
               <ul>
-                <li>Spotify 계정 인증(OAuth) 및 API/Web Playback으로 음악 재생</li>
-                <li>Spotify와 연동해 SoundCake 내부에서 플레이리스트 생성/관리</li>
+                <li>Spotify OAuth 인증</li>
+                <li>Web Playback API 음악 재생</li>
+                <li>플레이리스트 생성/관리</li>
               </ul>
             </li>
           </ul>
@@ -286,103 +288,50 @@
         <div class="section-block">
           <h2>나의 역할</h2>
 
-          <h3>1. 데이터 전처리</h3>
-          <ul>
-            <li>
-              <strong>사용 데이터:</strong> 카카오 아레나 MELON PLAYLIST DATASET<br>
-              장르 <strong>(n=254)</strong>, 곡 <strong>(n=707,989)</strong>, 플레이리스트 <strong>(n=148,826)</strong>
-            </li>
-            <li>
-              <strong>결측치 제거:</strong><br>
-              플레이리스트 데이터의 tags, songs 컬럼 결측 행 제거
-            </li>
-            <li>
-              <strong>태그 정리:</strong>
-              <ul>
-                <li>불용어(특수문자, 숫자) 제거</li>
-                <li>서비스 관련 없는 태그(장르, 노래, 음악, 차트, 플레이리스트 등) 제거</li>
-                <li>불필요한 단일 문자(R, 쫑, 헿 등) 제거</li>
-              </ul>
-            </li>
-            <li>
-              <strong>태그 추출:</strong>
-              <ul>
-                <li>태그가 포함된 플레이리스트 개수를 기준으로 빈도 높은 순서로 정렬</li>
-                <li>빈도 ≥ 19인 태그만 추출 (19개 이후 빈도 차이가 작아지는 지점 기준)</li>
-              </ul>
-            </li>
-            <li>
-              <strong>태그 분류:</strong>
-              <ul>
-                <li>'분위기', '날씨', '시간', '장소', '감정', '상황' 6개 범주로 태그 분류</li>
-                <li>분류되지 않은 태그는 제거</li>
-                <li>ChatGPT 프롬프트를 활용해 자동 분류 수행</li>
-              </ul>
-            </li>
-            <li>
-              <strong>연령대 태그 생성:</strong><br>
-              모델 입력용 파생 변수 생성
-              <ul>
-                <li>"10대, 20대" → <strong>10~20대</strong></li>
-                <li>"30대, 40대, 3040" → <strong>30~40대</strong></li>
-                <li>"5060, 6070, 7080, 50대, 60대, 70대" → <strong>50대 이상</strong></li>
-              </ul>
-            </li>
-            <li>
-              <strong>전처리 결과 변화:</strong>
-              <ul>
-                <li>플레이리스트 수: <strong>115,071 → 84,276</strong></li>
-                <li>곡 수: <strong>707,989 → 426,434</strong></li>
-                <li>태그 수: <strong>30,652 → 790</strong></li>
-              </ul>
-            </li>
-          </ul>
+          <h3>데이터 전처리</h3>
+          <p>
+            카카오 아레나 <strong>MELON PLAYLIST DATASET</strong>을 활용
+            (플레이리스트 148,826개, 곡 707,989개, 장르 254개).
+            결측치 제거 및 불용어 정리(특수문자·숫자, 서비스와 무관한 태그, 단일 문자 제거),
+            태그 빈도 기준 추출(빈도 ≥ 19),
+            ChatGPT 프롬프트 기반 태그 6개 범주 자동 분류(분위기/날씨/시간/장소/감정/상황),
+            연령대 파생 변수 생성.
+            전처리 후 플레이리스트 <strong>84,276</strong>개, 곡 <strong>426,434</strong>개, 태그 <strong>790</strong>개로 정제.
+          </p>
 
-          <h3>2. 데이터 분석</h3>
+          <h3>데이터 분석</h3>
+          <p>
+            플레이리스트 태그 분포·장르 다양성 등 전반적 데이터 구조 분석,
+            연령대별 주요 태그 비교
+            (10~20대: 사랑/힐링/청춘, 30~40대: 회상/가을/레트로, 50대 이상: 회상/레트로/부모님),
+            카페 태그 연관 분석(카페–감성 태그 <strong>22.3%</strong> 동시 등장, <strong>31.5%</strong> 조건부 확률),
+            카페 관련 플레이리스트 주요 태그 시각화로 감성·겨울·가을·비오는 날 등 계절·날씨 패턴 확인.
+          </p>
+
           <ul>
             <li>
-              <strong>(1) 플레이리스트 데이터 분석</strong><br>
-              플레이리스트별 태그 분포, 좋아요 수, 장르 다양성 등의 전반적인 구조를 분석하여
-              데이터 전반의 특성과 편향을 파악함.
+              <strong>플레이리스트 데이터 구조</strong>
               <figure>
                 <img src="image/playlist_overview.png" alt="플레이리스트 데이터 분석 결과" />
                 <figcaption>플레이리스트 태그 및 장르 다양성 분석 결과</figcaption>
               </figure>
             </li>
             <li>
-              <strong>(2) 연령대 관련 태그 분석</strong><br>
-              각 연령대별 주요 태그를 비교 분석한 결과,
-              모든 연령대에서 '감성' 태그의 빈도가 높게 나타났으며
-              세대별로 주요 태그 성향에 차이가 존재함.
-              <ul>
-                <li>10~20대: 사랑, 힐링, 청춘</li>
-                <li>30~40대: 회상, 가을, 레트로</li>
-                <li>50대 이상: 회상, 레트로, 부모님</li>
-              </ul>
+              <strong>연령대별 주요 태그</strong>
               <figure>
                 <img src="image/age_tag_analysis.png" alt="연령대별 주요 태그 분석 결과" />
                 <figcaption>연령대별 주요 태그 분석 결과</figcaption>
               </figure>
             </li>
             <li>
-              <strong>(3) 카페 태그 연관 분석</strong><br>
-              카페 관련 플레이리스트에서 태그 간의 연관 규칙을 분석함.
-              <ul>
-                <li>"카페"와 "감성" 태그는 카페 관련 플레이리스트의 <strong>22.3%</strong>에서 함께 등장</li>
-                <li>"카페" 태그가 있는 플레이리스트에 "감성" 태그가 있을 확률은 <strong>31.5%</strong></li>
-              </ul>
-              <p>"카페"와 "감성"은 높은 상관성을 보이며 카페 플레이리스트의 정체성을 형성하는 핵심 감성 태그로 작용함.</p>
+              <strong>카페 태그 연관 분석</strong>
               <figure>
                 <img src="image/cafe_association.png" alt="카페 태그 연관 분석 결과" />
                 <figcaption>카페 관련 태그 간 연관 분석 결과</figcaption>
               </figure>
             </li>
             <li>
-              <strong>(4) 카페 관련 플레이리스트 태그 시각화</strong><br>
-              카페 태그가 포함된 플레이리스트를 시각화한 결과,
-              "감성" 태그가 가장 많이 분포하며 "겨울", "가을", "비오는 날" 등
-              계절·날씨 관련 태그가 높은 빈도로 나타남.<br>
-              <strong>카페 음악 소비가 계절적 분위기와 감정적 요인에 크게 영향을 받는 패턴</strong>을 확인함.
+              <strong>카페 관련 플레이리스트 태그 시각화</strong>
               <figure class="small-image">
                 <img src="image/cafe_tag_visualization.png" alt="카페 태그 시각화 결과" />
                 <figcaption>카페 관련 플레이리스트 주요 태그 시각화 결과</figcaption>
@@ -461,7 +410,7 @@
             <li>
               <strong>결과:</strong>
               수작업 라벨 없이도 초기 <strong>카테고리별 태그 세트</strong>를 자동 구축했고,
-              샘플링 검수 루프(무작위 표본 점검 및 규칙 업데이트)를 통해 품질을 안정화함.
+              <strong>5번 반복 분류 중 4번 이상 동일한 결과만 반영</strong>하는 방식으로 품질을 안정화함.
             </li>
           </ul>
         </div>

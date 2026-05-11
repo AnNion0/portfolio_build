@@ -45,6 +45,12 @@
       font-weight: 800;
       margin: 0;
     }
+    .project-subtitle {
+      margin: var(--space-2) 0 0;
+      font-size: 1.1rem;
+      color: var(--text-weak);
+      font-weight: 500;
+    }
 
     /* 프로젝트 콘텐츠 영역 */
     .project-content {
@@ -188,10 +194,11 @@
 <body>
   <div class="project-detail">
     <div class="container">
-      <a href="index.html#projects" class="back-link">← 돌아가기</a>
+      <a href="index.html#projects" class="back-link" aria-label="프로젝트 목록으로 돌아가기">← 돌아가기</a>
 
       <div class="project-header">
         <h1 class="project-title">떡잎냠냠</h1>
+        <p class="project-subtitle">AI 기반 개인 맞춤 식단 코칭 서비스</p>
       </div>
 
       <div class="project-content">
@@ -204,16 +211,15 @@
             일상적인 식습관 개선을 돕습니다.
           </p>
           <ul>
-            <li><strong>프로젝트명:</strong> 떡잎냠냠 (AI 기반 개인 맞춤 식단 코칭 서비스)</li>
+            <li><strong>프로젝트명:</strong> 떡잎냠냠</li>
             <li><strong>기간:</strong> 2025.05.22 ~ 2025.05.28</li>
             <li><strong>팀 구성:</strong> 3명 (각 회원관리, 식단, 분석 및 추천 기능 수행)</li>
+            <li><strong>역할:</strong> 풀스택(프론트, 백엔드) — 식단 CRUD, 음식 검색</li>
           </ul>
 
           <p><strong>기술 스택</strong></p>
           <ul>
-            <li><strong>Frontend:</strong> Vue 3, Vite, Pinia, Axios</li>
-            <li><strong>Backend:</strong> Spring Boot</li>
-            <li><strong>Database:</strong> MySQL, MyBatis</li>
+            <li>Vue 3, Vite, Pinia, Axios, Spring Boot, MySQL, MyBatis</li>
           </ul>
         </div>
 
@@ -237,25 +243,25 @@
             <li>
               <strong>회원관리</strong>
               <ul>
-                <li><strong>가입/로그인:</strong> 가입 폼·처리(중복검증), 로그인 폼·처리(HttpSession.loginUserId, /diets/list)</li>
-                <li><strong>계정 조회/수정:</strong> 상세 조회, 수정 폼, 수정 반영 후 /user/detail</li>
-                <li><strong>세션/탈퇴:</strong> 로그아웃(세션 무효화), 회원 삭제 후 메인(/) 이동</li>
+                <li>아이디 중복 검증 후 회원가입</li>
+                <li>JWT 발급 및 토큰 기반 인증</li>
+                <li>계정 조회 및 수정</li>
               </ul>
             </li>
             <li>
               <strong>식단</strong>
               <ul>
-                <li><strong>목록/검색:</strong> 기간별 식단 목록 조회, 음식 키워드 자동검색(AJAX)</li>
-                <li><strong>상세/등록:</strong> 식단 상세 보기, 날짜·식사 타입·메모 입력 후 음식 추가·등록</li>
-                <li><strong>수정/삭제:</strong> 식단/음식 목록 수정·저장, 상세·목록 화면에서 삭제</li>
+                <li>기간별 목록 조회</li>
+                <li>음식 키워드 자동검색</li>
+                <li>식단 상세/등록/수정/삭제</li>
               </ul>
             </li>
             <li>
               <strong>식단 분석 &amp; 추천</strong>
               <ul>
-                <li><strong>영양 합/비율:</strong> 열량·탄단지 총합, 대시보드 시각화</li>
-                <li><strong>비교/기간:</strong> 최근 동일 식사 비교 리포트, 최근 7일/임의 기간 필터링</li>
-                <li><strong>AI 코칭:</strong> 분석 코멘트 및 개인화 추천</li>
+                <li>영양 합계 및 비율 시각화</li>
+                <li>최근 7일 등 기간별 조회</li>
+                <li>AI 코멘트 및 개인화 추천</li>
               </ul>
             </li>
           </ul>
@@ -265,11 +271,29 @@
         <div class="section-block">
           <h2>나의 역할</h2>
           <ul>
-            <li><strong>식단 CRUD 전담:</strong> 목록(기간 필터)·상세·등록·수정·삭제 전체 플로우 구현, 예외/유효성 처리</li>
-            <li><strong>음식 검색(AJAX):</strong> 키워드 기반 자동완성/선택, 비동기 요청 최적화(디바운스·중복요청 취소)</li>
-            <li><strong>UI/상태관리:</strong> Vue 3 + Pinia로 상태 모델링, 등록/수정 폼 컴포넌트화 및 재사용성 확보</li>
-            <li><strong>백엔드 연동:</strong> Axios 인터셉터로 공통 에러/세션 처리, Spring Boot API와 DTO 스키마 정렬</li>
-            <li><strong>데이터 계층 협업:</strong> MyBatis 매퍼(페이징·정렬·조건검색) 정의 및 쿼리 성능 점검</li>
+            <li>
+              <strong>식단 CRUD 전담:</strong>
+              기간(시작일~종료일)으로 식단 목록 조회, 상세 보기, 새 식단 등록, 기존 식단 수정·삭제까지 한 흐름으로 구현하고,
+              화면·API 양쪽에서 입력값 검증 처리
+            </li>
+            <li>
+              <strong>음식 검색:</strong>
+              이름 입력 시 자동완성 목록 표시, 입력이 멈춘 뒤에만 검색 요청이 나가도록 처리해 불필요한 호출 감소.
+              카테고리를 먼저 고른 뒤 검색해 결과 후보를 줄이는 방식으로 검색 부담 완화
+            </li>
+            <li>
+              <strong>UI·상태 관리:</strong>
+              Vue 3와 Pinia로 식단 작성·수정 화면의 입력값·목록·검색 결과 등을 한곳에서 관리하고,
+              식단 추가/편집 화면을 구조적으로 나누어 비슷한 UI를 재사용하기 쉽게 구성
+            </li>
+            <li>
+              <strong>백엔드 연동:</strong>
+              로그인 후 받은 토큰을 API 요청마다 자동으로 붙이고, Spring Boot REST API와 요청·응답 형식(DTO)을 맞춤
+            </li>
+            <li>
+              <strong>데이터 계층:</strong>
+              MyBatis로 식단·식단에 담긴 음식 조회·저장용 SQL 매핑 작성
+            </li>
           </ul>
         </div>
 
@@ -277,32 +301,27 @@
         <div class="section-block">
           <h2>핵심 성과</h2>
           <ul>
-            <li><strong>식단 기록 경험 개선:</strong> 등록→목록 반영까지 단계 축소 및 폼 UX 정비로 입력/수정 흐름 간소화</li>
-            <li><strong>검색 효율 향상:</strong> 디바운스·중복요청 취소 적용으로 불필요 호출 감소, 키워드 검색 체감 속도 개선</li>
-            <li><strong>안정성 확보:</strong> 예외/유효성 검증과 단위 테스트로 엣지 케이스(빈 날짜, 중복 음식 등) 오류 방지</li>
-            <li><strong>유지보수성 향상:</strong> Pinia 스토어/서비스 모듈 분리로 컴포넌트 의존성 최소화 및 재사용 확대</li>
+            <li><strong>식단 기록 경험 개선:</strong> 식단 저장·수정 후 별도 새로고침 없이 목록·대시보드(주간 칼로리·최근 식단 등)가 바로 갱신되도록 연동</li>
+            <li><strong>검색 효율 향상:</strong> 짧은 시간 연속 입력에도 검색 요청이 과하게 나가지 않게 하고, 카테고리로 범위를 좁힌 뒤 이름으로 찾아 결과량 감소</li>
+            <li><strong>안정성 확보:</strong> 날짜·음식 미선정, 같은 음식 중복 추가, 지원하지 않는 단위 선택 등은 화면에서 선제 차단, 서버에서 요청 데이터 일부 검증 처리</li>
+            <li><strong>유지보수성 향상:</strong> 식단 관련 API 호출과 화면 상태를 Pinia 스토어 한곳에 모아 컴포넌트는 표시에 집중하도록 정리</li>
           </ul>
         </div>
 
         <!-- 기술적 도전과 해결 -->
         <div class="section-block">
           <h2>기술적 도전과 해결</h2>
-          <p><strong>문제 1 — 검색 요청 폭주로 인한 응답 지연</strong></p>
+          <p><strong>대규모 음식 데이터 검색 지연</strong></p>
           <ul>
-            <li><strong>원인:</strong> 입력마다 즉시 호출되어 서버에 짧은 간격의 중복 요청 다발</li>
-            <li><strong>해결:</strong> 입력 디바운스(예: 200~300ms)와 이전 요청 취소 토큰 적용, 결과 캐싱으로 재호출 축소</li>
-          </ul>
-
-          <p><strong>문제 2 — 날짜 범위·페이지네이션 혼합 시 쿼리 일관성</strong></p>
-          <ul>
-            <li><strong>원인:</strong> 기간 조건과 정렬/오프셋 조합에 따라 누락·중복 행 발생 가능</li>
-            <li><strong>해결:</strong> MyBatis 매퍼에서 정렬 기준 고정(날짜↓, id 보조키), count 쿼리 분리, 경계값 테스트 추가</li>
-          </ul>
-
-          <p><strong>문제 3 — 등록/수정 시 데이터 무결성</strong></p>
-          <ul>
-            <li><strong>원인:</strong> 식단-음식 다건 입력 중 일부 실패 시 부분만 반영될 위험</li>
-            <li><strong>해결:</strong> 트랜잭션 범위 지정으로 원자성 보장, 서버측 유효성(날짜/타입/칼로리 범위) 선검증</li>
+            <li><strong>원인 분석:</strong> 음식 데이터가 약 14만 건 규모인데 이름만으로 넓게 조회해 매 요청마다 검색 후보가 과다해지고 응답·화면 갱신 부담이 커짐</li>
+            <li>
+              <strong>해결 방법:</strong>
+              <code>foods</code> 테이블에 <code>category</code> 컬럼을 추가해 음식마다 분류를 저장하고,
+              카테고리와 키워드를 함께 받는 음식 검색 API로 변경.
+              MyBatis에서는 조건부 WHERE로 조회 범위를 줄였고,
+              Vue 식단 작성·수정 화면에서는 카테고리 선택과 입력 디바운스로 서버 호출 빈도를 낮춤
+            </li>
+            <li><strong>결과:</strong> 카테고리 적용 시 검색 후보군을 전체 대비 약 80% 축소하여 체감 조회 속도와 자동완성 사용성 개선</li>
           </ul>
         </div>
 

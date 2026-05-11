@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LPAY 고객 세그멘테이션 - Heeeun Ahn Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .project-detail {
+      min-height: 100vh;
+      padding: calc(var(--space-6) * 2) var(--space-4);
+      background: var(--bg);
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      margin-bottom: var(--space-5);
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+    .back-link:hover {
+      background: color-mix(in srgb, var(--primary), black 20%);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,.2);
+    }
+    .project-header { margin-bottom: var(--space-6); }
+    .project-title {
+      font-size: clamp(26px, 4vw, 42px);
+      font-weight: 800;
+      margin: 0;
+      line-height: 1.25;
+    }
+    .project-subtitle {
+      margin: var(--space-2) 0 0;
+      font-size: 1.05rem;
+      color: var(--text-weak);
+      font-weight: 500;
+      line-height: 1.5;
+    }
+    .project-content { display: grid; gap: var(--space-5); }
+    .section-block {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: var(--space-5);
+      box-shadow: var(--shadow-1);
+    }
+    .section-block h2 {
+      margin: 0 0 var(--space-3);
+      font-size: 24px;
+      color: var(--primary);
+    }
+    .section-block h3 {
+      margin: var(--space-4) 0 var(--space-2);
+      font-size: 20px;
+      color: var(--text);
+      font-weight: 700;
+    }
+    .section-block h4 {
+      margin: var(--space-3) 0 var(--space-2);
+      font-size: 17px;
+      color: var(--text);
+      font-weight: 700;
+    }
+    .section-block p,
+    .section-block li { line-height: 1.8; color: var(--text-weak); }
+    .section-block ul { margin: var(--space-3) 0; padding-left: var(--space-4); }
+    .section-block ul ul { margin: var(--space-2) 0; }
+    .cluster-card {
+      margin-top: var(--space-3);
+      padding: var(--space-3);
+      border-left: 3px solid var(--primary);
+      background: color-mix(in srgb, var(--bg), var(--primary) 4%);
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+    .cluster-card p { margin: 0.35rem 0 0; }
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: var(--space-3);
+    }
+    .tech-tag {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: color-mix(in srgb, var(--primary), transparent 90%);
+      font-family: var(--mono);
+      font-size: 14px;
+      color: var(--primary);
+    }
+    @media (max-width: 768px) {
+      .project-detail { padding: var(--space-4) var(--space-2); }
+      .section-block { padding: var(--space-3); }
+      .section-block h2 { font-size: 20px; }
+      .section-block h3 { font-size: 18px; }
+      .tech-tag { font-size: 12px; padding: 6px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="project-detail">
+    <div class="container">
+      <a href="index.html#projects" class="back-link" aria-label="프로젝트 목록으로 돌아가기">← 돌아가기</a>
+
+      <div class="project-header">
+        <h1 class="project-title">엘페이 고객 군집 분류 기반 맞춤 서비스 제안</h1>
+        <p class="project-subtitle">롯데멤버스 LPAY 고객 세그멘테이션 및 개인화 마케팅 전략 분석</p>
+      </div>
+
+      <div class="project-content">
+        <div class="section-block" id="overview">
+          <h2>프로젝트 개요</h2>
+          <p>
+            <strong>LPAY</strong> 고객 구매 데이터를 기반으로 고객 군집을 분류하고, 군집별 맞춤 마케팅 전략을 제안한 데이터 분석 프로젝트입니다.
+            <strong>K-Prototypes</strong> 기반 군집화와 <strong>연관 규칙</strong> 분석을 결합하여 신규 LPAY 고객에게도 군집 예측이 가능한 파이프라인을 설계했습니다.
+            군집별 연관 규칙 분석을 통해 묶음 상품 추천, 시간대별 혜택 등 구체적인 맞춤 서비스 전략을 도출했습니다.
+          </p>
+          <ul>
+            <li><strong>주관:</strong> 롯데멤버스 / 인공지능팩토리</li>
+            <li><strong>팀 구성:</strong> 데이터 분석 팀 프로젝트</li>
+            <li><strong>역할:</strong> 데이터 전처리, 군집화, 연관 규칙 분석</li>
+          </ul>
+          <p><strong>기술 스택</strong></p>
+          <ul>
+            <li>Python, SQLite3, K-Prototypes, Apriori</li>
+          </ul>
+          <div class="tech-stack" aria-label="기술 태그">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">SQLite3</span>
+            <span class="tech-tag">K-Prototypes</span>
+            <span class="tech-tag">Apriori</span>
+          </div>
+        </div>
+
+        <div class="section-block" id="background">
+          <h2>분석 배경 및 방향</h2>
+          <h3>문제 인식</h3>
+          <ul>
+            <li>LPAY 사용자가 여성과 40대에 편중</li>
+            <li>사용자층 균등화 및 수익 증대 필요</li>
+          </ul>
+          <h3>분석 방향</h3>
+          <ul>
+            <li>구매 데이터 기반 고객 군집 분류</li>
+            <li>LPAY 고객 군집별 분류 수행</li>
+            <li>시간대·계절별 맞춤 서비스 제공</li>
+          </ul>
+        </div>
+
+        <div class="section-block" id="my-role">
+          <h2>담당 역할</h2>
+          <ul>
+            <li>
+              <strong>데이터 전처리:</strong>
+              Python·SQLite3로 Star Schema 구조 DB 제작(6개 테이블: 고객 인구통계, 상품 구매내역, 제휴사 이용, 상품분류, 점포정보, 엘페이 이용내역),
+              구매일자 → 구매계절 파생변수 생성,
+              고객코드 기준 대푯값 그룹핑(채널·구매시간: 평균, 구매금액: 중앙값, 구매계절·상품: 최빈값)
+            </li>
+            <li>
+              <strong>군집화 (K-Prototypes):</strong>
+              수치형·명목형 혼재 데이터에 K-Prototypes 적용, Min-Max Scaling, Elbow Method로 최적 군집 수 결정,
+              성별 분리 군집화(남성 4개 군집, 여성 6개 군집)
+            </li>
+            <li>
+              <strong>연관 규칙 분석 (Apriori):</strong>
+              고객별 구매 내역을 트랜잭션 단위로 변환, 상품 대·중·소분류 세 단위로 각각 분석,
+              군집별 독립 연관 규칙 분석, <code>min_support</code>를 군집별 데이터 크기에 맞게 조정,
+              Support 기준 Top 10 규칙 추출 및 마케팅 전략 도출
+            </li>
+          </ul>
+        </div>
+
+        <div class="section-block" id="clusters">
+          <h2>군집 분석 결과</h2>
+
+          <h3>남성 군집 (4개)</h3>
+          <div class="cluster-card">
+            <h4>군집 0: 유제품 구매층</h4>
+            <p>40대, 겨울 구매 多, 일반우유 중심</p>
+          </div>
+          <div class="cluster-card">
+            <h4>군집 1: 과자·주류 구매층</h4>
+            <p>40~50대, 봄 구매 多, 일반스낵·소주</p>
+          </div>
+          <div class="cluster-card">
+            <h4>군집 2: 생필품 구매층</h4>
+            <p>청소/세탁/욕실용품, 종량제봉투</p>
+          </div>
+          <div class="cluster-card">
+            <h4>군집 3: 담배·주류 구매층</h4>
+            <p>30대, 국산담배·수입맥주 선호</p>
+          </div>
+
+          <h3>여성 군집 (6개)</h3>
+          <div class="cluster-card">
+            <h4>군집 0: 온라인 과자 구매층</h4>
+            <p>40대, 온라인 이용, 감자스낵·상품권</p>
+          </div>
+          <div class="cluster-card">
+            <h4>군집 1: 외식·문구 구매층</h4>
+            <p>50대, 테넌트/음식점, 팬시용품</p>
+          </div>
+          <div class="cluster-card">
+            <h4>군집 2: 간식 구매층</h4>
+            <p>가을 구매 多, 일반스낵·군것질</p>
+          </div>
+          <div class="cluster-card">
+            <h4>군집 3: 유제품·생필품층</h4>
+            <p>30대, 겨울 구매 多, 종량제봉투</p>
+          </div>
+          <div class="cluster-card">
+            <h4>군집 4: 유제품 저녁 구매층</h4>
+            <p>40대, 저녁 구매 多, 일반우유·생필품</p>
+          </div>
+          <div class="cluster-card">
+            <h4>군집 5: 임대매출 외식층</h4>
+            <p>30대, 임대매출 비중 높음, 한식</p>
+          </div>
+        </div>
+
+        <div class="section-block" id="impact">
+          <h2>핵심 성과</h2>
+          <ul>
+            <li><strong>고객 세그멘테이션 완성:</strong> 남성 4개 + 여성 6개, 총 10개 군집으로 LPAY 고객 전체 분류 파이프라인 구축</li>
+            <li><strong>LPAY 신규 고객 대응 방안:</strong> 기존 고객은 구매 데이터 기반 자동 분류, 신규 고객은 설문 기반 군집 분류 수행 제안</li>
+            <li><strong>군집별 마케팅 전략:</strong> 연관 규칙 결과 기반 묶음 상품 추천, 시간대별 혜택, 계절 할인 전략 수립</li>
+          </ul>
+        </div>
+
+        <div class="section-block" id="challenges">
+          <h2>기술적 도전과 해결</h2>
+
+          <p><strong>1. 수치형·명목형 혼재 데이터 군집화 문제</strong></p>
+          <ul>
+            <li><strong>문제:</strong> 구매시간·구매금액(수치형)과 연령대·채널구분·구매계절·상품대분류명(명목형)이 혼재하여 일반 K-Means 적용 불가</li>
+            <li><strong>해결:</strong> K-Means(수치형)와 K-Modes(명목형)를 결합한 K-Prototypes 적용, 수치형 유클리드 거리와 명목형 불일치 비율을 γ 파라미터로 가중 결합</li>
+            <li><strong>결과:</strong> 수치·명목 변수를 동시에 반영한 군집화 완성, 성별 분리 군집화로 소수 집단(남성) 특성까지 유효하게 도출</li>
+          </ul>
+
+          <p><strong>2. 연관 규칙 분석을 위한 트랜잭션 데이터 구성 문제</strong></p>
+          <ul>
+            <li><strong>문제:</strong> 원본이 고객별·상품별 행 단위라 Apriori용 트랜잭션 형태 변환이 필요. 같은 날 구매 상품을 함께 구매로 간주하는 기준을 코드로 구현해야 함</li>
+            <li><strong>해결:</strong> 고객번호 기준 정렬 후 동일 고객의 연속 행을 하나의 트랜잭션으로 묶는 로직 구현, 고객번호 변경 시점에서 트랜잭션 ID 순차 부여, TransactionEncoder로 Apriori 입력 형태 가공</li>
+            <li><strong>결과:</strong> 고객별 구매 내역의 트랜잭션 단위 변환 완료, 군집별 독립 트랜잭션 데이터셋으로 연관 규칙 파이프라인 완성</li>
+          </ul>
+        </div>
+
+        <div class="section-block" id="limitations">
+          <h2>한계 및 개선 방향</h2>
+          <p>
+            분석 학습 초기에 진행한 프로젝트로, 지금 돌아보면 아쉬운 점이 있습니다.
+            <strong>Lift &gt; 1</strong> 필터링 미적용으로 우연에 의한 규칙이 포함됐을 가능성이 있고,
+            <code>min_support</code> 임계값을 데이터 분포 기반이 아닌 실험적으로 조정한 점,
+            트랜잭션 구성 시 고객번호 연속성 기반 로직을 사용했으나 <strong>groupby</strong> 방식이 더 안정적이었을 것입니다.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

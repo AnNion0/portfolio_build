@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ToneDfit (톤디핏) - Heeeun Ahn Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .project-detail {
+      min-height: 100vh;
+      padding: calc(var(--space-6) * 2) var(--space-4);
+      background: var(--bg);
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      margin-bottom: var(--space-5);
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+    .back-link:hover {
+      background: color-mix(in srgb, var(--primary), black 20%);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,.2);
+    }
+    .project-header { margin-bottom: var(--space-6); }
+    .project-title {
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 800;
+      margin: 0;
+    }
+    .project-subtitle {
+      margin: var(--space-2) 0 0;
+      font-size: 1.1rem;
+      color: var(--text-weak);
+      font-weight: 500;
+    }
+    .project-content { display: grid; gap: var(--space-5); }
+    .section-block {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: var(--space-5);
+      box-shadow: var(--shadow-1);
+    }
+    .section-block h2 {
+      margin: 0 0 var(--space-3);
+      font-size: 24px;
+      color: var(--primary);
+    }
+    .section-block h3 {
+      margin: var(--space-4) 0 var(--space-2);
+      font-size: 20px;
+      color: var(--text);
+      font-weight: 700;
+    }
+    .section-block p,
+    .section-block li { line-height: 1.8; color: var(--text-weak); }
+    .section-block ul {
+      margin: var(--space-3) 0;
+      padding-left: var(--space-4);
+    }
+    .section-block ul ul { margin: var(--space-2) 0; }
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: var(--space-3);
+    }
+    .tech-tag {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: color-mix(in srgb, var(--primary), transparent 90%);
+      font-family: var(--mono);
+      font-size: 14px;
+      color: var(--primary);
+    }
+    @media (max-width: 768px) {
+      .project-detail { padding: var(--space-4) var(--space-2); }
+      .project-title { font-size: clamp(24px, 6vw, 32px); }
+      .section-block { padding: var(--space-3); }
+      .section-block h2 { font-size: 20px; }
+      .section-block h3 { font-size: 18px; }
+      .tech-tag { font-size: 12px; padding: 6px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="project-detail">
+    <div class="container">
+      <a href="index.html#projects" class="back-link" aria-label="프로젝트 목록으로 돌아가기">← 돌아가기</a>
+
+      <div class="project-header">
+        <h1 class="project-title">ToneDfit</h1>
+        <p class="project-subtitle">톤디핏 — 날씨·검색 기반 의류 추천 모바일 앱</p>
+      </div>
+
+      <div class="project-content">
+        <div class="section-block" id="overview">
+          <h2>프로젝트 개요</h2>
+          <p>
+            사용자의 <strong>현재 위치 날씨</strong>와 <strong>일정</strong>에 맞춰 의류를 추천하고,
+            텍스트·카테고리·이미지 기반으로 상품을 검색할 수 있는 <strong>Flutter</strong> 모바일 앱입니다.
+          </p>
+          <ul>
+            <li><strong>기간:</strong> 2025.10.20 ~ 2025.11.25</li>
+            <li><strong>팀 구성:</strong> 6명 (FE 1 / BE 2 / DE 2 / INFRA 1)</li>
+            <li><strong>역할:</strong> 프론트엔드 개발 (Flutter)</li>
+          </ul>
+          <p><strong>기술 스택</strong></p>
+          <ul>
+            <li>Flutter 3.35, Dart 3.9</li>
+            <li>Riverpod, Dio, Geolocator, Firebase Analytics</li>
+          </ul>
+          <div class="tech-stack" aria-label="기술 태그">
+            <span class="tech-tag">Flutter 3.35</span>
+            <span class="tech-tag">Dart 3.9</span>
+            <span class="tech-tag">Riverpod</span>
+            <span class="tech-tag">Dio</span>
+            <span class="tech-tag">Geolocator</span>
+            <span class="tech-tag">Firebase Analytics</span>
+          </div>
+        </div>
+
+        <div class="section-block" id="features">
+          <h2>주요 기능</h2>
+
+          <h3>실시간 날씨·일기예보 기반 의류 추천</h3>
+          <ul>
+            <li>실시간 날씨 / 대기질 / 시간별 / 7일 예보 조회</li>
+            <li>체감온도·강수량·풍속·습도 기반 추천</li>
+            <li>캘린더 선택 날짜의 일기예보 기반 추천</li>
+            <li>시간별 그래프, 날씨 상세 모달 제공</li>
+          </ul>
+
+          <h3>4축 기반 의류 추천</h3>
+          <ul>
+            <li>체감온도·분위기·장소·일정 정보 조합 추천</li>
+            <li>캘린더 연동 또는 직접 입력 기반 일정 추천</li>
+            <li>추천 결과 날짜별 저장 및 즉시 복원</li>
+          </ul>
+
+          <h3>다채널 의류 검색</h3>
+          <ul>
+            <li>텍스트 검색, 인기·최근 검색어</li>
+            <li>대·중·소분류 3단계 카테고리 검색</li>
+            <li>카메라·갤러리 기반 이미지 검색</li>
+            <li>가격·색상·소재·사이즈 필터 제공</li>
+          </ul>
+
+          <h3>일정 기반 코디 캘린더·북마크</h3>
+          <ul>
+            <li>캘린더 기반 일정 등록 및 편집</li>
+            <li>날짜별 착장 기록 및 의류 평가</li>
+            <li>상품 북마크 토글 및 카드 상태 동기화</li>
+          </ul>
+
+          <h3>AI 캐릭터·챗봇</h3>
+          <ul>
+            <li>메인 캐릭터 및 날씨 모달 캐릭터 렌더링</li>
+            <li>AI 기반 캐릭터 의류 합성 기능</li>
+            <li>AI 의류 상담 챗봇 인터페이스 제공</li>
+          </ul>
+        </div>
+
+        <div class="section-block" id="my-role">
+          <h2>담당 역할</h2>
+          <ul>
+            <li>
+              <strong>Flutter 프로젝트 초기 아키텍처 및 공통 인프라:</strong>
+              features / core / shared 계층 구조, 화면 전환 표준화, 공통 헤더·하단 네비·스플래시 컴포넌트화,
+              Firebase Analytics 기반 화면 추적
+            </li>
+            <li>
+              <strong>Riverpod 기반 다층 캐시 상태 관리:</strong>
+              날씨·의류·검색·인증 도메인 구조, 성별·대분류·소분류 3단계 캐시 키로 중복 API 호출 최소화,
+              병렬 로드 및 자동 페이지네이션
+            </li>
+            <li>
+              <strong>Provider 기반 다축 추천:</strong>
+              추천 Provider가 날씨 Provider를 참조, 체감온도·강수량·풍속·습도를 추천 API 파라미터로 통합,
+              현재 날씨·미래 일기예보·일정 기반 추천을 동일 흐름으로 관리
+            </li>
+            <li>
+              <strong>4축 추천 모달:</strong>
+              체감온도·분위기·장소·일정 조합 API 호출, 캘린더 날짜 선택·일정 연동,
+              추천 결과 날짜별 로컬 저장 및 재진입 시 복원
+            </li>
+            <li>
+              <strong>이미지 검색 파이프라인:</strong>
+              카메라·갤러리 → 영역 크롭 → 업로드 직전 재압축 → 멀티파트 업로드,
+              검색·홈 화면에서 동일 흐름 재사용 가능하도록 모듈화
+            </li>
+            <li>
+              <strong>북마크 및 상태 동기화:</strong>
+              북마크 토글 API·상태 관리, 카드별 개별 API 호출을 ID 집합 기반 Provider로 리팩토링,
+              카드 간 북마크 상태 동기화
+            </li>
+          </ul>
+        </div>
+
+        <div class="section-block" id="impact">
+          <h2>핵심 성과</h2>
+          <ul>
+            <li><strong>다층 캐시 기반 API 호출 최소화:</strong> 성별·대분류·소분류 3단계 캐시로 동일 조건 재호출 차단, 병렬 로드·자동 페이지네이션으로 상품 로딩 최적화</li>
+            <li><strong>다축 추천 흐름 단일화:</strong> 체감온도·분위기·장소·일정을 단일 추천 흐름으로 통합, 날짜별 저장으로 재진입 시 즉시 복원</li>
+            <li><strong>이미지 검색 업로드 최적화:</strong> 다운스케일 → 크롭 → 재압축 → 멀티파트로 페이로드·전송 부담 감소</li>
+            <li><strong>북마크 N+1 제거:</strong> ID 집합 기반 Provider로 카드별 API 호출 제거, 단일 상태 변경으로 전체 카드 동기화</li>
+          </ul>
+        </div>
+
+        <div class="section-block" id="challenges">
+          <h2>기술적 도전과 해결</h2>
+
+          <p><strong>1. 화면 간 카테고리·추천 API 중복 호출</strong></p>
+          <ul>
+            <li><strong>문제:</strong> 메인·검색·카테고리·상품 목록에서 동일 조건 데이터 반복 호출, 대용량(100건 이상) 시 페이지네이션 누락으로 일부 상품 미표시 가능</li>
+            <li><strong>해결:</strong> 성별·대분류·소분류 3단계 캐시 Provider, hit 시 호출 생략, miss 시 첫 페이지 후 전체 페이지 자동 수집, 병렬 로드·강제 갱신 옵션</li>
+            <li><strong>결과:</strong> 동일 조건 재호출 제거, 페이지네이션 누락 해소, 화면 간 데이터 일관성 확보</li>
+          </ul>
+
+          <p><strong>2. 모바일 이미지 검색 업로드 지연</strong></p>
+          <ul>
+            <li><strong>문제:</strong> 원본 그대로 업로드 시 전송 지연·실패 증가, 배경 포함으로 검색 품질 저하 가능</li>
+            <li><strong>해결:</strong> 1차 다운스케일 → 검색 영역 크롭 → 업로드 직전 재압축 → 멀티파트, 위젯·서비스 단위 모듈화</li>
+            <li><strong>결과:</strong> 페이로드 단계적 감소, 전송 안정성 개선, 검색·홈에서 일관된 이미지 검색 흐름</li>
+          </ul>
+
+          <p><strong>3. 북마크 카드별 N+1 API 호출</strong></p>
+          <ul>
+            <li><strong>문제:</strong> 카드 마운트마다 북마크 목록 API 개별 호출, 화면 전환·재렌더 시 반복</li>
+            <li><strong>해결:</strong> 북마크 productId 집합 전용 Provider, 목록 로드 시 한 번만 ID 집합 구성, 카드는 집합 구독, 토글 시 Provider에 add/remove, dispose 시 구독 해제</li>
+            <li><strong>결과:</strong> 카드별 추가 호출 제거, 전체 카드 동기화, 메모리 누수 방지</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
