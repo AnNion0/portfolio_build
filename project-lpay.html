@@ -7,6 +7,13 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <nav class="hash-nav projects-site-nav" aria-label="사이트 네비게이션">
+    <a href="index.html#projects">Projects</a>
+    <a href="index.html#skills">Skills</a>
+    <a href="projects-data.html">데이터 프로젝트</a>
+    <a href="projects-dev.html">개발 프로젝트</a>
+    <a href="index.html#experience">Experience</a>
+  </nav>
   <div class="project-detail">
     <div class="container">
       <a href="projects-data.html" class="back-link" aria-label="데이터 프로젝트 목록으로 돌아가기">← 돌아가기</a>
@@ -25,14 +32,12 @@
             군집별 연관 규칙 분석을 통해 묶음 상품 추천, 시간대별 혜택 등 구체적인 맞춤 서비스 전략을 도출했습니다.
           </p>
           <ul>
+            <li><strong>기간:</strong> 2022.07 ~ 2022.08</li>
             <li><strong>주관:</strong> 롯데멤버스 / 인공지능팩토리</li>
             <li><strong>팀 구성:</strong> 데이터 분석 팀 프로젝트</li>
             <li><strong>역할:</strong> 데이터 전처리, 군집화, 연관 규칙 분석</li>
           </ul>
           <p><strong>기술 스택</strong></p>
-          <ul>
-            <li>Python, SQLite3, K-Prototypes, Apriori</li>
-          </ul>
           <div class="tech-stack" aria-label="기술 태그">
             <span class="tech-tag">Python</span>
             <span class="tech-tag">SQLite3</span>
@@ -124,12 +129,9 @@
             aria-label="성별 군집 대표값 분석 표"
           >
             <p class="cluster-slider-hint">
-              남성·여성 군집별 대표값(최빈값·평균·중앙값·인원) 요약 표입니다. 좌우로 스와이프하거나 아래 버튼으로 넘겨 보실 수 있습니다.
+              남성·여성 군집별 대표값(최빈값·평균·중앙값·인원) 요약 표입니다. 좌우로 스와이프하거나 위 탭으로 전환할 수 있습니다.
             </p>
             <div class="cluster-slider-toolbar">
-              <button type="button" class="cluster-slider-btn" data-cluster-slide="prev" aria-controls="cluster-slider-viewport">
-                ← 이전
-              </button>
               <div class="cluster-slider-tabs" role="tablist" aria-label="표 선택">
                 <button type="button" class="cluster-slider-tab" role="tab" aria-selected="true" aria-controls="cluster-slide-0" id="cluster-tab-0" data-cluster-slide="0">
                   남성 (4군집)
@@ -138,9 +140,6 @@
                   여성 (6군집)
                 </button>
               </div>
-              <button type="button" class="cluster-slider-btn" data-cluster-slide="next" aria-controls="cluster-slider-viewport">
-                다음 →
-              </button>
             </div>
             <div class="cluster-slider-viewport" id="cluster-slider-viewport" tabindex="0" aria-live="polite">
               <figure class="cluster-slide schema-figure" id="cluster-slide-0" role="tabpanel" aria-labelledby="cluster-tab-0">
@@ -165,48 +164,68 @@
           </div>
 
           <h3>남성 군집 (4개)</h3>
-          <div class="cluster-card">
-            <h4>군집 0: 유제품 구매층</h4>
-            <p>40대, 겨울 구매 多, 일반우유 중심</p>
-          </div>
-          <div class="cluster-card">
-            <h4>군집 1: 과자·주류 구매층</h4>
-            <p>40~50대, 봄 구매 多, 일반스낵·소주</p>
-          </div>
-          <div class="cluster-card">
-            <h4>군집 2: 생필품 구매층</h4>
-            <p>청소/세탁/욕실용품, 종량제봉투</p>
-          </div>
-          <div class="cluster-card">
-            <h4>군집 3: 담배·주류 구매층</h4>
-            <p>30대, 국산담배·수입맥주 선호</p>
-          </div>
+          <table class="cluster-summary-table" aria-label="남성 군집 요약">
+            <thead>
+              <tr>
+                <th scope="col">군집</th>
+                <th scope="col">주요 특징</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">0 · 유제품 구매층</th>
+                <td>40대, 겨울 구매 多, 일반우유 중심</td>
+              </tr>
+              <tr>
+                <th scope="row">1 · 과자·주류 구매층</th>
+                <td>40~50대, 봄 구매 多, 일반스낵·소주</td>
+              </tr>
+              <tr>
+                <th scope="row">2 · 생필품 구매층</th>
+                <td>청소/세탁/욕실용품, 종량제봉투</td>
+              </tr>
+              <tr>
+                <th scope="row">3 · 담배·주류 구매층</th>
+                <td>30대, 국산담배·수입맥주 선호</td>
+              </tr>
+            </tbody>
+          </table>
 
           <h3>여성 군집 (6개)</h3>
-          <div class="cluster-card">
-            <h4>군집 0: 온라인 과자 구매층</h4>
-            <p>40대, 온라인 이용, 감자스낵·상품권</p>
-          </div>
-          <div class="cluster-card">
-            <h4>군집 1: 외식·문구 구매층</h4>
-            <p>50대, 테넌트/음식점, 팬시용품</p>
-          </div>
-          <div class="cluster-card">
-            <h4>군집 2: 간식 구매층</h4>
-            <p>가을 구매 多, 일반스낵·군것질</p>
-          </div>
-          <div class="cluster-card">
-            <h4>군집 3: 유제품·생필품층</h4>
-            <p>30대, 겨울 구매 多, 종량제봉투</p>
-          </div>
-          <div class="cluster-card">
-            <h4>군집 4: 유제품 저녁 구매층</h4>
-            <p>40대, 저녁 구매 多, 일반우유·생필품</p>
-          </div>
-          <div class="cluster-card">
-            <h4>군집 5: 임대매출 외식층</h4>
-            <p>30대, 임대매출 비중 높음, 한식</p>
-          </div>
+          <table class="cluster-summary-table" aria-label="여성 군집 요약">
+            <thead>
+              <tr>
+                <th scope="col">군집</th>
+                <th scope="col">주요 특징</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">0 · 온라인 과자 구매층</th>
+                <td>40대, 온라인 이용, 감자스낵·상품권</td>
+              </tr>
+              <tr>
+                <th scope="row">1 · 외식·문구 구매층</th>
+                <td>50대, 테넌트/음식점, 팬시용품</td>
+              </tr>
+              <tr>
+                <th scope="row">2 · 간식 구매층</th>
+                <td>가을 구매 多, 일반스낵·군것질</td>
+              </tr>
+              <tr>
+                <th scope="row">3 · 유제품·생필품층</th>
+                <td>30대, 겨울 구매 多, 종량제봉투</td>
+              </tr>
+              <tr>
+                <th scope="row">4 · 유제품 저녁 구매층</th>
+                <td>40대, 저녁 구매 多, 일반우유·생필품</td>
+              </tr>
+              <tr>
+                <th scope="row">5 · 임대매출 외식층</th>
+                <td>30대, 임대매출 비중 높음, 한식</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
         <div class="section-block" id="association">
@@ -331,11 +350,8 @@
         var t = e.target;
         if (!(t instanceof HTMLElement)) return;
         var action = t.getAttribute('data-cluster-slide');
-        if (!action) return;
-        var idx = currentIndex();
-        if (action === 'prev') goTo(idx - 1);
-        else if (action === 'next') goTo(idx + 1);
-        else if (/^\d+$/.test(action)) goTo(parseInt(action, 10));
+        if (!action || !/^\d+$/.test(action)) return;
+        goTo(parseInt(action, 10));
       });
 
       window.addEventListener('resize', function () {

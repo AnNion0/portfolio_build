@@ -7,6 +7,13 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <nav class="hash-nav projects-site-nav" aria-label="사이트 네비게이션">
+    <a href="index.html#projects">Projects</a>
+    <a href="index.html#skills">Skills</a>
+    <a href="projects-data.html">데이터 프로젝트</a>
+    <a href="projects-dev.html">개발 프로젝트</a>
+    <a href="index.html#experience">Experience</a>
+  </nav>
   <div class="project-detail">
     <div class="container">
       <a href="projects-dev.html" class="back-link" aria-label="개발 프로젝트 목록으로 돌아가기">← 돌아가기</a>
@@ -29,28 +36,30 @@
             <li><strong>팀 구성:</strong> 6명 (FE 3 / BE 2 / DE 1)</li>
             <li><strong>역할:</strong> 데이터 엔지니어 (DE)</li>
           </ul>
-          <p><strong>기술 스택</strong></p>
-          <ul>
-            <li><strong>앱:</strong> React Native</li>
-            <li><strong>백엔드·데이터 (담당 DE 영역):</strong> Python, pandas, MySQL, Spring Boot, LLM</li>
-          </ul>
-          <div class="tech-stack" aria-label="기술 태그">
-            <span class="tech-tag">React Native</span>
-            <span class="tech-tag">Python</span>
-            <span class="tech-tag">pandas</span>
-            <span class="tech-tag">MySQL</span>
-            <span class="tech-tag">Spring Boot</span>
-            <span class="tech-tag">LLM</span>
+          <p><strong>기술 스택</strong> <span class="wallet-de-stack-note">(데이터 엔지니어 · 본인 사용)</span></p>
+          <div class="tech-stack-de-group" aria-label="담당 DE 기술 스택">
+            <div class="tech-stack-de-row">
+              <span class="tech-stack-de-label">언어</span>
+              <span class="tech-tag">Python</span>
+            </div>
+            <div class="tech-stack-de-row">
+              <span class="tech-stack-de-label">데이터베이스</span>
+              <span class="tech-tag">MySQL</span>
+            </div>
+            <div class="tech-stack-de-row">
+              <span class="tech-stack-de-label">데이터 처리</span>
+              <span class="tech-tag">pandas</span>
+            </div>
+            <div class="tech-stack-de-row">
+              <span class="tech-stack-de-label">AI 분류</span>
+              <span class="tech-tag">LLM (GPT / Gemini API)</span>
+            </div>
           </div>
         </div>
 
         <div class="section-block image-gallery" id="screens-part1">
           <h2>서비스 주요 화면 ① — 시나리오 #1~2</h2>
-          <p class="scenario-block-lead">
-            <strong>계정을 만들고, 실제 지출이 있는 계좌를 안전하게 연결하는 구간</strong>입니다.
-            회원가입·본인 확인(1원 인증)으로 최소한의 신원을 확보한 뒤, 마이데이터로 금융사 계좌를 불러와
-            서비스에서 쓸 <strong>대표 계좌</strong>를 고릅니다. 이후 슬롯 추천·대시보드는 모두 이 계좌의 거래를 기준으로 동작합니다.
-          </p>
+          <p class="scenario-block-lead">회원가입·본인 인증 후 마이데이터로 계좌를 연결하고 서비스에 쓸 대표 계좌를 고릅니다.</p>
 
           <div class="scenario-step">
             <h3>1. 회원가입</h3>
@@ -73,32 +82,22 @@
             </ul>
           </div>
 
-          <p class="scenario-carousel-hint">
-            아래 캐러셀에서 <strong>← →</strong> 버튼으로 시나리오 #1·#2에 해당하는 화면을 순서대로 넘겨 볼 수 있습니다.
-          </p>
-          <div class="carousel-wrapper carousel-wrapper--narrow" data-wallet-carousel role="region" aria-label="시나리오 1~2 화면">
-            <button type="button" class="prev-btn" aria-label="이전 화면">‹</button>
+          <div class="carousel-wrapper carousel-wrapper--narrow carousel-wrapper--wallet-gif-frame carousel-wrapper--single-slide" role="region" aria-label="시나리오 1~2 시연 영상">
             <div class="carousel">
               <div class="carousel-track">
-                <div class="carousel-slide"><img src="image/회원가입.gif" alt="Wallet Slot 회원가입 화면" loading="lazy" /></div>
-                <div class="carousel-slide"><img src="image/1원인증.gif" alt="휴대폰 1원 인증" loading="lazy" /></div>
-                <div class="carousel-slide"><img src="image/비밀번호푸시알림.gif" alt="비밀번호 설정 및 푸시 알림 동의" loading="lazy" /></div>
-                <div class="carousel-slide"><img src="image/마이데이터1.gif" alt="마이데이터 연동 화면 1" loading="lazy" /></div>
-                <div class="carousel-slide"><img src="image/마이데이터2.gif" alt="마이데이터 연동 화면 2" loading="lazy" /></div>
+                <div class="carousel-slide">
+                  <video controls playsinline preload="metadata" aria-label="회원가입·마이데이터 연동 시연">
+                    <source src="image/wallet%20slot1.mov" type="video/quicktime" />
+                  </video>
+                </div>
               </div>
             </div>
-            <button type="button" class="next-btn" aria-label="다음 화면">›</button>
           </div>
         </div>
 
         <div class="section-block image-gallery" id="screens-part2">
           <h2>서비스 주요 화면 ② — 시나리오 #3·#4·#5·#7 (OCR 제외)</h2>
-          <p class="scenario-block-lead">
-            <strong>슬롯을 잡고 나면 본격적인 예산 운영 단계</strong>입니다.
-            거래 내역을 바탕으로 AI가 슬롯(지출 목적 통)을 추천·확정하고, 대시보드에서 슬롯별 지출을 봅니다.
-            결제가 들어오면 자동 분류·예산 초과를 푸시로 알립니다.
-            <strong>OCR 금액 나누기</strong>는 아래 <strong>③절</strong>에서 따로 캐러셀로 확인할 수 있습니다.
-          </p>
+          <p class="scenario-block-lead">슬롯 AI 추천·확정, 대시보드, 지출·예산 푸시 알림 화면입니다.</p>
 
           <div class="scenario-step">
             <h3>3. 슬롯 리스트 확정</h3>
@@ -136,23 +135,19 @@
               <li>소비 데이터 AI 분석·요약</li>
               <li>알림 탭에서 리포트 알림 확인 후 상세 화면 진입</li>
             </ul>
-            <p>소비 리포트 상세 화면 GIF·스크린샷은 추가 시 이 구간에 연결할 수 있습니다.</p>
+            <p>소비 리포트 상세 화면 영상·스크린샷은 추가 시 이 구간에 연결할 수 있습니다.</p>
           </div>
 
-          <p class="scenario-carousel-hint">
-            아래 캐러셀에서 <strong>← →</strong>로 시나리오 #3·#4·#5 화면(슬롯 확정·대시보드·푸시)을 넘겨 볼 수 있습니다. (#6 OCR은 ③절, #7 소비 리포트는 텍스트만)
-          </p>
-          <div class="carousel-wrapper carousel-wrapper--narrow" data-wallet-carousel role="region" aria-label="시나리오 3~5 화면">
-            <button type="button" class="prev-btn" aria-label="이전 화면">‹</button>
+          <div class="carousel-wrapper carousel-wrapper--narrow carousel-wrapper--wallet-gif-frame carousel-wrapper--single-slide" role="region" aria-label="슬롯·대시보드·푸시 시연 영상">
             <div class="carousel">
               <div class="carousel-track">
-                <div class="carousel-slide"><img src="image/슬롯추천1.gif" alt="슬롯 추천 화면" loading="lazy" /></div>
-                <div class="carousel-slide"><img src="image/슬롯추천2.gif" alt="분석 기간·추천 기준 및 슬롯 편집" loading="lazy" /></div>
-                <div class="carousel-slide"><img src="image/대시보드.gif" alt="대시보드 화면" loading="lazy" /></div>
-                <div class="carousel-slide"><img src="image/푸시알림.jpg" alt="푸시 알림 예시" loading="lazy" /></div>
+                <div class="carousel-slide">
+                  <video controls playsinline preload="metadata" aria-label="슬롯 추천·대시보드·푸시 알림 시연">
+                    <source src="image/wallet%20slot2.mov" type="video/quicktime" />
+                  </video>
+                </div>
               </div>
             </div>
-            <button type="button" class="next-btn" aria-label="다음 화면">›</button>
           </div>
 
           <div class="scenario-flow-summary">
@@ -170,9 +165,7 @@
 
         <div class="section-block image-gallery" id="screens-ocr">
           <h2>서비스 주요 화면 ③ — OCR 금액 나누기</h2>
-          <p class="scenario-block-lead">
-            한 번에 여러 품목이 묶인 결제(예: 다이소)를 영수증 이미지로 읽어, 품목별 금액을 나눈 뒤 슬롯에 반영하는 구간입니다.
-          </p>
+          <p class="scenario-block-lead">영수증 OCR로 묶음 결제를 품목별 금액으로 나눠 슬롯에 반영합니다.</p>
           <div class="scenario-step">
             <h3>6. OCR 금액 나누기</h3>
             <p>영수증에서 상품명·금액을 추출하고, 해당 슬롯에서 금액을 차감·분할합니다.</p>
@@ -181,9 +174,6 @@
               <li>해당 슬롯에서 금액 차감·분할</li>
             </ul>
           </div>
-          <p class="scenario-carousel-hint">
-            아래 캐러셀에서 <strong>← →</strong>로 OCR 처리 화면을 넘겨 볼 수 있습니다.
-          </p>
           <div class="carousel-wrapper carousel-wrapper--narrow" data-wallet-carousel role="region" aria-label="OCR 금액 나누기 화면">
             <button type="button" class="prev-btn" aria-label="이전 화면">‹</button>
             <div class="carousel">

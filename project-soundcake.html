@@ -7,6 +7,13 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <nav class="hash-nav projects-site-nav" aria-label="사이트 네비게이션">
+    <a href="index.html#projects">Projects</a>
+    <a href="index.html#skills">Skills</a>
+    <a href="projects-data.html">데이터 프로젝트</a>
+    <a href="projects-dev.html">개발 프로젝트</a>
+    <a href="index.html#experience">Experience</a>
+  </nav>
   <div class="project-detail">
     <div class="container">
       <a href="projects-data.html" class="back-link" aria-label="데이터 프로젝트 목록으로 돌아가기">← 돌아가기</a>
@@ -33,9 +40,15 @@
             <li><strong>역할:</strong> 데이터 전처리 및 분석</li>
           </ul>
           <p><strong>기술 스택</strong></p>
-          <ul>
-            <li>Python, Jupyter, pandas, numpy 등</li>
-          </ul>
+          <div class="tech-stack" aria-label="기술 태그">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Jupyter</span>
+            <span class="tech-tag">pandas</span>
+            <span class="tech-tag">numpy</span>
+            <span class="tech-tag">matplotlib</span>
+            <span class="tech-tag">mlxtend</span>
+            <span class="tech-tag">OpenAI API</span>
+          </div>
         </div>
 
         <!-- 서비스 주요 화면 -->
@@ -214,23 +227,6 @@
               <strong>5번 반복 분류 중 4번 이상 동일한 결과만 반영</strong>하는 방식으로 품질을 안정화함.
             </li>
           </ul>
-        </div>
-
-        <!-- 사용한 기술 스택 -->
-        <div class="section-block" id="stack">
-          <h2>사용한 기술 스택</h2>
-          <ul>
-            <li><strong>Data/AI:</strong> Python, Jupyter, pandas, numpy, matplotlib, mlxtend, OpenAI API</li>
-          </ul>
-          <div class="tech-stack">
-            <span class="tech-tag">Python</span>
-            <span class="tech-tag">Jupyter</span>
-            <span class="tech-tag">pandas</span>
-            <span class="tech-tag">numpy</span>
-            <span class="tech-tag">matplotlib</span>
-            <span class="tech-tag">mlxtend</span>
-            <span class="tech-tag">OpenAI API</span>
-          </div>
         </div>
       </div>
     </div>

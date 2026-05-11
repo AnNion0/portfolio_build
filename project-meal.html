@@ -7,6 +7,13 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <nav class="hash-nav projects-site-nav" aria-label="사이트 네비게이션">
+    <a href="index.html#projects">Projects</a>
+    <a href="index.html#skills">Skills</a>
+    <a href="projects-data.html">데이터 프로젝트</a>
+    <a href="projects-dev.html">개발 프로젝트</a>
+    <a href="index.html#experience">Experience</a>
+  </nav>
   <div class="project-detail">
     <div class="container">
       <a href="projects-dev.html" class="back-link" aria-label="개발 프로젝트 목록으로 돌아가기">← 돌아가기</a>
@@ -33,9 +40,15 @@
           </ul>
 
           <p><strong>기술 스택</strong></p>
-          <ul>
-            <li>Vue 3, Vite, Pinia, Axios, Spring Boot, MySQL, MyBatis</li>
-          </ul>
+          <div class="tech-stack" aria-label="기술 태그">
+            <span class="tech-tag">Vue 3</span>
+            <span class="tech-tag">Vite</span>
+            <span class="tech-tag">Pinia</span>
+            <span class="tech-tag">Axios</span>
+            <span class="tech-tag">Spring Boot</span>
+            <span class="tech-tag">MySQL</span>
+            <span class="tech-tag">MyBatis</span>
+          </div>
         </div>
 
         <!-- 서비스 주요 화면 -->
@@ -138,25 +151,6 @@
             </li>
             <li><strong>결과:</strong> 카테고리 적용 시 검색 후보군을 전체 대비 약 80% 축소하여 체감 조회 속도와 자동완성 사용성 개선</li>
           </ul>
-        </div>
-
-        <!-- 사용한 기술 스택 -->
-        <div class="section-block" id="stack">
-          <h2>사용한 기술 스택</h2>
-          <ul>
-            <li><strong>Frontend:</strong> Vue 3, Vite, Pinia, Axios</li>
-            <li><strong>Backend:</strong> Spring Boot</li>
-            <li><strong>Database:</strong> MySQL, MyBatis</li>
-          </ul>
-          <div class="tech-stack">
-            <span class="tech-tag">Vue 3</span>
-            <span class="tech-tag">Vite</span>
-            <span class="tech-tag">Pinia</span>
-            <span class="tech-tag">Axios</span>
-            <span class="tech-tag">Spring Boot</span>
-            <span class="tech-tag">MySQL</span>
-            <span class="tech-tag">MyBatis</span>
-          </div>
         </div>
       </div>
     </div>

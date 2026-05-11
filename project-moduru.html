@@ -7,6 +7,13 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <nav class="hash-nav projects-site-nav" aria-label="사이트 네비게이션">
+    <a href="index.html#projects">Projects</a>
+    <a href="index.html#skills">Skills</a>
+    <a href="projects-data.html">데이터 프로젝트</a>
+    <a href="projects-dev.html">개발 프로젝트</a>
+    <a href="index.html#experience">Experience</a>
+  </nav>
   <div class="project-detail">
     <div class="container">
       <a href="projects-dev.html" class="back-link" aria-label="개발 프로젝트 목록으로 돌아가기">← 돌아가기</a>
@@ -29,15 +36,20 @@
             <li><strong>프로젝트명:</strong> MODURU (실시간 여행 일정 협업 서비스)</li>
             <li><strong>기간:</strong> 2025.07.14 ~ 2025.08.18</li>
             <li><strong>팀 구성:</strong> 6명 (프론트엔드 2, 백엔드 2, AI 1, 인프라 1)</li>
+            <li><strong>역할:</strong> 팀장, 프론트엔드</li>
           </ul>
 
-          <p><strong>기술 스택</strong></p>
-          <ul>
-            <li><strong>Frontend:</strong> React 18, Redux Toolkit, Vite, Axios, WebSocket(STOMP + SockJS)</li>
-            <li><strong>Backend:</strong> Java 17, Spring Boot 3.1.6, Spring Data JPA + QueryDSL, Spring Security + JWT, Spring WebSocket</li>
-            <li><strong>DB/Storage:</strong> PostgreSQL, Redis(Pub/Sub, Cache), Elasticsearch, Docker Compose</li>
-            <li><strong>Infra/Etc:</strong> AWS EC2, S3, Nginx(리버스 프록시/SSL), LiveKit(SFU), Docker, Gradle</li>
-          </ul>
+          <p><strong>기술 스택</strong> <span class="personal-stack-note">(프론트엔드 · 본인 사용)</span></p>
+          <div class="tech-stack" aria-label="기술 태그">
+            <span class="tech-tag">React 18</span>
+            <span class="tech-tag">Redux Toolkit</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">Vite</span>
+            <span class="tech-tag">Axios</span>
+            <span class="tech-tag">WebSocket(STOMP+SockJS)</span>
+            <span class="tech-tag">CSS</span>
+            <span class="tech-tag">Tailwind CSS</span>
+          </div>
         </div>
 
         <!-- 서비스 주요 화면 -->
@@ -82,30 +94,6 @@
               <ul><li>MY 트레블 스페이스, 좋아요 목록, 작성 리뷰, 개인정보</li></ul>
             </li>
           </ul>
-        </div>
-
-        <!-- 사용한 기술 스택 -->
-        <div class="section-block" id="stack">
-          <h2>사용한 기술 스택</h2>
-          <ul>
-            <li>프레임워크: React 18</li>
-            <li>언어: JavaScript</li>
-            <li>상태관리: Redux Toolkit</li>
-            <li>빌드/개발도구: Vite</li>
-            <li>API 통신: Axios</li>
-            <li>실시간 통신: WebSocket(STOMP + SockJS)</li>
-            <li>스타일링: CSS, Tailwind CSS</li>
-          </ul>
-          <div class="tech-stack" aria-label="기술 태그">
-            <span class="tech-tag">React 18</span>
-            <span class="tech-tag">Redux Toolkit</span>
-            <span class="tech-tag">JavaScript</span>
-            <span class="tech-tag">Vite</span>
-            <span class="tech-tag">Axios</span>
-            <span class="tech-tag">WebSocket(STOMP+SockJS)</span>
-            <span class="tech-tag">CSS</span>
-            <span class="tech-tag">Tailwind CSS</span>
-          </div>
         </div>
 
         <!-- 나의 역할 -->

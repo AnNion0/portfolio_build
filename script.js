@@ -1,8 +1,7 @@
-// 해시 스크롤 - 기본은 About Me
+// 해시 스크롤 - 기본은 Projects(메인)
 window.addEventListener('DOMContentLoaded', () => {
-  // 해시가 없으면 #about으로 설정
   if (!window.location.hash) {
-    window.location.hash = '#about';
+    window.location.hash = '#projects';
   }
   
   if (window.location.hash) {
